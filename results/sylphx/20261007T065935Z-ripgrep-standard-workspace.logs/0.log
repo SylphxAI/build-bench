@@ -1,0 +1,7 @@
+1791356382.609560548	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-bbbd0w6b","region":"","size":"standard","type":"queued"}
+1791356383.758054772	{"bytes":0,"bytes_up":0,"duration_ms":814,"files":0,"from_store":0,"full":false,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"warm"}
+1791356384.268273810	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-bbbd0w6b","region":"","size":"standard","type":"running","volume":true,"workspace":"warm"}
+1791356385.979423101	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 0.12s\n","type":"stderr"}
+1791356385.994256710	{"data":"BENCH_SCCACHE Compile requests                      0\nBENCH_SCCACHE Compile requests executed             0\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                          0\nBENCH_SCCACHE Cache hits rate                       -\n","type":"stdout"}
+1791356386.007829919	{"data":"BENCH_CMD_SECONDS=0.175762\n","type":"stdout"}
+1791356386.473920688	{"bytes_down":10797,"bytes_up":0,"duration_ms":10973,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"warm"}

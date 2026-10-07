@@ -1,0 +1,39 @@
+1791354675.901612259	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-x32ccfvt","region":"","size":"standard","type":"queued"}
+1791354679.089341431	{"bytes":3140085,"bytes_up":10187,"duration_ms":3037,"files":223,"from_store":222,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354679.347936079	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-x32ccfvt","region":"","size":"standard","type":"running","volume":true,"workspace":"cold"}
+1791354680.816706112	{"data":"   Compiling memchr v2.8.3\n","type":"stderr"}
+1791354680.818106533	{"data":"   Compiling regex-syntax v0.8.11\n","type":"stderr"}
+1791354680.819452763	{"data":"   Compiling libc v0.2.186\n","type":"stderr"}
+1791354680.820834516	{"data":"   Compiling log v0.4.33\n   Compiling serde_core v1.0.228\n","type":"stderr"}
+1791354680.822139054	{"data":"   Compiling crossbeam-utils v0.8.22\n","type":"stderr"}
+1791354680.823426916	{"data":"   Compiling cfg-if v1.0.4\n","type":"stderr"}
+1791354680.824686896	{"data":"   Compiling zmij v1.0.23\n","type":"stderr"}
+1791354681.060298580	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791354681.173685347	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791354681.259232912	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791354681.305395154	{"data":"   Compiling crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791354681.673768785	{"data":"   Compiling aho-corasick v1.1.4\n","type":"stderr"}
+1791354681.703277751	{"data":"   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791354681.928234427	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791354681.958777184	{"data":"   Compiling itoa v1.0.18\n","type":"stderr"}
+1791354681.998900626	{"data":"   Compiling crossbeam-deque v0.8.7\n","type":"stderr"}
+1791354682.122154677	{"data":"   Compiling termcolor v1.4.1\n","type":"stderr"}
+1791354682.162831429	{"data":"   Compiling anyhow v1.0.103\n","type":"stderr"}
+1791354682.252710073	{"data":"   Compiling same-file v1.0.6\n","type":"stderr"}
+1791354682.411458110	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791354682.499211365	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791354682.513753184	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791354682.515042308	{"data":"   Compiling textwrap v0.16.2\n","type":"stderr"}
+1791354682.746901802	{"data":"   Compiling lexopt v0.3.2\n","type":"stderr"}
+1791354682.754380523	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791354685.553371329	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791354686.404233560	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n","type":"stderr"}
+1791354686.405650826	{"data":"   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n","type":"stderr"}
+1791354686.407717697	{"data":"   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791354686.885543590	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791354687.300379464	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791354687.839640224	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791354692.652692342	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 12.70s\n","type":"stderr"}
+1791354692.666356134	{"data":"BENCH_SCCACHE Compile requests                      49\nBENCH_SCCACHE Compile requests executed             34\nBENCH_SCCACHE Cache hits                            33\nBENCH_SCCACHE Cache hits (Rust)                     33\nBENCH_SCCACHE Cache misses                           0\nBENCH_SCCACHE Cache hits rate                   100.00 %\nBENCH_SCCACHE Cache hits rate (Rust)            100.00 %\n","type":"stdout"}
+1791354692.677237560	{"data":"BENCH_CMD_SECONDS=12.7489\n","type":"stdout"}
+1791354693.441207206	{"bytes_down":3832,"bytes_up":10187,"duration_ms":22605,"exit_code":0,"from_store":222,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

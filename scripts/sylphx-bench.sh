@@ -24,7 +24,12 @@
 set -u
 target=${1:?target}; size=${2:?size}; cache=${3:?cache}; runs=${4:-5}
 here=$(cd "$(dirname "$0")/.." && pwd)
-out=${5:-$here/results/sylphx/$(date -u +%Y%m%dT%H%M%SZ)-$target-$size-$cache.jsonl}
+# BENCH_GOPROXY=public: the caddy target fetches modules from the public Go
+# proxy in every state, bypassing the build cache's Go mirror (it answered
+# 502 for larger module zips on 2026-10-07, so warm caddy runs failed).
+goproxy=${BENCH_GOPROXY:-mirror}
+variant=; [ "$goproxy" = public ] && variant=-publicproxy
+out=${5:-$here/results/sylphx/$(date -u +%Y%m%dT%H%M%SZ)-$target-$size-$cache$variant.jsonl}
 SRC=${SRC:-$here/.src}
 logs=${out%.jsonl}.logs
 mkdir -p "$(dirname "$out")" "$SRC" "$logs"
@@ -35,6 +40,8 @@ CADDY_SHA=72dd0fb067f6d7826c7f79907670ba4a713bfe37   # v2.11.7
 fetch() { # <dir> <url> <sha>
   [ -d "$SRC/$1/.git" ] || { git init -q "$SRC/$1" && git -C "$SRC/$1" fetch -q --depth 1 "$2" "$3" && git -C "$SRC/$1" checkout -q FETCH_HEAD; }
   [ "$(git -C "$SRC/$1" rev-parse HEAD)" = "$3" ] || { echo "$1 is not at $3" >&2; exit 2; }
+  # The clone runs in this directory's linked org, project and env.
+  [ -f "$SRC/$1/.sylphx/project.json" ] || { mkdir -p "$SRC/$1/.sylphx" && cp "$here/.sylphx/project.json" "$SRC/$1/.sylphx/"; }
 }
 
 # The command runs under `sh -c` in the lease; BENCH_CMD_SECONDS is the build
@@ -62,7 +69,11 @@ case $target in
   caddy)
     fetch caddy https://github.com/caddyserver/caddy $CADDY_SHA; dir=$SRC/caddy; path=cmd/caddy
     cmd=$go_tool$(timed 'go build -trimpath -o caddy .')
-    extra=(--allow-host dl.google.com) ;;
+    extra=(--allow-host dl.google.com)
+    if [ "$goproxy" = public ]; then
+      cmd="export GOPROXY=https://proxy.golang.org; $cmd"
+      extra+=(--allow-host proxy.golang.org --allow-host sum.golang.org --allow-host storage.googleapis.com)
+    fi ;;
   nextjs)
     dir=$here; path=nextjs
     cmd=$node_tool$(timed 'pnpm install --frozen-lockfile && pnpm build')
@@ -128,7 +139,7 @@ one() { # <n> <counted 0|1>: one run, one JSON line
     sleep 20
   done
   python3 - "$log" "$t0" "$start" "$target" "$size" "$vcpu" "$cache" "$n" "$counted" "$attempt" "$rc" <<'PY' >>"$out"
-import json, re, sys
+import json, os, re, sys
 log, t0, start, target, size, vcpu, cache, n, counted, attempts, rc = sys.argv[1:]
 t0 = float(t0); ev = {}; cmd = tool = None; text = []; sc = {}; cached = steps = 0
 for line in open(log, errors="replace"):
@@ -159,7 +170,7 @@ if target == "ripgrep" and sc.get("Compile requests"):
 elif target == "image":
     hit = f"buildkit cached {cached}"
 print(json.dumps({
-    "target": target, "size": size, "vcpu": int(vcpu), "cache": cache, "n": int(n), "counted": counted == "1",
+    "target": target, "goproxy": os.environ.get("BENCH_GOPROXY", "mirror") if target == "caddy" else None, "size": size, "vcpu": int(vcpu), "cache": cache, "n": int(n), "counted": counted == "1",
     "start": start, "attempts": int(attempts), "exit_code": res.get("exit_code", int(rc)), "outcome": res.get("outcome"),
     "wall": (ev["result"][0] - t0) if "result" in ev else None, "wall_cli": res.get("duration_ms", 0) / 1000, "queue": (run[0] - t0) if run else None, "command": cmd, "toolchain": tool,
     "workspace": res.get("workspace"), "image_manifest_digest": (res.get("image") or {}).get("image_manifest_digest"), "bytes_up": res.get("bytes_up"), "lease": (run[1].get("lease", "").rsplit("/", 1)[-1] if run else None),

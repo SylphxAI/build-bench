@@ -22,6 +22,7 @@ from datetime import datetime
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 TARGETS = ["ripgrep", "caddy", "nextjs", "image"]
+REPO = "https://github.com/SylphxAI/build-bench"
 
 
 def ts(s):
@@ -60,6 +61,8 @@ def github():
             rows.append({
                 "side": "GitHub ubuntu-latest (4 vCPU)",
                 "run_id": run["run_id"],
+                "ok": True,
+                "toolchain": None,
                 "target": target,
                 "cache": run["cache"],
                 "n": int(n),
@@ -68,7 +71,7 @@ def github():
                 "queue": ts(j["started_at"]) - ts(j["created_at"]),
                 "command": ts(build["completed_at"]) - ts(build["started_at"]),
                 "hit": hits.get(j["name"]),
-                "source": f"https://github.com/SylphxAI/build-bench/actions/runs/{run['run_id']}/job/{j['id']}",
+                "source": f"{REPO}/actions/runs/{run['run_id']}/job/{j['id']}",
             })
     return rows
 
@@ -80,8 +83,13 @@ def sylphx():
             r = json.loads(line)
             if not r.get("counted"):
                 continue
+            side = f"Sylphx Build {r['size']} ({r['vcpu']} vCPU)"
+            if r.get("goproxy") == "public":
+                side += ", public Go proxy"
             rows.append({
-                "side": f"Sylphx Build {r['size']} ({r['vcpu']} vCPU)",
+                "side": side,
+                "ok": r.get("outcome") == "succeeded",
+                "toolchain": r.get("toolchain"),
                 "target": r["target"],
                 "cache": r["cache"],
                 "n": r["n"],
@@ -90,7 +98,7 @@ def sylphx():
                 "queue": r["queue"],
                 "command": r["command"],
                 "hit": r.get("hit"),
-                "source": os.path.basename(f),
+                "source": f"{REPO}/blob/main/results/sylphx/{os.path.basename(f)}",
             })
     return rows
 
@@ -118,27 +126,42 @@ def latest(rows):
     return [r for r in rows if r["run_id"] == newest[(r["target"], r["cache"])]]
 
 
+def cell_link(url):
+    """The raw source of a whole cell: its workflow run, or its runs file."""
+    if "/actions/runs/" in url:
+        run = url.split("/actions/runs/")[1].split("/")[0]
+        return f"[run {run}]({REPO}/actions/runs/{run})"
+    return f"[{url.rsplit('/', 1)[1]}]({url})"
+
+
+def link(url):
+    return f"[{'job' if '/job/' in url else 'run'}]({url})"
+
+
 def main():
     rows = latest(github()) + sylphx()
     cells = {}
     for r in rows:
         cells.setdefault((r["target"], r["cache"], r["side"]), []).append(r)
-    print("| Target | Cache | Runner | n | Wall p50 | Wall p90 | Queue p50 | Queue p90 | Command p50 | Command p90 | Cache restored |")
-    print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+    print("| Target | Cache | Runner | Runs ok | Wall p50 | Wall p90 | Queue p50 | Queue p90 | Command p50 | Command p90 | Cache restored | Raw |")
+    print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
     order = {t: i for i, t in enumerate(TARGETS)}
     for (target, cache, side), rs in sorted(cells.items(), key=lambda k: (order.get(k[0][0], 9), k[0][1], k[0][2])):
-        w = [r["wall"] for r in rs]
-        q = [r["queue"] for r in rs]
-        c = [r["command"] for r in rs]
-        hits = [r["hit"] for r in rs if r["hit"]]
-        hit = f"{sum(1 for h in hits if restored(h))}/{len(rs)}" if hits else "-"
-        print(f"| {target} | {cache} | {side} | {len(rs)} | {fmt(pct(w, 50))} | {fmt(pct(w, 90))} | {fmt(pct(q, 50))} | {fmt(pct(q, 90))} | {fmt(pct(c, 50))} | {fmt(pct(c, 90))} | {hit} |")
+        ok = [r for r in rs if r["ok"]]
+        w = [r["wall"] for r in ok]
+        q = [r["queue"] for r in ok]
+        c = [r["command"] for r in ok]
+        hits = [r["hit"] for r in ok if r["hit"]]
+        hit = f"{sum(1 for h in hits if restored(h))}/{len(ok)}" if hits else "-"
+        raw = ", ".join(sorted({cell_link(r["source"]) for r in rs}))
+        print(f"| {target} | {cache} | {side} | {len(ok)}/{len(rs)} | {fmt(pct(w, 50))} | {fmt(pct(w, 90))} | {fmt(pct(q, 50))} | {fmt(pct(q, 90))} | {fmt(pct(c, 50))} | {fmt(pct(c, 90))} | {hit} | {raw} |")
     if "--runs" in sys.argv:
         print()
-        print("| Target | Cache | Runner | Run | Start (UTC) | Wall s | Queue s | Command s | Cache | Source |")
-        print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+        print("| Target | Cache | Runner | Run | Start (UTC) | Result | Wall s | Queue s | Command s | Toolchain s | Cache | Raw |")
+        print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+        num = lambda x: "-" if x is None else f"{x:.0f}"
         for r in sorted(rows, key=lambda r: (order.get(r["target"], 9), r["cache"], r["side"], r["n"])):
-            print(f"| {r['target']} | {r['cache']} | {r['side']} | {r['n']} | {r['start']} | {r['wall']:.0f} | {r['queue']:.0f} | {r['command']:.0f} | {r['hit'] or '-'} | {r['source']} |")
+            print(f"| {r['target']} | {r['cache']} | {r['side']} | {r['n']} | {r['start']} | {'ok' if r['ok'] else 'failed'} | {num(r['wall'])} | {num(r['queue'])} | {num(r['command'])} | {num(r['toolchain'])} | {r['hit'] or '-'} | {link(r['source'])} |")
 
 
 if __name__ == "__main__":
