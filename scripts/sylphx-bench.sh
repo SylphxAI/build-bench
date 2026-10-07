@@ -97,7 +97,7 @@ image_repo() { # <dir>
   rm -rf "$1"; mkdir -p "$1"; cp -r "$here/nextjs/." "$1/"
   rm -rf "$1/.sylphx" "$1/node_modules" "$1/.next"
   git -C "$1" init -q && git -C "$1" add -A \
-    && GIT_AUTHOR_DATE=2026-10-07T00:00:00Z GIT_COMMITTER_DATE=2026-10-07T00:00:00Z \
+    && GIT_AUTHOR_DATE="$(date -u +%FT%T)Z" GIT_COMMITTER_DATE="$(date -u +%FT%T)Z" \
        git -C "$1" -c user.name=build-bench -c user.email=build-bench@sylphx.com commit -qm "nextjs with-docker"
   mkdir -p "$1/.sylphx"; cp "$here/.sylphx/project.json" "$1/.sylphx/"; echo .sylphx/ >>"$1/.git/info/exclude"
 }
