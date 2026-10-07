@@ -1,0 +1,24 @@
+prime (caddy)	rust= go=false pnpm= next="
+prime (image)	rust= go= pnpm= next=" buildkit-cached=0
+prime (nextjs)	rust= go= pnpm=false next="
+prime (ripgrep)	rust=false go= pnpm= next="
+run (caddy, 1)	rust= go=true pnpm= next="
+run (caddy, 2)	rust= go=true pnpm= next="
+run (caddy, 3)	rust= go=true pnpm= next="
+run (caddy, 4)	rust= go=true pnpm= next="
+run (caddy, 5)	rust= go=true pnpm= next="
+run (image, 1)	rust= go= pnpm= next=" buildkit-cached=11
+run (image, 2)	rust= go= pnpm= next=" buildkit-cached=11
+run (image, 3)	rust= go= pnpm= next=" buildkit-cached=11
+run (image, 4)	rust= go= pnpm= next=" buildkit-cached=11
+run (image, 5)	rust= go= pnpm= next=" buildkit-cached=11
+run (nextjs, 1)	rust= go= pnpm=true next=true"
+run (nextjs, 2)	rust= go= pnpm=true next=true"
+run (nextjs, 3)	rust= go= pnpm=true next=true"
+run (nextjs, 4)	rust= go= pnpm=true next=true"
+run (nextjs, 5)	rust= go= pnpm=true next=true"
+run (ripgrep, 1)	rust=false go= pnpm= next="
+run (ripgrep, 2)	rust=false go= pnpm= next="
+run (ripgrep, 3)	rust=false go= pnpm= next="
+run (ripgrep, 4)	rust=false go= pnpm= next="
+run (ripgrep, 5)	rust=false go= pnpm= next="

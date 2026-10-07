@@ -1,0 +1,36 @@
+1791355002.168738152	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-vbwmygyr","region":"","size":"large","type":"queued"}
+1791355022.994063449	sylphx: warning: build store: 50 files could not be fetched from it; sending those files directly
+1791355024.170109772	{"bytes":825842,"bytes_up":151041,"duration_ms":21789,"files":94,"from_store":43,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791355024.507874204	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-vbwmygyr","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791355036.904212217	{"data":"BENCH_TOOL_SECONDS=11.57\n","type":"stdout"}
+1791355037.324043843	{"data":"Lockfile is up to date, resolution step is skipped\n","type":"stdout"}
+1791355037.336267343	{"data":"Progress: resolved 1, reused 0, downloaded 0, added 0\n","type":"stdout"}
+1791355037.377242833	{"data":"Packages: +52\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n","type":"stdout"}
+1791355037.768212314	{"data":"\n   ╭─────────────────────────────────────────╮\n   │                                         │\n   │   Update available! 10.34.6 → 12.9.1.   │\n   │   Changelog: https://pnpm.io/v/12.9.1   │\n   │    To update, run: pnpm self-update     │\n   │                                         │\n   ╰─────────────────────────────────────────╯\n\n","type":"stdout"}
+1791355037.772225936	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 52, done\n","type":"stdout"}
+1791355037.847607009	{"data":"\ndependencies:\n+ next 16.1.4\n+ react 19.2.3\n+ react-dom 19.2.3\n\ndevDependencies:\n+ @tailwindcss/postcss 4.1.18\n+ @types/node 20.19.30\n+ @types/react 19.2.9\n+ @types/react-dom 19.2.3\n+ tailwindcss 4.1.18\n+ typescript 5.9.3\n\n","type":"stdout"}
+1791355037.868871273	{"data":"Done in 979ms using pnpm v10.34.6\n","type":"stdout"}
+1791355038.338841748	{"data":"\n> @ build /workspace/tree/nextjs\n> next build\n\n","type":"stdout"}
+1791355039.320766510	{"data":"Attention: Next.js now collects completely anonymous telemetry regarding usage.\n","type":"stdout"}
+1791355039.322200191	{"data":"This information is used to shape Next.js' roadmap and prioritize features.\nYou can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\n","type":"stdout"}
+1791355039.323557057	{"data":"https://nextjs.org/telemetry\n","type":"stdout"}
+1791355039.325198760	{"data":"\n","type":"stdout"}
+1791355039.334951704	{"data":"▲ Next.js 16.1.4 (Turbopack)\n","type":"stdout"}
+1791355039.336184914	{"data":"\n","type":"stdout"}
+1791355039.364362502	{"data":"  Creating an optimized production build ...\n","type":"stdout"}
+1791355044.694931638	{"data":"✓ Compiled successfully in 4.9s\n","type":"stdout"}
+1791355044.711392897	{"data":"  Running TypeScript ...\n","type":"stdout"}
+1791355047.505134853	{"data":"  Collecting page data using 16 workers ...\n","type":"stdout"}
+1791355048.390574398	{"data":"  Generating static pages using 16 workers (0/4) ...\n","type":"stdout"}
+1791355048.666029181	{"data":"  Generating static pages using 16 workers (1/4) \r\n","type":"stdout"}
+1791355048.667700689	{"data":"  Generating static pages using 16 workers (2/4) \r\n","type":"stdout"}
+1791355048.669981541	{"data":"  Generating static pages using 16 workers (3/4) \r\n","type":"stdout"}
+1791355048.671596795	{"data":"✓ Generating static pages using 16 workers (4/4) in 277.6ms\n","type":"stdout"}
+1791355048.673025488	{"data":"  Finalizing page optimization ...\n","type":"stdout"}
+1791355048.836345304	{"data":"\n","type":"stdout"}
+1791355048.837814428	{"data":"Route (app)\n┌ ○ /\n└ ○ /_not-found\n\n","type":"stdout"}
+1791355048.839162250	{"data":"\n","type":"stdout"}
+1791355048.840429451	{"data":"○  (Static)  prerendered as static content\n","type":"stdout"}
+1791355048.841699337	{"data":"\n","type":"stdout"}
+1791355049.241618707	{"data":"BENCH_CMD_SECONDS=12.4073\n","type":"stdout"}
+1791355050.076059384	{"bytes_down":3973,"bytes_up":151041,"duration_ms":54292,"exit_code":0,"from_store":43,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

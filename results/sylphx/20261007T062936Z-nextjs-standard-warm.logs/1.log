@@ -1,0 +1,37 @@
+1791354613.206858825	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-whsx08md","region":"","size":"standard","type":"queued"}
+1791354615.818973866	{"bytes":496733,"bytes_up":39180,"duration_ms":2453,"files":52,"from_store":52,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354616.144753368	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-whsx08md","region":"","size":"standard","type":"running","volume":true,"workspace":"cold"}
+1791354623.905484246	{"data":"BENCH_TOOL_SECONDS=7.21187\n","type":"stdout"}
+1791354624.405413144	{"data":"Lockfile is up to date, resolution step is skipped\n","type":"stdout"}
+1791354624.422405159	{"data":"Progress: resolved 1, reused 0, downloaded 0, added 0\n","type":"stdout"}
+1791354624.498835446	{"data":"Packages: +52\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n","type":"stdout"}
+1791354624.600008227	{"data":"\n   ╭─────────────────────────────────────────╮\n   │                                         │\n   │   Update available! 10.34.6 → 12.9.1.   │\n   │   Changelog: https://pnpm.io/v/12.9.1   │\n   │    To update, run: pnpm self-update     │\n   │                                         │\n   ╰─────────────────────────────────────────╯\n\n","type":"stdout"}
+1791354625.429303068	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 51\n","type":"stdout"}
+1791354625.451919842	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 52, done\n","type":"stdout"}
+1791354625.660993828	{"data":"\ndependencies:\n+ next 16.1.4\n+ react 19.2.3\n+ react-dom 19.2.3\n\ndevDependencies:\n+ @tailwindcss/postcss 4.1.18\n+ @types/node 20.19.30\n+ @types/react 19.2.9\n+ @types/react-dom 19.2.3\n+ tailwindcss 4.1.18\n+ typescript 5.9.3\n\n","type":"stdout"}
+1791354625.678890641	{"data":"Done in 1.7s using pnpm v10.34.6\n","type":"stdout"}
+1791354626.094553656	{"data":"\n> @ build /workspace/tree/nextjs\n> next build\n\n","type":"stdout"}
+1791354627.179113238	{"data":"Attention: Next.js now collects completely anonymous telemetry regarding usage.\n","type":"stdout"}
+1791354627.181037935	{"data":"This information is used to shape Next.js' roadmap and prioritize features.\n","type":"stdout"}
+1791354627.182460470	{"data":"You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\n","type":"stdout"}
+1791354627.184374032	{"data":"https://nextjs.org/telemetry\n","type":"stdout"}
+1791354627.185859490	{"data":"\n","type":"stdout"}
+1791354627.191106042	{"data":"▲ Next.js 16.1.4 (Turbopack)\n","type":"stdout"}
+1791354627.192919122	{"data":"\n","type":"stdout"}
+1791354627.224950132	{"data":"  Creating an optimized production build ...\n","type":"stdout"}
+1791354632.990456016	{"data":"✓ Compiled successfully in 5.3s\n","type":"stdout"}
+1791354633.008185267	{"data":"  Running TypeScript ...\n","type":"stdout"}
+1791354634.687755950	{"data":"  Collecting page data using 8 workers ...\n","type":"stdout"}
+1791354635.178455669	{"data":"  Generating static pages using 8 workers (0/4) ...\n","type":"stdout"}
+1791354635.477316182	{"data":"  Generating static pages using 8 workers (1/4) \r\n","type":"stdout"}
+1791354635.478650394	{"data":"  Generating static pages using 8 workers (2/4) \r\n","type":"stdout"}
+1791354635.479921211	{"data":"  Generating static pages using 8 workers (3/4) \r\n","type":"stdout"}
+1791354635.481210926	{"data":"✓ Generating static pages using 8 workers (4/4) in 306.5ms\n","type":"stdout"}
+1791354635.482410706	{"data":"  Finalizing page optimization ...\n","type":"stdout"}
+1791354635.664093475	{"data":"\n","type":"stdout"}
+1791354635.665819554	{"data":"Route (app)\n┌ ○ /\n└ ○ /_not-found\n\n","type":"stdout"}
+1791354635.667449410	{"data":"\n","type":"stdout"}
+1791354635.669077563	{"data":"○  (Static)  prerendered as static content\n","type":"stdout"}
+1791354635.671580237	{"data":"\n","type":"stdout"}
+1791354636.035952324	{"data":"BENCH_CMD_SECONDS=12.1307\n","type":"stdout"}
+1791354637.054384970	{"bytes_down":4130,"bytes_up":39180,"duration_ms":30300,"exit_code":0,"from_store":52,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

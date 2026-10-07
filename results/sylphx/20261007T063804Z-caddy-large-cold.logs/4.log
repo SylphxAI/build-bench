@@ -1,0 +1,156 @@
+1791355310.010076605	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-1cm9awf7","region":"","size":"large","type":"queued"}
+1791355313.044730999	{"bytes":4563414,"bytes_up":1649793,"duration_ms":2980,"files":691,"from_store":0,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791355313.389088118	{"cache":false,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-1cm9awf7","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791355322.426026468	{"data":"BENCH_TOOL_SECONDS=8.25912\n","type":"stdout"}
+1791355322.715421644	{"data":"go: downloading github.com/KimMachineGun/automemlimit v1.0.0\n","type":"stderr"}
+1791355322.736512653	{"data":"go: downloading github.com/aryann/difflib v0.0.0-20210328193216-ff5ff6dc229b\n","type":"stderr"}
+1791355322.737855806	{"data":"go: downloading github.com/caddyserver/certmagic v0.25.6\n","type":"stderr"}
+1791355322.739102494	{"data":"go: downloading github.com/spf13/cobra v1.10.2\n","type":"stderr"}
+1791355322.740327961	{"data":"go: downloading github.com/spf13/pflag v1.0.10\n","type":"stderr"}
+1791355322.769032781	{"data":"go: downloading go.uber.org/automaxprocs v1.6.0\n","type":"stderr"}
+1791355322.770422804	{"data":"go: downloading go.uber.org/zap/exp v0.3.0\n","type":"stderr"}
+1791355322.771671255	{"data":"go: downloading go.uber.org/zap v1.28.0\n","type":"stderr"}
+1791355322.772897573	{"data":"go: downloading golang.org/x/crypto/x509roots/fallback v0.0.0-20260929172509-b39ff6d641ec\n","type":"stderr"}
+1791355322.979029503	{"data":"go: downloading github.com/prometheus/client_golang v1.24.1\n","type":"stderr"}
+1791355323.063112769	{"data":"go: downloading golang.org/x/crypto v0.57.0\n","type":"stderr"}
+1791355323.127099105	{"data":"go: downloading github.com/go-chi/chi/v5 v5.3.2\n","type":"stderr"}
+1791355323.143043781	{"data":"go: downloading github.com/smallstep/certificates v0.30.2\n","type":"stderr"}
+1791355323.226498816	{"data":"go: downloading github.com/smallstep/nosql v0.8.0\n","type":"stderr"}
+1791355323.246227103	{"data":"go: downloading go.etcd.io/bbolt v1.5.0\n","type":"stderr"}
+1791355323.253366673	{"data":"go: downloading github.com/DeRuina/timberjack v1.4.8\n","type":"stderr"}
+1791355323.255348102	{"data":"go: downloading github.com/dustin/go-humanize v1.1.0\n","type":"stderr"}
+1791355323.256751966	{"data":"go: downloading golang.org/x/term v0.46.0\n","type":"stderr"}
+1791355323.296129722	{"data":"go: downloading github.com/cespare/xxhash/v2 v2.3.0\n","type":"stderr"}
+1791355323.297455288	{"data":"go: downloading github.com/google/uuid v1.6.0\n","type":"stderr"}
+1791355323.298741085	{"data":"go: downloading github.com/quic-go/quic-go v0.63.0\n","type":"stderr"}
+1791355323.341498256	{"data":"go: downloading github.com/cespare/xxhash v1.1.0\n","type":"stderr"}
+1791355323.378226179	{"data":"go: downloading golang.org/x/sys v0.48.0\n","type":"stderr"}
+1791355323.379655231	{"data":"go: downloading golang.org/x/time v0.16.0\n","type":"stderr"}
+1791355323.425132628	{"data":"go: downloading github.com/smallstep/truststore v0.13.0\n","type":"stderr"}
+1791355323.540192208	{"data":"go: downloading go.step.sm/crypto v0.91.0\n","type":"stderr"}
+1791355323.543143762	{"data":"go: downloading github.com/caddyserver/zerossl v0.1.6\n","type":"stderr"}
+1791355323.625158377	{"data":"go: downloading github.com/cloudflare/circl v1.6.5\n","type":"stderr"}
+1791355323.678615073	{"data":"go: downloading github.com/klauspost/cpuid/v2 v2.4.0\n","type":"stderr"}
+1791355323.680021961	{"data":"go: downloading github.com/libdns/libdns v1.1.1\ngo: downloading github.com/mholt/acmez/v3 v3.1.7\n","type":"stderr"}
+1791355323.682133285	{"data":"go: downloading github.com/tailscale/tscert v0.0.0-20251216020129-aea342f6d747\n","type":"stderr"}
+1791355323.683818962	{"data":"go: downloading golang.org/x/net v0.59.0\n","type":"stderr"}
+1791355323.862493572	{"data":"go: downloading cel.dev/cel-go v0.32.0\n","type":"stderr"}
+1791355323.937134477	{"data":"go: downloading github.com/dunglas/go-urlpattern v1.0.0\n","type":"stderr"}
+1791355323.938432762	{"data":"go: downloading github.com/dunglas/httpsfv v1.1.1\n","type":"stderr"}
+1791355323.989712205	{"data":"go: downloading go.opentelemetry.io/contrib/bridges/prometheus v0.71.0\n","type":"stderr"}
+1791355323.993535355	{"data":"go: downloading go.opentelemetry.io/contrib/exporters/autoexport v0.71.0\n","type":"stderr"}
+1791355324.025613741	{"data":"go: downloading go.opentelemetry.io/otel/sdk/metric v1.46.0\n","type":"stderr"}
+1791355324.030808066	{"data":"go: downloading go.opentelemetry.io/otel/sdk v1.46.0\n","type":"stderr"}
+1791355324.136748819	{"data":"go: downloading go.opentelemetry.io/otel v1.46.0\n","type":"stderr"}
+1791355324.424416619	{"data":"go: downloading golang.org/x/sync v0.23.0\n","type":"stderr"}
+1791355324.425797638	{"data":"go: downloading github.com/klauspost/compress v1.20.1\n","type":"stderr"}
+1791355324.427049494	{"data":"go: downloading github.com/pires/go-proxyproto v0.15.0\n","type":"stderr"}
+1791355324.429438314	{"data":"go: downloading github.com/BurntSushi/toml v1.6.0\n","type":"stderr"}
+1791355324.430747536	{"data":"go: downloading github.com/Masterminds/sprig/v3 v3.3.0\n","type":"stderr"}
+1791355324.432101185	{"data":"go: downloading github.com/alecthomas/chroma/v2 v2.27.0\n","type":"stderr"}
+1791355324.433392640	{"data":"go: downloading github.com/yuin/goldmark v1.8.6\n","type":"stderr"}
+1791355324.449903416	{"data":"go: downloading github.com/yuin/goldmark-highlighting/v2 v2.0.0-20230729083705-37449abec8cc\n","type":"stderr"}
+1791355324.646048228	{"data":"go: downloading gopkg.in/yaml.v3 v3.0.1\n","type":"stderr"}
+1791355324.647486414	{"data":"go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.71.0\n","type":"stderr"}
+1791355324.660150484	{"data":"go: downloading go.opentelemetry.io/contrib/propagators/autoprop v0.71.0\n","type":"stderr"}
+1791355324.706622992	{"data":"go: downloading go.opentelemetry.io/otel/trace v1.46.0\n","type":"stderr"}
+1791355324.744159708	{"data":"go: downloading github.com/cpuguy83/go-md2man/v2 v2.0.7\n","type":"stderr"}
+1791355324.745593597	{"data":"go: downloading go.yaml.in/yaml/v3 v3.0.5\n","type":"stderr"}
+1791355324.790074602	{"data":"go: downloading github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58\n","type":"stderr"}
+1791355324.796435785	{"data":"go: downloading go.uber.org/multierr v1.11.0\n","type":"stderr"}
+1791355324.824771772	{"data":"go: downloading github.com/miekg/dns v1.1.73\n","type":"stderr"}
+1791355324.836104297	{"data":"go: downloading github.com/zeebo/blake3 v0.2.4\n","type":"stderr"}
+1791355324.900139135	{"data":"go: downloading github.com/beorn7/perks v1.0.1\n","type":"stderr"}
+1791355324.941279944	{"data":"go: downloading github.com/prometheus/client_model v0.6.3\n","type":"stderr"}
+1791355324.942716527	{"data":"go: downloading github.com/prometheus/common v0.71.0\n","type":"stderr"}
+1791355324.978768348	{"data":"go: downloading github.com/prometheus/procfs v0.22.0\n","type":"stderr"}
+1791355325.085255771	{"data":"go: downloading google.golang.org/protobuf v1.36.12\n","type":"stderr"}
+1791355325.287034669	{"data":"go: downloading github.com/pkg/errors v0.9.1\n","type":"stderr"}
+1791355325.292005929	{"data":"go: downloading github.com/coreos/go-oidc/v3 v3.21.0\n","type":"stderr"}
+1791355325.293495902	{"data":"go: downloading github.com/fxamacker/cbor/v2 v2.9.4\n","type":"stderr"}
+1791355325.295304322	{"data":"go: downloading github.com/google/go-tpm v0.9.8\n","type":"stderr"}
+1791355325.296720425	{"data":"go: downloading github.com/smallstep/go-attestation v0.4.4-0.20260814222900-a849f4e2cd68\n","type":"stderr"}
+1791355325.297952631	{"data":"go: downloading github.com/smallstep/cli-utils v0.12.2\n","type":"stderr"}
+1791355325.299168884	{"data":"go: downloading github.com/smallstep/linkedca v0.26.0\n","type":"stderr"}
+1791355325.300426669	{"data":"go: downloading google.golang.org/grpc v1.83.2\n","type":"stderr"}
+1791355325.516712198	{"data":"go: downloading github.com/slackhq/nebula v1.11.2\n","type":"stderr"}
+1791355325.667629439	{"data":"go: downloading github.com/quic-go/qpack v0.6.0\n","type":"stderr"}
+1791355325.669894814	{"data":"go: downloading github.com/nlnwa/whatwg-url v0.6.2\n","type":"stderr"}
+1791355325.671935002	{"data":"go: downloading golang.org/x/exp v0.0.0-20260908205506-85c1c2202aba\n","type":"stderr"}
+1791355325.801096166	{"data":"go: downloading go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc v0.22.0\ngo: downloading go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp v0.22.0\n","type":"stderr"}
+1791355325.802517026	{"data":"go: downloading go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.46.0\n","type":"stderr"}
+1791355325.803965837	{"data":"go: downloading go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.46.0\n","type":"stderr"}
+1791355325.805337313	{"data":"go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.46.0\n","type":"stderr"}
+1791355325.849752408	{"data":"go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.46.0\n","type":"stderr"}
+1791355325.851092126	{"data":"go: downloading go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.22.0\n","type":"stderr"}
+1791355325.852309750	{"data":"go: downloading go.opentelemetry.io/otel/exporters/prometheus v0.68.0\n","type":"stderr"}
+1791355325.860546835	{"data":"go: downloading go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.46.0\n","type":"stderr"}
+1791355325.875194118	{"data":"go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.46.0\n","type":"stderr"}
+1791355325.876554957	{"data":"go: downloading go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.46.0\n","type":"stderr"}
+1791355325.881671255	{"data":"go: downloading go.opentelemetry.io/otel/sdk/log v0.22.0\n","type":"stderr"}
+1791355325.899713375	{"data":"go: downloading cel.dev/expr v0.25.3\n","type":"stderr"}
+1791355325.903171628	{"data":"go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260921155816-b14227669459\n","type":"stderr"}
+1791355325.909197939	{"data":"go: downloading golang.org/x/text v0.42.0\n","type":"stderr"}
+1791355325.958960358	{"data":"go: downloading github.com/antlr4-go/antlr/v4 v4.13.1\n","type":"stderr"}
+1791355326.248233685	{"data":"go: downloading dario.cat/mergo v1.0.2\n","type":"stderr"}
+1791355326.249791680	{"data":"go: downloading github.com/Masterminds/goutils v1.1.1\ngo: downloading github.com/Masterminds/semver/v3 v3.5.0\n","type":"stderr"}
+1791355326.495996940	{"data":"go: downloading github.com/huandu/xstrings v1.6.1\n","type":"stderr"}
+1791355326.503279264	{"data":"go: downloading github.com/mitchellh/copystructure v1.2.0\n","type":"stderr"}
+1791355326.504824721	{"data":"go: downloading github.com/shopspring/decimal v1.4.0\n","type":"stderr"}
+1791355326.506468194	{"data":"go: downloading github.com/spf13/cast v1.10.0\n","type":"stderr"}
+1791355326.528890558	{"data":"go: downloading go.opentelemetry.io/contrib/propagators/aws v1.46.0\n","type":"stderr"}
+1791355326.537675114	{"data":"go: downloading go.opentelemetry.io/contrib/propagators/b3 v1.46.0\n","type":"stderr"}
+1791355326.541145896	{"data":"go: downloading go.opentelemetry.io/contrib/propagators/jaeger v1.46.0\n","type":"stderr"}
+1791355326.543909257	{"data":"go: downloading go.opentelemetry.io/contrib/propagators/ot v1.46.0\n","type":"stderr"}
+1791355326.554121923	{"data":"go: downloading github.com/felixge/httpsnoop v1.1.0\n","type":"stderr"}
+1791355326.557549450	{"data":"go: downloading go.opentelemetry.io/otel/metric v1.46.0\n","type":"stderr"}
+1791355326.563533337	{"data":"go: downloading github.com/russross/blackfriday/v2 v2.1.0\n","type":"stderr"}
+1791355326.569735884	{"data":"go: downloading github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822\n","type":"stderr"}
+1791355326.602730273	{"data":"go: downloading github.com/dgraph-io/badger v1.6.2\n","type":"stderr"}
+1791355326.604013205	{"data":"go: downloading github.com/dgraph-io/badger/v2 v2.2007.4\n","type":"stderr"}
+1791355326.605316629	{"data":"go: downloading github.com/go-sql-driver/mysql v1.10.1\n","type":"stderr"}
+1791355326.606818900	{"data":"go: downloading github.com/jackc/pgx/v5 v5.11.0\n","type":"stderr"}
+1791355326.790248328	{"data":"go: downloading github.com/ccoveille/go-safecast/v2 v2.0.1\n","type":"stderr"}
+1791355326.846825110	{"data":"go: downloading github.com/go-jose/go-jose/v3 v3.0.5\n","type":"stderr"}
+1791355326.961140065	{"data":"go: downloading github.com/sirupsen/logrus v1.10.2\n","type":"stderr"}
+1791355327.010351448	{"data":"go: downloading github.com/smallstep/pkcs7 v0.2.3\ngo: downloading github.com/smallstep/scep v0.0.0-20260331191114-261f960a40d1\n","type":"stderr"}
+1791355327.095325861	{"data":"go: downloading github.com/go-jose/go-jose/v4 v4.1.5\n","type":"stderr"}
+1791355327.099829300	{"data":"go: downloading golang.org/x/oauth2 v0.37.0\n","type":"stderr"}
+1791355327.101229859	{"data":"go: downloading github.com/x448/float16 v0.8.4\n","type":"stderr"}
+1791355327.188186051	{"data":"go: downloading google.golang.org/api v0.298.0\n","type":"stderr"}
+1791355327.189579570	{"data":"go: downloading github.com/rs/xid v1.6.0\n","type":"stderr"}
+1791355327.190861701	{"data":"go: downloading filippo.io/edwards25519 v1.2.0\n","type":"stderr"}
+1791355327.193024453	{"data":"go: downloading github.com/google/go-tspi v0.3.0\n","type":"stderr"}
+1791355327.194401987	{"data":"go: downloading github.com/mitchellh/go-ps v1.0.0\n","type":"stderr"}
+1791355327.233717400	{"data":"go: downloading github.com/go-logr/logr v1.4.4\ngo: downloading github.com/bits-and-blooms/bitset v1.25.0\n","type":"stderr"}
+1791355327.272403099	{"data":"go: downloading github.com/urfave/cli v1.22.17\ngo: downloading github.com/chzyer/readline v1.5.1\ngo: downloading github.com/manifoldco/promptui v0.9.0\n","type":"stderr"}
+1791355327.273814724	{"data":"go: downloading go.opentelemetry.io/proto/otlp v1.11.0\n","type":"stderr"}
+1791355327.275152880	{"data":"go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459\n","type":"stderr"}
+1791355327.320122646	{"data":"go: downloading go.opentelemetry.io/otel/log v0.22.0\n","type":"stderr"}
+1791355327.333926705	{"data":"go: downloading github.com/prometheus/otlptranslator v1.0.0\n","type":"stderr"}
+1791355327.357164782	{"data":"go: downloading github.com/dlclark/regexp2/v2 v2.8.0\n","type":"stderr"}
+1791355327.358457029	{"data":"go: downloading github.com/mitchellh/reflectwalk v1.0.2\n","type":"stderr"}
+1791355327.360124077	{"data":"go: downloading go.opentelemetry.io/auto/sdk v1.2.1\n","type":"stderr"}
+1791355327.361354421	{"data":"go: downloading github.com/go-logr/stdr v1.2.2\n","type":"stderr"}
+1791355327.362718536	{"data":"go: downloading github.com/google/certificate-transparency-go v1.3.3\n","type":"stderr"}
+1791355327.363884573	{"data":"go: downloading github.com/cenkalti/backoff/v5 v5.0.3\n","type":"stderr"}
+1791355327.365059985	{"data":"go: downloading github.com/dgraph-io/ristretto v0.2.0\n","type":"stderr"}
+1791355327.529404970	{"data":"go: downloading github.com/golang/protobuf v1.5.4\n","type":"stderr"}
+1791355327.646500493	{"data":"go: downloading github.com/dgryski/go-farm v0.0.0-20240924180020-3414d57e47da\n","type":"stderr"}
+1791355327.647954812	{"data":"go: downloading github.com/grpc-ecosystem/grpc-gateway/v2 v2.30.0\ngo: downloading filippo.io/bigmod v0.1.0\n","type":"stderr"}
+1791355327.649514460	{"data":"go: downloading github.com/jackc/pgpassfile v1.0.0\n","type":"stderr"}
+1791355327.650822831	{"data":"go: downloading github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761\n","type":"stderr"}
+1791355327.771473161	{"data":"go: downloading github.com/jackc/puddle/v2 v2.2.2\n","type":"stderr"}
+1791355327.772816785	{"data":"go: downloading github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96\n","type":"stderr"}
+1791355327.774383743	{"data":"go: downloading github.com/golang/snappy v1.0.0\n","type":"stderr"}
+1791355327.775940456	{"data":"go: downloading github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d\n","type":"stderr"}
+1791355327.779671077	{"data":"go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0\n","type":"stderr"}
+1791355327.817438410	{"data":"go: downloading github.com/mattn/go-colorable v0.1.15\n","type":"stderr"}
+1791355327.853572314	{"data":"go: downloading github.com/mattn/go-isatty v0.0.24\n","type":"stderr"}
+1791355335.215714067	{"data":"go: downloading cloud.google.com/go/auth v0.23.3\ngo: downloading cloud.google.com/go/auth/oauth2adapt v0.2.8\n","type":"stderr"}
+1791355335.217040735	{"data":"go: downloading github.com/googleapis/gax-go/v2 v2.25.0\n","type":"stderr"}
+1791355335.218443838	{"data":"go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.22\n","type":"stderr"}
+1791355335.220379078	{"data":"go: downloading github.com/google/s2a-go v0.1.10\n","type":"stderr"}
+1791355335.221920959	{"data":"go: downloading cloud.google.com/go/compute/metadata v0.9.1\n","type":"stderr"}
+1791355368.284876847	{"data":"BENCH_CMD_SECONDS=45.8622\n","type":"stdout"}
+1791355369.894411196	{"bytes_down":18129,"bytes_up":1649793,"duration_ms":67387,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

@@ -1,0 +1,35 @@
+1791354891.983880926	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-ecjraafv","region":"","size":"large","type":"queued"}
+1791354894.722596385	{"bytes":746249,"bytes_up":158047,"duration_ms":2625,"files":83,"from_store":0,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354895.191784006	{"cache":false,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-ecjraafv","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354901.827119699	{"data":"BENCH_TOOL_SECONDS=6.31321\n","type":"stdout"}
+1791354902.292576492	{"data":"Lockfile is up to date, resolution step is skipped\n","type":"stdout"}
+1791354902.307285812	{"data":"Progress: resolved 1, reused 0, downloaded 0, added 0\n","type":"stdout"}
+1791354902.349298007	{"data":"Packages: +52\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n","type":"stdout"}
+1791354902.623829735	{"data":"\n   ╭─────────────────────────────────────────╮\n   │                                         │\n   │   Update available! 10.34.6 → 12.9.1.   │\n   │   Changelog: https://pnpm.io/v/12.9.1   │\n   │    To update, run: pnpm self-update     │\n   │                                         │\n   ╰─────────────────────────────────────────╯\n\n","type":"stdout"}
+1791354902.782446124	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 52, done\n","type":"stdout"}
+1791354902.843844206	{"data":"\ndependencies:\n+ next 16.1.4\n+ react 19.2.3\n+ react-dom 19.2.3\n\ndevDependencies:\n+ @tailwindcss/postcss 4.1.18\n+ @types/node 20.19.30\n+ @types/react 19.2.9\n+ @types/react-dom 19.2.3\n+ tailwindcss 4.1.18\n+ typescript 5.9.3\n\n","type":"stdout"}
+1791354902.862993368	{"data":"Done in 974ms using pnpm v10.34.6\n","type":"stdout"}
+1791354903.241150346	{"data":"\n> @ build /workspace/tree/nextjs\n> next build\n\n","type":"stdout"}
+1791354904.548893519	{"data":"Attention: Next.js now collects completely anonymous telemetry regarding usage.\n","type":"stdout"}
+1791354904.550754451	{"data":"This information is used to shape Next.js' roadmap and prioritize features.\nYou can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\n","type":"stdout"}
+1791354904.552215323	{"data":"https://nextjs.org/telemetry\n","type":"stdout"}
+1791354904.554192299	{"data":"\n","type":"stdout"}
+1791354904.561189988	{"data":"▲ Next.js 16.1.4 (Turbopack)\n","type":"stdout"}
+1791354904.562692923	{"data":"\n","type":"stdout"}
+1791354904.590998322	{"data":"  Creating an optimized production build ...\n","type":"stdout"}
+1791354910.454761554	{"data":"✓ Compiled successfully in 5.4s\n","type":"stdout"}
+1791354910.462313295	{"data":"  Running TypeScript ...\n","type":"stdout"}
+1791354912.038093842	{"data":"  Collecting page data using 16 workers ...\n","type":"stdout"}
+1791354912.831490266	{"data":"  Generating static pages using 16 workers (0/4) ...\n","type":"stdout"}
+1791354913.117492145	{"data":"  Generating static pages using 16 workers (1/4) \r\n","type":"stdout"}
+1791354913.119340258	{"data":"  Generating static pages using 16 workers (2/4) \r\n","type":"stdout"}
+1791354913.121251886	{"data":"  Generating static pages using 16 workers (3/4) \r\n","type":"stdout"}
+1791354913.123973289	{"data":"✓ Generating static pages using 16 workers (4/4) in 288.8ms\n","type":"stdout"}
+1791354913.125579379	{"data":"  Finalizing page optimization ...\n","type":"stdout"}
+1791354913.612044864	{"data":"\n","type":"stdout"}
+1791354913.614205495	{"data":"Route (app)\n┌ ○ /\n└ ○ /_not-found\n\n","type":"stdout"}
+1791354913.615730253	{"data":"\n","type":"stdout"}
+1791354913.617453939	{"data":"○  (Static)  prerendered as static content\n","type":"stdout"}
+1791354913.618811075	{"data":"\n","type":"stdout"}
+1791354913.702386102	{"data":"BENCH_CMD_SECONDS=11.8731\n","type":"stdout"}
+1791354914.928343212	{"bytes_down":3973,"bytes_up":158047,"duration_ms":31251,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

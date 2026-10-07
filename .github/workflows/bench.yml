@@ -57,6 +57,9 @@ jobs:
         with:
           workspaces: src
           prefix-key: bench-${{ inputs.epoch }}
+          # One key for the priming job and the counted runs; without it the
+          # key carries the job id and the counted runs never find the cache.
+          shared-key: ripgrep
       - name: build ripgrep
         if: matrix.target == 'ripgrep'
         working-directory: src
@@ -143,6 +146,9 @@ jobs:
         with:
           workspaces: src
           prefix-key: bench-${{ inputs.epoch }}
+          # One key for the priming job and the counted runs; without it the
+          # key carries the job id and the counted runs never find the cache.
+          shared-key: ripgrep
       - name: build ripgrep
         if: matrix.target == 'ripgrep'
         working-directory: src

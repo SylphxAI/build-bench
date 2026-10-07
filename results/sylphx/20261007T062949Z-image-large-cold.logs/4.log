@@ -1,0 +1,125 @@
+1791354856.034575611	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-8317ndhz","region":"","size":"large","type":"queued"}
+1791354858.585193609	{"bytes":91437,"bytes_up":2371,"duration_ms":2193,"files":16,"from_store":16,"full":true,"new_volume":true,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354858.587096374	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-8317ndhz","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354863.178243942	{"data":"sylphx-image-build: rootless BuildKit up (snapshotter overlayfs, process sandbox false), frontend dockerfile\n","type":"stderr"}
+1791354863.322176930	{"data":"#1 [internal] load build definition from Dockerfile\n","type":"stderr"}
+1791354863.618008406	{"data":"#1 transferring dockerfile:\n","type":"stderr"}
+1791354863.776751876	{"data":"#1 transferring dockerfile: 3.99kB done\n#1 DONE 0.3s\n\n#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e\n","type":"stderr"}
+1791354874.303338510	{"data":"#2 DONE 10.7s\n","type":"stderr"}
+1791354874.483459815	{"data":"\n#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e\n#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e\n","type":"stderr"}
+1791354874.518789764	{"data":"#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.2s done\n","type":"stderr"}
+1791354874.681939565	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 0B / 11.98MB 0.2s\n","type":"stderr"}
+1791354875.128050081	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 1.05MB / 11.98MB 0.6s\n","type":"stderr"}
+1791354875.427602801	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 2.10MB / 11.98MB 0.9s\n","type":"stderr"}
+1791354875.880935533	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 3.15MB / 11.98MB 1.4s\n","type":"stderr"}
+1791354876.175435222	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 4.19MB / 11.98MB 1.7s\n","type":"stderr"}
+1791354876.952176377	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 5.24MB / 11.98MB 2.1s\n","type":"stderr"}
+1791354877.008645504	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 6.29MB / 11.98MB 2.4s\n","type":"stderr"}
+1791354877.510011015	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 7.34MB / 11.98MB 3.0s\n","type":"stderr"}
+1791354878.411159632	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 8.39MB / 11.98MB 3.9s\n","type":"stderr"}
+1791354879.009184611	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 9.44MB / 11.98MB 4.5s\n","type":"stderr"}
+1791354879.461887588	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 10.49MB / 11.98MB 5.0s\n","type":"stderr"}
+1791354879.610680067	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 11.53MB / 11.98MB 5.1s\n","type":"stderr"}
+1791354882.561874131	{"data":"#3 sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 11.98MB / 11.98MB 8.0s done\n","type":"stderr"}
+1791354882.718073332	{"data":"#3 extracting sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416\n","type":"stderr"}
+1791354882.726021878	{"data":"#3 extracting sha256:96918c57e42509b97f10c074d80672ecdbd3bb7dcd38c1bd95960cf291207416 0.2s done\n#3 DONE 8.4s\n","type":"stderr"}
+1791354882.849334417	{"data":"\n#4 resolve image config for docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354883.446564433	{"data":"#4 DONE 0.4s\n","type":"stderr"}
+1791354883.448611715	{"data":"\n#5 [internal] load metadata for docker.io/library/node:24.13.0-slim\n","type":"stderr"}
+1791354891.688319475	{"data":"#5 DONE 8.3s\n\n#6 [internal] load .dockerignore\n","type":"stderr"}
+1791354891.765028600	{"data":"#6 transferring context:\n","type":"stderr"}
+1791354891.969094621	{"data":"#6 transferring context: 2.48kB done\n#6 DONE 0.3s\n","type":"stderr"}
+1791354892.526691071	{"data":"\n#7 [internal] load build context\n#7 DONE 0.0s\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 resolve docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n","type":"stderr"}
+1791354892.785117655	{"data":"#8 resolve docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f 0.5s done\n","type":"stderr"}
+1791354901.003051614	{"data":"#8 ...\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n#9 resolve docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9 0.5s done\n#9 DONE 8.7s\n\n#7 [internal] load build context\n#7 transferring context: 72.45kB done\n","type":"stderr"}
+1791354902.823570597	{"data":"#7 ...\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354903.973352254	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 0B / 49.55MB 0.2s\n","type":"stderr"}
+1791354904.570712766	{"data":"#9 ...\n\n#7 [internal] load build context\n#7 DONE 11.7s\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354905.172105368	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 3.15MB / 49.55MB 1.4s\n","type":"stderr"}
+1791354906.224199934	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 6.29MB / 49.55MB 2.4s\n","type":"stderr"}
+1791354907.124280108	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 9.44MB / 49.55MB 3.3s\n","type":"stderr"}
+1791354908.473346141	{"data":"#9 ...\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 DONE 16.1s\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354909.224446585	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 12.58MB / 49.55MB 5.4s\n","type":"stderr"}
+1791354911.021185449	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 15.73MB / 49.55MB 7.2s\n","type":"stderr"}
+1791354912.523107398	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 18.87MB / 49.55MB 8.7s\n","type":"stderr"}
+1791354915.825342463	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 22.02MB / 49.55MB 12.0s\n","type":"stderr"}
+1791354916.273590045	{"data":"#9 ...\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 sha256:d90d46d619398a297e98644390dda53d92954af45066f87aea04e2da844a6754 449B / 449B 3.5s done\n#8 sha256:1a5fa97547841412bf8527a6d445748d9acfd51ee2e73ad7e76d4ede9efe6e9f 1.71MB / 1.71MB 2.3s done\n","type":"stderr"}
+1791354916.276773612	{"data":"#8 sha256:8db14bf7760b9640d38dc96c1b21823eaa6dcb81316334b592ab21417c36f671 18.87MB / 49.11MB 5.0s\n#8 sha256:e48f83d0e30eecff4260e3620f371c7f05122e743f4fe3f4168cd7f091948996 3.31kB / 3.31kB 0.7s done\n#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 2.10MB / 28.23MB 3.9s\n","type":"stderr"}
+1791354916.426163176	{"data":"#8 ...\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354918.524780189	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 25.17MB / 49.55MB 14.7s\n","type":"stderr"}
+1791354921.077813689	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 28.31MB / 49.55MB 17.3s\n","type":"stderr"}
+1791354922.723370939	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 31.46MB / 49.55MB 18.9s\n","type":"stderr"}
+1791354924.071276801	{"data":"#9 ...\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 sha256:8db14bf7760b9640d38dc96c1b21823eaa6dcb81316334b592ab21417c36f671 45.09MB / 49.11MB 12.8s\n#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 7.34MB / 28.23MB 11.7s\n","type":"stderr"}
+1791354924.225911055	{"data":"#8 ...\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354924.971201832	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 34.60MB / 49.55MB 21.2s\n","type":"stderr"}
+1791354926.923903282	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 37.75MB / 49.55MB 23.1s\n","type":"stderr"}
+1791354929.241740423	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 40.89MB / 49.55MB 25.2s\n","type":"stderr"}
+1791354931.423836136	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 44.04MB / 49.55MB 27.6s\n","type":"stderr"}
+1791354933.522418596	{"data":"#9 ...\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 sha256:8db14bf7760b9640d38dc96c1b21823eaa6dcb81316334b592ab21417c36f671 49.11MB / 49.11MB 14.4s done\n#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 14.68MB / 28.23MB 21.2s\n","type":"stderr"}
+1791354933.675447862	{"data":"#8 ...\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354935.173227665	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 47.19MB / 49.55MB 31.4s\n","type":"stderr"}
+1791354940.347346010	{"data":"#9 sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 49.55MB / 49.55MB 35.8s done\n","type":"stderr"}
+1791354940.775957510	{"data":"#9 DONE 46.7s\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 17.83MB / 28.23MB 28.4s\n","type":"stderr"}
+1791354941.846953205	{"data":"#8 ...\n\n#9 docker-image://docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n#9 extracting sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f\n","type":"stderr"}
+1791354943.045767320	{"data":"#9 extracting sha256:307ce207d6cb61564520be6064a834450b1cc937f720bee712ee09ed9ded309f 1.2s done\n#9 DONE 47.9s\n\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n","type":"stderr"}
+1791354944.247000253	{"data":"#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 19.92MB / 28.23MB 32.0s\n","type":"stderr"}
+1791354949.350964778	{"data":"#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 20.97MB / 28.23MB 37.1s\n","type":"stderr"}
+1791354951.598273126	{"data":"#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 23.07MB / 28.23MB 39.3s\n","type":"stderr"}
+1791354956.698743136	{"data":"#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 24.12MB / 28.23MB 44.4s\n","type":"stderr"}
+1791354960.145133631	{"data":"#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 27.26MB / 28.23MB 47.9s\n","type":"stderr"}
+1791354961.671110842	{"data":"#8 sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 28.23MB / 28.23MB 49.2s done\n#8 extracting sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9\n","type":"stderr"}
+1791354962.513754056	{"data":"#8 extracting sha256:4831516dd0cb86845f5f902cb9b9d25b5c853152c337eb57e4737a9b7e2a2eb9 0.8s done\n#8 DONE 69.9s\n","type":"stderr"}
+1791354962.515409430	{"data":"\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 extracting sha256:e48f83d0e30eecff4260e3620f371c7f05122e743f4fe3f4168cd7f091948996\n","type":"stderr"}
+1791354962.652220011	{"data":"#8 extracting sha256:e48f83d0e30eecff4260e3620f371c7f05122e743f4fe3f4168cd7f091948996 0.3s done\n#8 DONE 70.2s\n","type":"stderr"}
+1791354962.800745039	{"data":"\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 extracting sha256:8db14bf7760b9640d38dc96c1b21823eaa6dcb81316334b592ab21417c36f671\n","type":"stderr"}
+1791354964.195333843	{"data":"#8 extracting sha256:8db14bf7760b9640d38dc96c1b21823eaa6dcb81316334b592ab21417c36f671 1.5s done\n#8 DONE 71.7s\n","type":"stderr"}
+1791354964.439966972	{"data":"\n#8 [runner 1/7] FROM docker.io/library/node:24.13.0-slim@sha256:4660b1ca8b28d6d1906fd644abe34b2ed81d15434d26d845ef0aced307cf4b6f\n#8 extracting sha256:1a5fa97547841412bf8527a6d445748d9acfd51ee2e73ad7e76d4ede9efe6e9f 0.1s done\n#8 extracting sha256:d90d46d619398a297e98644390dda53d92954af45066f87aea04e2da844a6754 done\n","type":"stderr"}
+1791354964.443470388	{"data":"#8 DONE 71.8s\n\n#10 [runner 2/7] WORKDIR /app\n#10 DONE 0.0s\n\n#11 [dependencies 3/4] COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./\n#11 DONE 0.0s\n\n#12 [dependencies 4/4] RUN --mount=type=cache,target=/root/.npm     --mount=type=cache,target=/usr/local/share/.cache/yarn     --mount=type=cache,target=/root/.local/share/pnpm/store   if [ -f package-lock.json ]; then     npm ci --no-audit --no-fund;   elif [ -f yarn.lock ]; then     corepack enable yarn && yarn install --frozen-lockfile --production=false;   elif [ -f pnpm-lock.yaml ]; then     corepack enable pnpm && pnpm install --frozen-lockfile;   else     echo \"No lockfile found.\" && exit 1;   fi\n","type":"stderr"}
+1791354964.540472000	{"data":"#12 0.253 ! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-10.34.6.tgz\n","type":"stderr"}
+1791354965.643964273	{"data":"#12 1.362 Lockfile is up to date, resolution step is skipped\n","type":"stderr"}
+1791354965.826260641	{"data":"#12 1.374 Progress: resolved 1, reused 0, downloaded 0, added 0\n#12 1.389 Packages: +52\n#12 1.389 ++++++++++++++++++++++++++++++++++++++++++++++++++++\n","type":"stderr"}
+1791354965.993036091	{"data":"#12 1.708 \n#12 1.708    ╭──────────────────────────────────────────────────────────────────────╮\n#12 1.708    │                                                                      │\n#12 1.708    │                 Update available! 10.34.6 → 12.9.1.                  │\n#12 1.708    │                 Changelog: https://pnpm.io/v/12.9.1                  │\n#12 1.708    │   To update, run: curl -fsSL https://get.pnpm.io/install.sh | sh -   │\n#12 1.708    │                                                                      │\n#12 1.708    ╰──────────────────────────────────────────────────────────────────────╯\n#12 1.708 \n","type":"stderr"}
+1791354966.916798316	{"data":"#12 2.413 Progress: resolved 52, reused 0, downloaded 47, added 46\n","type":"stderr"}
+1791354967.699877341	{"data":"#12 3.412 Progress: resolved 52, reused 0, downloaded 50, added 49\n","type":"stderr"}
+1791354968.706488724	{"data":"#12 4.413 Progress: resolved 52, reused 0, downloaded 50, added 50\n","type":"stderr"}
+1791354969.695480149	{"data":"#12 5.413 Progress: resolved 52, reused 0, downloaded 52, added 51\n","type":"stderr"}
+1791354970.880345955	{"data":"#12 6.593 Progress: resolved 52, reused 0, downloaded 52, added 52\n","type":"stderr"}
+1791354971.029290242	{"data":"#12 6.594 Progress: resolved 52, reused 0, downloaded 52, added 52, done\n","type":"stderr"}
+1791354971.552434458	{"data":"#12 7.266 \n#12 7.266 dependencies:\n#12 7.266 + next 16.1.4\n#12 7.266 + react 19.2.3\n#12 7.266 + react-dom 19.2.3\n#12 7.266 \n#12 7.266 devDependencies:\n#12 7.266 + @tailwindcss/postcss 4.1.18\n#12 7.266 + @types/node 20.19.30\n#12 7.266 + @types/react 19.2.9\n#12 7.266 + @types/react-dom 19.2.3\n#12 7.266 + tailwindcss 4.1.18\n#12 7.266 + typescript 5.9.3\n#12 7.266 \n","type":"stderr"}
+1791354971.737891479	{"data":"#12 7.305 Done in 6.4s using pnpm v10.34.6\n","type":"stderr"}
+1791354972.440043440	{"data":"#12 DONE 8.2s\n","type":"stderr"}
+1791354973.209190700	{"data":"\n#13 [builder 3/5] COPY --from=dependencies /app/node_modules ./node_modules\n","type":"stderr"}
+1791354975.003083722	{"data":"#13 DONE 1.8s\n","type":"stderr"}
+1791354975.216866733	{"data":"\n#14 [builder 4/5] COPY . .\n#14 DONE 0.1s\n\n","type":"stderr"}
+1791354975.220532803	{"data":"#15 [builder 5/5] RUN if [ -f package-lock.json ]; then     npm run build;   elif [ -f yarn.lock ]; then     corepack enable yarn && yarn build;   elif [ -f pnpm-lock.yaml ]; then     corepack enable pnpm && pnpm build;   else     echo \"No lockfile found.\" && exit 1;   fi\n","type":"stderr"}
+1791354975.288852521	{"data":"#15 0.219 ! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-10.34.6.tgz\n","type":"stderr"}
+1791354976.520295181	{"data":"#15 1.449 \n#15 1.449 > @ build /app\n#15 1.449 > next build\n#15 1.449 \n","type":"stderr"}
+1791354977.576383168	{"data":"#15 2.509 Attention: Next.js now collects completely anonymous telemetry regarding usage.\n","type":"stderr"}
+1791354977.689546048	{"data":"#15 2.509 This information is used to shape Next.js' roadmap and prioritize features.\n#15 2.509 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\n#15 2.509 https://nextjs.org/telemetry\n#15 2.509 \n#15 2.576 ▲ Next.js 16.1.4 (Turbopack)\n#15 2.576 \n#15 2.623   Creating an optimized production build ...\n","type":"stderr"}
+1791354983.862265963	{"data":"#15 8.801 ✓ Compiled successfully in 5.6s\n","type":"stderr"}
+1791354984.023085378	{"data":"#15 8.809   Running TypeScript ...\n","type":"stderr"}
+1791354985.653698063	{"data":"#15 10.59   Collecting page data using 16 workers ...\n","type":"stderr"}
+1791354986.179087259	{"data":"#15 11.12   Generating static pages using 16 workers (0/4) ...\n","type":"stderr"}
+1791354986.597436110	{"data":"#15 11.53   Generating static pages using 16 workers (1/4) \r\n","type":"stderr"}
+1791354986.713265321	{"data":"#15 11.53   Generating static pages using 16 workers (2/4) \r\n#15 11.53   Generating static pages using 16 workers (3/4) \r\n#15 11.53 ✓ Generating static pages using 16 workers (4/4) in 416.6ms\n#15 11.54   Finalizing page optimization ...\n#15 11.65 \n","type":"stderr"}
+1791354986.865279623	{"data":"#15 11.65 Route (app)\n#15 11.65 ┌ ○ /\n#15 11.65 └ ○ /_not-found\n#15 11.65 \n#15 11.65 \n#15 11.65 ○  (Static)  prerendered as static content\n#15 11.65 \n","type":"stderr"}
+1791354987.434797640	{"data":"#15 DONE 12.4s\n","type":"stderr"}
+1791354987.726204387	{"data":"\n#16 [runner 3/7] COPY --from=builder --chown=node:node /app/public ./public\n","type":"stderr"}
+1791354987.853948855	{"data":"#16 DONE 0.0s\n\n#17 [runner 4/7] RUN mkdir .next\n#17 DONE 0.1s\n","type":"stderr"}
+1791354987.975522885	{"data":"\n#18 [runner 5/7] RUN chown node:node .next\n#18 DONE 0.1s\n","type":"stderr"}
+1791354988.124708133	{"data":"\n#19 [runner 6/7] COPY --from=builder --chown=node:node /app/.next/standalone ./\n","type":"stderr"}
+1791354988.199112440	{"data":"#19 DONE 0.2s\n","type":"stderr"}
+1791354988.376029156	{"data":"\n#20 [runner 7/7] COPY --from=builder --chown=node:node /app/.next/static ./.next/static\n#20 DONE 0.0s\n","type":"stderr"}
+1791354988.805540146	{"data":"\n#21 [linux/amd64] generating sbom using docker.io/docker/buildkit-syft-scanner:stable-1@sha256:ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9\n","type":"stderr"}
+1791354989.309411736	{"data":"#21 0.508 time=\"2026-10-07T06:36:29Z\" level=info msg=\"starting syft scanner for buildkit v1.12.0\"\n","type":"stderr"}
+1791354993.482605527	{"data":"#21 DONE 4.7s\n","type":"stderr"}
+1791354993.633728372	{"data":"\n#22 exporting to oci image format\n#22 exporting layers\n","type":"stderr"}
+1791354997.280908871	{"data":"#22 exporting layers 3.8s done\n","type":"stderr"}
+1791354997.427349250	{"data":"#22 rewriting layers with source-date-epoch 1791354841 (2026-10-07 06:34:01 +0000 UTC)\n","type":"stderr"}
+1791355000.645669826	{"data":"#22 rewriting layers with source-date-epoch 1791354841 (2026-10-07 06:34:01 +0000 UTC) 3.4s done\n","type":"stderr"}
+1791355001.017344308	{"data":"#22 exporting manifest sha256:7929eff1a2e2b5f12e2c67193e5ec531af5831a4b73b06efbe4c76de57ab3a26 done\n#22 exporting config sha256:62ee72b1ca915826f84fa2559ba721b369701b09cd03fb98a4e3c860be1c316b done\n","type":"stderr"}
+1791355002.765062899	{"data":"#22 exporting attestation manifest sha256:9d314cd55921cbb81cdfc40dfc43acfa2927d321701513fe301e0ef61552ddd6\n","type":"stderr"}
+1791355002.930998639	{"data":"#22 exporting attestation manifest sha256:9d314cd55921cbb81cdfc40dfc43acfa2927d321701513fe301e0ef61552ddd6 done\n#22 exporting manifest list sha256:dbf27d6fd6b6359d6e09a98e096c997b80f6c384199407474b57e655bb41b573 done\n#22 sending tarball\n","type":"stderr"}
+1791355003.219748691	{"data":"#22 sending tarball 0.4s done\n#22 DONE 9.7s\n","type":"stderr"}
+1791355005.089160080	{"data":"sylphx-image-build: digest sha256:dbf27d6fd6b6359d6e09a98e096c997b80f6c384199407474b57e655bb41b573 manifest sha256:7929eff1a2e2b5f12e2c67193e5ec531af5831a4b73b06efbe4c76de57ab3a26\n","type":"stderr"}
+1791355006.866157421	{"bytes_down":26743,"bytes_up":2371,"duration_ms":165398,"exit_code":0,"from_store":16,"image":{"attestations":["sbom","provenance"],"digest":"sha256:dbf27d6fd6b6359d6e09a98e096c997b80f6c384199407474b57e655bb41b573","frontend":"dockerfile","image_manifest_digest":"sha256:7929eff1a2e2b5f12e2c67193e5ec531af5831a4b73b06efbe4c76de57ab3a26","oci_out":"","process_sandbox":false,"pushed":"","schema":"sylphx.image-build/v1","snapshotter":"overlayfs","source_commit":"b09cf33884819646857d0acb1d70b5e311f608bd","source_date_epoch":1791354841},"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

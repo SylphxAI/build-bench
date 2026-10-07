@@ -1,0 +1,32 @@
+1791354915.704943936	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-adb9cfmg","region":"","size":"large","type":"queued"}
+1791354918.597615701	{"bytes":3140085,"bytes_up":10187,"duration_ms":2771,"files":223,"from_store":222,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354918.927786822	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-adb9cfmg","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354920.341867132	{"data":"   Compiling memchr v2.8.3\n","type":"stderr"}
+1791354920.344310448	{"data":"   Compiling regex-syntax v0.8.11\n","type":"stderr"}
+1791354920.347569488	{"data":"   Compiling libc v0.2.186\n   Compiling log v0.4.33\n   Compiling serde_core v1.0.228\n   Compiling zmij v1.0.23\n","type":"stderr"}
+1791354920.350572143	{"data":"   Compiling crossbeam-utils v0.8.22\n   Compiling cfg-if v1.0.4\n","type":"stderr"}
+1791354920.353060196	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791354920.355613878	{"data":"   Compiling crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791354920.358254620	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791354920.359742413	{"data":"   Compiling termcolor v1.4.1\n   Compiling itoa v1.0.18\n   Compiling crossbeam-deque v0.8.7\n   Compiling same-file v1.0.6\n   Compiling anyhow v1.0.103\n","type":"stderr"}
+1791354920.657803725	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791354920.663426040	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791354920.794147946	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791354920.853909403	{"data":"   Compiling lexopt v0.3.2\n","type":"stderr"}
+1791354920.857345839	{"data":"   Compiling textwrap v0.16.2\n","type":"stderr"}
+1791354922.173652470	{"data":"   Compiling aho-corasick v1.1.4\n","type":"stderr"}
+1791354922.175514193	{"data":"   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791354922.324477678	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791354923.609842995	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791354924.051586468	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791354930.342746436	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791354932.215188885	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n","type":"stderr"}
+1791354932.219792642	{"data":"   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791354933.163484080	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n","type":"stderr"}
+1791354933.164752103	{"data":"   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791354933.900450106	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791354935.495182147	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791354938.867046243	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 19.23s\n","type":"stderr"}
+1791354938.881212949	{"data":"BENCH_SCCACHE Compile requests                      49\nBENCH_SCCACHE Compile requests executed             34\nBENCH_SCCACHE Cache hits                            33\nBENCH_SCCACHE Cache hits (Rust)                     33\nBENCH_SCCACHE Cache misses                           0\nBENCH_SCCACHE Cache hits rate                   100.00 %\nBENCH_SCCACHE Cache hits rate (Rust)            100.00 %\n","type":"stdout"}
+1791354938.896614487	{"data":"BENCH_CMD_SECONDS=19.284\n","type":"stdout"}
+1791354939.862426064	{"bytes_down":3562,"bytes_up":10187,"duration_ms":32038,"exit_code":0,"from_store":222,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}
