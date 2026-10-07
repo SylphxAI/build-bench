@@ -16,6 +16,7 @@ import glob
 import json
 import math
 import os
+import re
 import sys
 from datetime import datetime
 
@@ -50,7 +51,7 @@ def github():
         if os.path.exists(cache_file):
             for line in open(cache_file):
                 name, rest = line.rstrip("\n").split("\t", 1)
-                hits[name] = rest
+                hits[name] = rest.replace('"', "").replace("rust= ", "").replace("go= ", "").replace("pnpm= ", "").strip()
         for j in run["jobs"]:
             if not j["name"].startswith("run (") or j["conclusion"] != "success":
                 continue
@@ -58,6 +59,7 @@ def github():
             build = next(s for s in j["steps"] if s["name"] in (f"build {target}", "build image") and s["conclusion"] == "success")
             rows.append({
                 "side": "GitHub ubuntu-latest (4 vCPU)",
+                "run_id": run["run_id"],
                 "target": target,
                 "cache": run["cache"],
                 "n": int(n),
@@ -93,8 +95,31 @@ def sylphx():
     return rows
 
 
+def restored(h):
+    """Whether a run's cache line shows a restored cache: an Actions cache
+    hit, BuildKit steps found cached, or sccache hits."""
+    if "=true" in h:
+        return True
+    m = re.search(r"(?:buildkit-cached=|buildkit cached )(\d+)", h)
+    if m:
+        return int(m.group(1)) > 0
+    m = re.match(r"sccache (\d+)/", h)
+    return bool(m and int(m.group(1)) > 0)
+
+
+def latest(rows):
+    """Per target and cache state, only the runs of the newest workflow run:
+    a cell re-run after a workflow fix replaces the earlier one (whose raw
+    files stay in results/github/)."""
+    newest = {}
+    for r in rows:
+        k = (r["target"], r["cache"])
+        newest[k] = max(newest.get(k, 0), r["run_id"])
+    return [r for r in rows if r["run_id"] == newest[(r["target"], r["cache"])]]
+
+
 def main():
-    rows = github() + sylphx()
+    rows = latest(github()) + sylphx()
     cells = {}
     for r in rows:
         cells.setdefault((r["target"], r["cache"], r["side"]), []).append(r)
@@ -106,7 +131,7 @@ def main():
         q = [r["queue"] for r in rs]
         c = [r["command"] for r in rs]
         hits = [r["hit"] for r in rs if r["hit"]]
-        hit = f"{sum(1 for h in hits if 'true' in h or h.startswith('hit'))}/{len(rs)}" if hits else "-"
+        hit = f"{sum(1 for h in hits if restored(h))}/{len(rs)}" if hits else "-"
         print(f"| {target} | {cache} | {side} | {len(rs)} | {fmt(pct(w, 50))} | {fmt(pct(w, 90))} | {fmt(pct(q, 50))} | {fmt(pct(q, 90))} | {fmt(pct(c, 50))} | {fmt(pct(c, 90))} | {hit} |")
     if "--runs" in sys.argv:
         print()
