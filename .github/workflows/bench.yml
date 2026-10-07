@@ -1,0 +1,206 @@
+# The GitHub-hosted side of the benchmark: each target built at its pinned
+# commit on `ubuntu-latest` (4 vCPU, 16 GB on a public repository), five runs
+# per cell, cold (no cache) or warm (GitHub's standard cache actions, primed by
+# one run that is not counted). scripts/sylphx-bench.sh runs the same targets
+# on Sylphx Build; scripts/report.py reads both and prints the tables.
+#
+# Manual runs only: no push or pull_request trigger, so no fork runs code
+# here. GitHub-hosted runners are free only on a public repository, so every
+# job is skipped when this repository is private.
+name: bench
+on:
+  workflow_dispatch:
+    inputs:
+      cache:
+        description: cold (no cache) or warm (cache restored after a priming run)
+        type: choice
+        options: [cold, warm]
+        default: cold
+      targets:
+        description: JSON list of targets
+        default: '["ripgrep","caddy","nextjs","image"]'
+      epoch:
+        description: cache key suffix; a new value starts from an empty Actions cache
+        default: "1"
+permissions:
+  contents: read
+concurrency:
+  group: bench-${{ inputs.cache }}
+  cancel-in-progress: false
+env:
+  RIPGREP_REPO: https://github.com/BurntSushi/ripgrep
+  RIPGREP_SHA: e89fff89ac9af12e8d4ce9d5fd07beb408ca730f # 15.2.0
+  CADDY_REPO: https://github.com/caddyserver/caddy
+  CADDY_SHA: 72dd0fb067f6d7826c7f79907670ba4a713bfe37 # v2.11.7
+  NODE_VERSION: "24"
+jobs:
+  # Warm cells only: one run that fills the Actions cache; never counted.
+  prime:
+    if: ${{ !github.event.repository.private && inputs.cache == 'warm' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(inputs.targets) }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      # ripgrep: release build of a Rust binary crate graph.
+      - name: fetch ripgrep
+        if: matrix.target == 'ripgrep'
+        run: git init -q src && git -C src fetch -q --depth 1 "$RIPGREP_REPO" "$RIPGREP_SHA" && git -C src checkout -q FETCH_HEAD
+      - id: rustcache
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
+        if: matrix.target == 'ripgrep' && inputs.cache == 'warm'
+        with:
+          workspaces: src
+          prefix-key: bench-${{ inputs.epoch }}
+      - name: build ripgrep
+        if: matrix.target == 'ripgrep'
+        working-directory: src
+        run: cargo build --release --locked
+
+      # caddy: a Go service binary.
+      - name: fetch caddy
+        if: matrix.target == 'caddy'
+        run: git init -q src && git -C src fetch -q --depth 1 "$CADDY_REPO" "$CADDY_SHA" && git -C src checkout -q FETCH_HEAD
+      - id: setupgo
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        if: matrix.target == 'caddy'
+        with:
+          go-version-file: src/go.mod
+          cache: ${{ inputs.cache == 'warm' }}
+          cache-dependency-path: src/go.sum
+      - name: build caddy
+        if: matrix.target == 'caddy'
+        working-directory: src/cmd/caddy
+        run: go build -trimpath -o caddy .
+
+      # nextjs: the Next.js app in nextjs/ (vercel/next.js examples/with-docker).
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        if: matrix.target == 'nextjs'
+        with:
+          package_json_file: nextjs/package.json
+      - id: setupnode
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        if: matrix.target == 'nextjs'
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ inputs.cache == 'warm' && 'pnpm' || '' }}
+          cache-dependency-path: nextjs/pnpm-lock.yaml
+      - id: nextcache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        if: matrix.target == 'nextjs' && inputs.cache == 'warm'
+        with:
+          path: nextjs/.next/cache
+          key: bench-${{ inputs.epoch }}-next-${{ hashFiles('nextjs/pnpm-lock.yaml') }}
+      - name: build nextjs
+        if: matrix.target == 'nextjs'
+        working-directory: nextjs
+        run: pnpm install --frozen-lockfile && pnpm build
+
+      # image: the same app's upstream Dockerfile, built with BuildKit.
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+        if: matrix.target == 'image'
+      - name: build image
+        if: matrix.target == 'image'
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: nextjs
+          push: false
+          cache-from: ${{ inputs.cache == 'warm' && format('type=gha,scope=bench-{0}-image', inputs.epoch) || '' }}
+          cache-to: ${{ inputs.cache == 'warm' && format('type=gha,mode=max,scope=bench-{0}-image', inputs.epoch) || '' }}
+
+      # One line for scripts/report.py: which caches the run restored.
+      - name: cache report
+        if: always()
+        run: |
+          echo "BENCH target=${{ matrix.target }} cache=${{ inputs.cache }} rust=${{ steps.rustcache.outputs.cache-hit }} go=${{ steps.setupgo.outputs.cache-hit }} pnpm=${{ steps.setupnode.outputs.cache-hit }} next=${{ steps.nextcache.outputs.cache-hit }}"
+
+  run:
+    needs: prime
+    if: ${{ !cancelled() && !github.event.repository.private && (needs.prime.result == 'success' || needs.prime.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(inputs.targets) }}
+        n: [1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      # ripgrep: release build of a Rust binary crate graph.
+      - name: fetch ripgrep
+        if: matrix.target == 'ripgrep'
+        run: git init -q src && git -C src fetch -q --depth 1 "$RIPGREP_REPO" "$RIPGREP_SHA" && git -C src checkout -q FETCH_HEAD
+      - id: rustcache
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
+        if: matrix.target == 'ripgrep' && inputs.cache == 'warm'
+        with:
+          workspaces: src
+          prefix-key: bench-${{ inputs.epoch }}
+      - name: build ripgrep
+        if: matrix.target == 'ripgrep'
+        working-directory: src
+        run: cargo build --release --locked
+
+      # caddy: a Go service binary.
+      - name: fetch caddy
+        if: matrix.target == 'caddy'
+        run: git init -q src && git -C src fetch -q --depth 1 "$CADDY_REPO" "$CADDY_SHA" && git -C src checkout -q FETCH_HEAD
+      - id: setupgo
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        if: matrix.target == 'caddy'
+        with:
+          go-version-file: src/go.mod
+          cache: ${{ inputs.cache == 'warm' }}
+          cache-dependency-path: src/go.sum
+      - name: build caddy
+        if: matrix.target == 'caddy'
+        working-directory: src/cmd/caddy
+        run: go build -trimpath -o caddy .
+
+      # nextjs: the Next.js app in nextjs/ (vercel/next.js examples/with-docker).
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        if: matrix.target == 'nextjs'
+        with:
+          package_json_file: nextjs/package.json
+      - id: setupnode
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        if: matrix.target == 'nextjs'
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ inputs.cache == 'warm' && 'pnpm' || '' }}
+          cache-dependency-path: nextjs/pnpm-lock.yaml
+      - id: nextcache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        if: matrix.target == 'nextjs' && inputs.cache == 'warm'
+        with:
+          path: nextjs/.next/cache
+          key: bench-${{ inputs.epoch }}-next-${{ hashFiles('nextjs/pnpm-lock.yaml') }}
+      - name: build nextjs
+        if: matrix.target == 'nextjs'
+        working-directory: nextjs
+        run: pnpm install --frozen-lockfile && pnpm build
+
+      # image: the same app's upstream Dockerfile, built with BuildKit.
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+        if: matrix.target == 'image'
+      - name: build image
+        if: matrix.target == 'image'
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: nextjs
+          push: false
+          cache-from: ${{ inputs.cache == 'warm' && format('type=gha,scope=bench-{0}-image', inputs.epoch) || '' }}
+          cache-to: ${{ inputs.cache == 'warm' && format('type=gha,mode=max,scope=bench-{0}-image', inputs.epoch) || '' }}
+
+      # One line for scripts/report.py: which caches the run restored.
+      - name: cache report
+        if: always()
+        run: |
+          echo "BENCH target=${{ matrix.target }} cache=${{ inputs.cache }} rust=${{ steps.rustcache.outputs.cache-hit }} go=${{ steps.setupgo.outputs.cache-hit }} pnpm=${{ steps.setupnode.outputs.cache-hit }} next=${{ steps.nextcache.outputs.cache-hit }}"
