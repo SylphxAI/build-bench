@@ -1,0 +1,4278 @@
+{
+ "run_id": 37580313288,
+ "cache": "warm",
+ "jobs": [
+  {
+   "id": 112658228929,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOvQmwQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658228929",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658228929",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:13:07Z",
+   "started_at": "2026-10-07T06:13:09Z",
+   "completed_at": "2026-10-07T06:13:51Z",
+   "name": "prime (ripgrep)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:13:10Z",
+     "completed_at": "2026-10-07T06:13:12Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:13:12Z",
+     "completed_at": "2026-10-07T06:13:12Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 3,
+     "started_at": "2026-10-07T06:13:12Z",
+     "completed_at": "2026-10-07T06:13:13Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 4,
+     "started_at": "2026-10-07T06:13:13Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 5,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:48Z"
+    },
+    {
+     "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:13:48Z",
+     "completed_at": "2026-10-07T06:13:50Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:13:50Z",
+     "completed_at": "2026-10-07T06:13:50Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:13:50Z",
+     "completed_at": "2026-10-07T06:13:50Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658228929",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092483,
+   "runner_name": "GitHub Actions 1000092483",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658229019,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOvQnGw",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658229019",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658229019",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:13:07Z",
+   "started_at": "2026-10-07T06:13:14Z",
+   "completed_at": "2026-10-07T06:15:23Z",
+   "name": "prime (image)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:18Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:13:18Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:19Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 13,
+     "started_at": "2026-10-07T06:13:19Z",
+     "completed_at": "2026-10-07T06:13:24Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 14,
+     "started_at": "2026-10-07T06:13:24Z",
+     "completed_at": "2026-10-07T06:15:15Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:15Z",
+     "completed_at": "2026-10-07T06:15:15Z"
+    },
+    {
+     "name": "Post build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:15Z",
+     "completed_at": "2026-10-07T06:15:17Z"
+    },
+    {
+     "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:17Z",
+     "completed_at": "2026-10-07T06:15:21Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:21Z",
+     "completed_at": "2026-10-07T06:15:21Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:21Z",
+     "completed_at": "2026-10-07T06:15:21Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658229019",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092482,
+   "runner_name": "GitHub Actions 1000092482",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658229047,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOvQnNw",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658229047",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658229047",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:13:07Z",
+   "started_at": "2026-10-07T06:13:09Z",
+   "completed_at": "2026-10-07T06:14:41Z",
+   "name": "prime (caddy)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:13:10Z",
+     "completed_at": "2026-10-07T06:13:13Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:13:13Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 6,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 7,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:23Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 8,
+     "started_at": "2026-10-07T06:13:23Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:34Z"
+    },
+    {
+     "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:14:34Z",
+     "completed_at": "2026-10-07T06:14:40Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:14:40Z",
+     "completed_at": "2026-10-07T06:14:40Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:14:40Z",
+     "completed_at": "2026-10-07T06:14:40Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658229047",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092484,
+   "runner_name": "GitHub Actions 1000092484",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658229173,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOvQntQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658229173",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658229173",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:13:07Z",
+   "started_at": "2026-10-07T06:13:10Z",
+   "completed_at": "2026-10-07T06:13:40Z",
+   "name": "prime (nextjs)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:13:11Z",
+     "completed_at": "2026-10-07T06:13:14Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:13:14Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:15Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 9,
+     "started_at": "2026-10-07T06:13:15Z",
+     "completed_at": "2026-10-07T06:13:16Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 10,
+     "started_at": "2026-10-07T06:13:16Z",
+     "completed_at": "2026-10-07T06:13:17Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 11,
+     "started_at": "2026-10-07T06:13:17Z",
+     "completed_at": "2026-10-07T06:13:18Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 12,
+     "started_at": "2026-10-07T06:13:18Z",
+     "completed_at": "2026-10-07T06:13:32Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:13:32Z",
+     "completed_at": "2026-10-07T06:13:32Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:13:32Z",
+     "completed_at": "2026-10-07T06:13:32Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:13:32Z",
+     "completed_at": "2026-10-07T06:13:32Z"
+    },
+    {
+     "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 27,
+     "started_at": "2026-10-07T06:13:32Z",
+     "completed_at": "2026-10-07T06:13:33Z"
+    },
+    {
+     "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:13:33Z",
+     "completed_at": "2026-10-07T06:13:37Z"
+    },
+    {
+     "name": "Post Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:13:37Z",
+     "completed_at": "2026-10-07T06:13:37Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:13:37Z",
+     "completed_at": "2026-10-07T06:13:37Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:13:37Z",
+     "completed_at": "2026-10-07T06:13:37Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658229173",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092485,
+   "runner_name": "GitHub Actions 1000092485",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869001,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rCQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869001",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869001",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:16:09Z",
+   "name": "run (ripgrep, 1)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:05Z"
+    },
+    {
+     "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:16:05Z",
+     "completed_at": "2026-10-07T06:16:06Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:16:06Z",
+     "completed_at": "2026-10-07T06:16:06Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:16:06Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869001",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092495,
+   "runner_name": "GitHub Actions 1000092495",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869014,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rFg",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869014",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869014",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:16:09Z",
+   "name": "run (ripgrep, 4)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:08Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:16:08Z",
+     "completed_at": "2026-10-07T06:16:08Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:16:08Z",
+     "completed_at": "2026-10-07T06:16:08Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869014",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092486,
+   "runner_name": "GitHub Actions 1000092486",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869031,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rJw",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869031",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869031",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:59Z",
+   "name": "run (caddy, 1)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:34Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:34Z",
+     "completed_at": "2026-10-07T06:15:34Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:34Z",
+     "completed_at": "2026-10-07T06:15:34Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:34Z",
+     "completed_at": "2026-10-07T06:15:34Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:34Z",
+     "completed_at": "2026-10-07T06:15:35Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:35Z",
+     "completed_at": "2026-10-07T06:15:52Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:52Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:55Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:55Z",
+     "completed_at": "2026-10-07T06:15:56Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:56Z",
+     "completed_at": "2026-10-07T06:15:56Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869031",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092487,
+   "runner_name": "GitHub Actions 1000092487",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869035,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rKw",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869035",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869035",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:16:09Z",
+   "name": "run (ripgrep, 5)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:34Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:34Z",
+     "completed_at": "2026-10-07T06:15:38Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:38Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:04Z"
+    },
+    {
+     "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:16:04Z",
+     "completed_at": "2026-10-07T06:16:08Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:16:08Z",
+     "completed_at": "2026-10-07T06:16:08Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:16:08Z",
+     "completed_at": "2026-10-07T06:16:08Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869035",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092492,
+   "runner_name": "GitHub Actions 1000092492",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869062,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rRg",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869062",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869062",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:16:11Z",
+   "name": "run (ripgrep, 2)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:34Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:34Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:07Z"
+    },
+    {
+     "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:16:07Z",
+     "completed_at": "2026-10-07T06:16:09Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:16:09Z",
+     "completed_at": "2026-10-07T06:16:09Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:16:09Z",
+     "completed_at": "2026-10-07T06:16:09Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869062",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092499,
+   "runner_name": "GitHub Actions 1000092499",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869068,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rTA",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869068",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869068",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:16:08Z",
+   "name": "run (ripgrep, 3)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:35Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:35Z",
+     "completed_at": "2026-10-07T06:15:35Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:35Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:03Z"
+    },
+    {
+     "name": "Post Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:16:03Z",
+     "completed_at": "2026-10-07T06:16:06Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:16:06Z",
+     "completed_at": "2026-10-07T06:16:06Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:16:06Z",
+     "completed_at": "2026-10-07T06:16:06Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869068",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092490,
+   "runner_name": "GitHub Actions 1000092490",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869073,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rUQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869073",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869073",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:57Z",
+   "name": "run (caddy, 5)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:51Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:51Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:53Z",
+     "completed_at": "2026-10-07T06:15:53Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869073",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092491,
+   "runner_name": "GitHub Actions 1000092491",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869078,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rVg",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869078",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869078",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:53Z",
+   "name": "run (caddy, 2)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:51Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:51Z",
+     "completed_at": "2026-10-07T06:15:51Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:51Z",
+     "completed_at": "2026-10-07T06:15:51Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869078",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092498,
+   "runner_name": "GitHub Actions 1000092498",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869082,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rWg",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869082",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869082",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:52Z",
+   "name": "run (nextjs, 1)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:38Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:38Z",
+     "completed_at": "2026-10-07T06:15:39Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:39Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 27,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869082",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092489,
+   "runner_name": "GitHub Actions 1000092489",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869090,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rYg",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869090",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869090",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:47Z",
+   "name": "run (image, 1)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:38Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:38Z",
+     "completed_at": "2026-10-07T06:15:42Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:42Z",
+     "completed_at": "2026-10-07T06:15:42Z"
+    },
+    {
+     "name": "Post build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:42Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869090",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092488,
+   "runner_name": "GitHub Actions 1000092488",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869106,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rcg",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869106",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869106",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:48Z",
+   "name": "run (image, 2)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:39Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:39Z",
+     "completed_at": "2026-10-07T06:15:43Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:43Z",
+     "completed_at": "2026-10-07T06:15:43Z"
+    },
+    {
+     "name": "Post build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:43Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869106",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092494,
+   "runner_name": "GitHub Actions 1000092494",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869120,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rgA",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869120",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869120",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:48Z",
+   "name": "run (nextjs, 4)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:38Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:38Z",
+     "completed_at": "2026-10-07T06:15:38Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:38Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 27,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Post Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869120",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092493,
+   "runner_name": "GitHub Actions 1000092493",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869148,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rnA",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869148",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869148",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:48Z",
+   "name": "run (caddy, 4)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:43Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:43Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:46Z",
+     "completed_at": "2026-10-07T06:15:46Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869148",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092496,
+   "runner_name": "GitHub Actions 1000092496",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869157,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rpQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869157",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869157",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:46Z",
+   "name": "run (nextjs, 5)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 27,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:44Z"
+    },
+    {
+     "name": "Post Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:44Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869157",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092497,
+   "runner_name": "GitHub Actions 1000092497",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869165,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rrQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869165",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869165",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:50Z",
+   "name": "run (nextjs, 3)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:36Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:36Z",
+     "completed_at": "2026-10-07T06:15:36Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:36Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 27,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:48Z",
+     "completed_at": "2026-10-07T06:15:48Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869165",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092504,
+   "runner_name": "GitHub Actions 1000092504",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869178,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rug",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869178",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869178",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:42Z",
+   "name": "run (image, 4)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:29Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:29Z",
+     "completed_at": "2026-10-07T06:15:36Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:36Z",
+     "completed_at": "2026-10-07T06:15:39Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:39Z",
+     "completed_at": "2026-10-07T06:15:39Z"
+    },
+    {
+     "name": "Post build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:39Z",
+     "completed_at": "2026-10-07T06:15:40Z"
+    },
+    {
+     "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:40Z",
+     "completed_at": "2026-10-07T06:15:40Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:40Z",
+     "completed_at": "2026-10-07T06:15:40Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:41Z",
+     "completed_at": "2026-10-07T06:15:41Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869178",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092505,
+   "runner_name": "GitHub Actions 1000092505",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869185,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3rwQ",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869185",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869185",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:38Z",
+   "name": "run (image, 5)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:26Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:28Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:28Z",
+     "completed_at": "2026-10-07T06:15:33Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:33Z",
+     "completed_at": "2026-10-07T06:15:36Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:36Z",
+     "completed_at": "2026-10-07T06:15:36Z"
+    },
+    {
+     "name": "Post build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:36Z",
+     "completed_at": "2026-10-07T06:15:36Z"
+    },
+    {
+     "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:36Z",
+     "completed_at": "2026-10-07T06:15:37Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:37Z",
+     "completed_at": "2026-10-07T06:15:37Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:37Z",
+     "completed_at": "2026-10-07T06:15:37Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869185",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092502,
+   "runner_name": "GitHub Actions 1000092502",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869209,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3r2Q",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869209",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869209",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:52Z",
+   "name": "run (nextjs, 2)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:37Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:37Z",
+     "completed_at": "2026-10-07T06:15:37Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:37Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 27,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "Post Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "Post Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:49Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:49Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:50Z",
+     "completed_at": "2026-10-07T06:15:50Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869209",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092500,
+   "runner_name": "GitHub Actions 1000092500",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869217,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3r4Q",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869217",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869217",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:27Z",
+   "completed_at": "2026-10-07T06:15:59Z",
+   "name": "run (caddy, 3)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:32Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:32Z",
+     "completed_at": "2026-10-07T06:15:51Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:51Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:54Z",
+     "completed_at": "2026-10-07T06:15:54Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869217",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092503,
+   "runner_name": "GitHub Actions 1000092503",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  },
+  {
+   "id": 112658869225,
+   "run_id": 37580313288,
+   "workflow_name": "bench",
+   "head_branch": "main",
+   "run_url": "https://api.github.com/repos/SylphxAI/build-bench/actions/runs/37580313288",
+   "run_attempt": 1,
+   "node_id": "CR_kwDOU-5YF88AAAAaOv3r6Q",
+   "head_sha": "9d49b8c07ded7ed9546be58f5893d83e4fc9e9f0",
+   "url": "https://api.github.com/repos/SylphxAI/build-bench/actions/jobs/112658869225",
+   "html_url": "https://github.com/SylphxAI/build-bench/actions/runs/37580313288/job/112658869225",
+   "status": "completed",
+   "conclusion": "success",
+   "created_at": "2026-10-07T06:15:24Z",
+   "started_at": "2026-10-07T06:15:26Z",
+   "completed_at": "2026-10-07T06:15:50Z",
+   "name": "run (image, 3)",
+   "steps": [
+    {
+     "name": "Set up job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 1,
+     "started_at": "2026-10-07T06:15:27Z",
+     "completed_at": "2026-10-07T06:15:30Z"
+    },
+    {
+     "name": "Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 2,
+     "started_at": "2026-10-07T06:15:30Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 3,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 4,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build ripgrep",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 5,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "fetch caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 6,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 7,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build caddy",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 8,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 9,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 10,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 11,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "build nextjs",
+     "status": "completed",
+     "conclusion": "skipped",
+     "number": 12,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:31Z"
+    },
+    {
+     "name": "Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 13,
+     "started_at": "2026-10-07T06:15:31Z",
+     "completed_at": "2026-10-07T06:15:38Z"
+    },
+    {
+     "name": "build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 14,
+     "started_at": "2026-10-07T06:15:38Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "cache report",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 15,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:45Z"
+    },
+    {
+     "name": "Post build image",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 28,
+     "started_at": "2026-10-07T06:15:45Z",
+     "completed_at": "2026-10-07T06:15:47Z"
+    },
+    {
+     "name": "Post Run docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 29,
+     "started_at": "2026-10-07T06:15:47Z",
+     "completed_at": "2026-10-07T06:15:47Z"
+    },
+    {
+     "name": "Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 30,
+     "started_at": "2026-10-07T06:15:47Z",
+     "completed_at": "2026-10-07T06:15:47Z"
+    },
+    {
+     "name": "Complete job",
+     "status": "completed",
+     "conclusion": "success",
+     "number": 31,
+     "started_at": "2026-10-07T06:15:47Z",
+     "completed_at": "2026-10-07T06:15:47Z"
+    }
+   ],
+   "check_run_url": "https://api.github.com/repos/SylphxAI/build-bench/check-runs/112658869225",
+   "labels": [
+    "ubuntu-latest"
+   ],
+   "runner_id": 1000092501,
+   "runner_name": "GitHub Actions 1000092501",
+   "runner_group_id": 0,
+   "runner_group_name": "GitHub Actions"
+  }
+ ]
+}

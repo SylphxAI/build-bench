@@ -1,0 +1,7 @@
+1791356506.211292060	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-4t3fp3x8","region":"","size":"large","type":"queued"}
+1791356531.873501554	{"bytes":0,"bytes_up":0,"duration_ms":718,"files":0,"from_store":0,"full":false,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"warm"}
+1791356532.146889570	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-4t3fp3x8","region":"","size":"large","type":"running","volume":true,"workspace":"warm"}
+1791356533.644123845	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 0.74s\n","type":"stderr"}
+1791356533.665268641	{"data":"BENCH_SCCACHE Compile requests                      0\nBENCH_SCCACHE Compile requests executed             0\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                          0\nBENCH_SCCACHE Cache hits rate                       -\n","type":"stdout"}
+1791356533.677182141	{"data":"BENCH_CMD_SECONDS=0.804085\n","type":"stdout"}
+1791356534.557784264	{"bytes_down":10729,"bytes_up":0,"duration_ms":91715,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"warm"}

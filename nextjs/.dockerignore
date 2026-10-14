@@ -137,3 +137,6 @@ AGENTS.md
 *.gemini*
 *.openai*
 *.anthropic*
+
+# Sylphx Build workspaces link target/ into the tree; it is never build input.
+/target

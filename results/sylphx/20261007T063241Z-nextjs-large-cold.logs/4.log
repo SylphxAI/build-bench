@@ -1,0 +1,33 @@
+1791354859.537842227	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-pmfhfj79","region":"","size":"large","type":"queued"}
+1791354860.994544730	{"bytes":717941,"bytes_up":152739,"duration_ms":1345,"files":80,"from_store":0,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354861.504675022	{"cache":false,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-pmfhfj79","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354869.569382633	{"data":"BENCH_TOOL_SECONDS=7.73599\n","type":"stdout"}
+1791354870.140109995	{"data":"Lockfile is up to date, resolution step is skipped\n","type":"stdout"}
+1791354870.157840818	{"data":"Progress: resolved 1, reused 0, downloaded 0, added 0\n","type":"stdout"}
+1791354870.310266369	{"data":"Packages: +52\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n","type":"stdout"}
+1791354870.594178591	{"data":"\n   ╭─────────────────────────────────────────╮\n   │                                         │\n   │   Update available! 10.34.6 → 12.9.1.   │\n   │   Changelog: https://pnpm.io/v/12.9.1   │\n   │    To update, run: pnpm self-update     │\n   │                                         │\n   ╰─────────────────────────────────────────╯\n\n","type":"stdout"}
+1791354870.720676139	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 52, done\n","type":"stdout"}
+1791354870.813138981	{"data":"\ndependencies:\n+ next 16.1.4\n+ react 19.2.3\n+ react-dom 19.2.3\n\ndevDependencies:\n+ @tailwindcss/postcss 4.1.18\n+ @types/node 20.19.30\n+ @types/react 19.2.9\n+ @types/react-dom 19.2.3\n+ tailwindcss 4.1.18\n+ typescript 5.9.3\n\n","type":"stdout"}
+1791354870.836037728	{"data":"Done in 1.1s using pnpm v10.34.6\n","type":"stdout"}
+1791354871.216689690	{"data":"\n> @ build /workspace/tree/nextjs\n> next build\n\n","type":"stdout"}
+1791354872.800774467	{"data":"Attention: Next.js now collects completely anonymous telemetry regarding usage.\n","type":"stdout"}
+1791354872.802335469	{"data":"This information is used to shape Next.js' roadmap and prioritize features.\nYou can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\n","type":"stdout"}
+1791354872.803682911	{"data":"https://nextjs.org/telemetry\n","type":"stdout"}
+1791354872.804940117	{"data":"\n","type":"stdout"}
+1791354872.814371819	{"data":"▲ Next.js 16.1.4 (Turbopack)\n","type":"stdout"}
+1791354872.815619400	{"data":"\n","type":"stdout"}
+1791354872.860999359	{"data":"  Creating an optimized production build ...\n","type":"stdout"}
+1791354878.191882678	{"data":"✓ Compiled successfully in 4.9s\n","type":"stdout"}
+1791354878.204516443	{"data":"  Running TypeScript ...\n","type":"stdout"}
+1791354880.161926780	{"data":"  Collecting page data using 16 workers ...\n","type":"stdout"}
+1791354881.021270693	{"data":"  Generating static pages using 16 workers (0/4) ...\n","type":"stdout"}
+1791354881.310312412	{"data":"  Generating static pages using 16 workers (1/4) \r\n","type":"stdout"}
+1791354881.313428387	{"data":"  Generating static pages using 16 workers (2/4) \r\n","type":"stdout"}
+1791354881.316294588	{"data":"  Generating static pages using 16 workers (3/4) \r\n","type":"stdout"}
+1791354881.318065295	{"data":"✓ Generating static pages using 16 workers (4/4) in 290.4ms\n","type":"stdout"}
+1791354881.320753508	{"data":"  Finalizing page optimization ...\n","type":"stdout"}
+1791354882.416405198	{"data":"\n","type":"stdout"}
+1791354882.419833061	{"data":"Route (app)\n┌ ○ /\n└ ○ /_not-found\n\n\n","type":"stdout"}
+1791354882.423120273	{"data":"○  (Static)  prerendered as static content\n\n","type":"stdout"}
+1791354882.499311201	{"data":"BENCH_CMD_SECONDS=12.922\n","type":"stdout"}
+1791354883.551975302	{"bytes_down":3891,"bytes_up":152739,"duration_ms":31995,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

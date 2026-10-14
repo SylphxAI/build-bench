@@ -1,0 +1,37 @@
+1791354865.416265970	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-57qsdnpa","region":"","size":"large","type":"queued"}
+1791354867.963181883	{"bytes":3140085,"bytes_up":10187,"duration_ms":2409,"files":223,"from_store":222,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354868.385670858	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-57qsdnpa","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354869.723152581	{"data":"   Compiling memchr v2.8.3\n","type":"stderr"}
+1791354869.724519031	{"data":"   Compiling regex-syntax v0.8.11\n   Compiling libc v0.2.186\n   Compiling log v0.4.33\n","type":"stderr"}
+1791354869.725826052	{"data":"   Compiling serde_core v1.0.228\n","type":"stderr"}
+1791354869.727176508	{"data":"   Compiling zmij v1.0.23\n","type":"stderr"}
+1791354869.728444300	{"data":"   Compiling crossbeam-utils v0.8.22\n","type":"stderr"}
+1791354869.729752583	{"data":"   Compiling cfg-if v1.0.4\n","type":"stderr"}
+1791354869.731051312	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791354869.732289499	{"data":"   Compiling","type":"stderr"}
+1791354869.733598443	{"data":" crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791354869.734949681	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791354869.736269711	{"data":"   Compiling crossbeam-deque v0.8.7\n","type":"stderr"}
+1791354869.737604033	{"data":"   Compiling termcolor v1.4.1\n   Compiling itoa v1.0.18\n   Compiling same-file v1.0.6\n   Compiling anyhow v1.0.103\n","type":"stderr"}
+1791354870.067177056	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791354870.236744686	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791354870.280302420	{"data":"   Compiling textwrap v0.16.2\n","type":"stderr"}
+1791354870.283242411	{"data":"   Compiling lexopt v0.3.2\n","type":"stderr"}
+1791354870.358968662	{"data":"   Compiling aho-corasick v1.1.4\n","type":"stderr"}
+1791354870.360337726	{"data":"   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791354870.522754046	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791354871.464775669	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791354871.953446032	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791354872.899503721	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791354876.894445638	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791354877.662795022	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n","type":"stderr"}
+1791354877.664069485	{"data":"   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n","type":"stderr"}
+1791354877.666047533	{"data":"   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791354878.145191873	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791354878.577069844	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n","type":"stderr"}
+1791354878.580239470	{"data":"   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791354879.121898748	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791354882.989086101	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 13.99s\n","type":"stderr"}
+1791354883.015879552	{"data":"BENCH_SCCACHE Compile requests                      49\nBENCH_SCCACHE Compile requests executed             34\nBENCH_SCCACHE Cache hits                            33\nBENCH_SCCACHE Cache hits (Rust)                     33\nBENCH_SCCACHE Cache misses                           0\nBENCH_SCCACHE Cache hits rate                   100.00 %\nBENCH_SCCACHE Cache hits rate (Rust)            100.00 %\n","type":"stdout"}
+1791354883.017468736	{"data":"BENCH_CMD_SECONDS=14.0346\n","type":"stdout"}
+1791354883.759263018	{"bytes_down":3747,"bytes_up":10187,"duration_ms":25156,"exit_code":0,"from_store":222,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

@@ -1,0 +1,40 @@
+1791355008.891458067	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-z49kycq4","region":"","size":"large","type":"queued"}
+1791355021.729677952	sylphx: warning: build store: 130 files could not be fetched from it; sending those files directly
+1791355023.042589608	{"bytes":3140085,"bytes_up":596686,"duration_ms":13539,"files":223,"from_store":92,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791355023.411270648	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-z49kycq4","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791355025.665072107	{"data":"   Compiling memchr v2.8.3\n   Compiling regex-syntax v0.8.11\n   Compiling libc v0.2.186\n","type":"stderr"}
+1791355025.666395853	{"data":"   Compiling log v0.4.33\n","type":"stderr"}
+1791355025.667756455	{"data":"   Compiling serde_core v1.0.228\n   Compiling zmij v1.0.23\n","type":"stderr"}
+1791355025.669015774	{"data":"   Compiling crossbeam-utils v0.8.22\n","type":"stderr"}
+1791355025.670251638	{"data":"   Compiling cfg-if v1.0.4\n","type":"stderr"}
+1791355025.671557117	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791355025.672925931	{"data":"   Compiling crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791355025.674242175	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791355025.675436638	{"data":"   Compiling crossbeam-deque v0.8.7\n","type":"stderr"}
+1791355025.676777830	{"data":"   Compiling termcolor v1.4.1\n","type":"stderr"}
+1791355025.678127615	{"data":"   Compiling itoa v1.0.18\n","type":"stderr"}
+1791355025.679385503	{"data":"   Compiling anyhow v1.0.103\n","type":"stderr"}
+1791355025.680581197	{"data":"   Compiling same-file v1.0.6\n","type":"stderr"}
+1791355026.053575508	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791355026.106999876	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791355026.210104825	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791355026.211463454	{"data":"   Compiling","type":"stderr"}
+1791355026.213087270	{"data":" textwrap v0.16.2\n","type":"stderr"}
+1791355026.219305610	{"data":"   Compiling lexopt v0.3.2\n","type":"stderr"}
+1791355027.763179372	{"data":"   Compiling aho-corasick v1.1.4\n","type":"stderr"}
+1791355027.980199299	{"data":"   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791355030.711753889	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791355033.242349030	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791355033.339499214	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791355037.460686021	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791355038.515773327	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n","type":"stderr"}
+1791355038.517886727	{"data":"   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n","type":"stderr"}
+1791355038.520481941	{"data":"   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791355039.285843091	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791355039.747806441	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n","type":"stderr"}
+1791355039.749886803	{"data":"   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791355040.252636970	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791355044.761207349	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 19.74s\n","type":"stderr"}
+1791355044.774676999	{"data":"BENCH_SCCACHE Compile requests                     49\nBENCH_SCCACHE Compile requests executed            34\nBENCH_SCCACHE Cache hits                           14\nBENCH_SCCACHE Cache hits (Rust)                    14\nBENCH_SCCACHE Cache misses                         19\nBENCH_SCCACHE Cache misses (Rust)                  19\nBENCH_SCCACHE Cache hits rate                   42.42 %\nBENCH_SCCACHE Cache hits rate (Rust)            42.42 %\n","type":"stdout"}
+1791355044.787384154	{"data":"BENCH_CMD_SECONDS=19.7928\n","type":"stdout"}
+1791355045.365899050	{"bytes_down":3889,"bytes_up":596686,"duration_ms":43958,"exit_code":0,"from_store":92,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

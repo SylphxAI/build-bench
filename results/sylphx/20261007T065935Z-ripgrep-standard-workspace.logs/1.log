@@ -1,0 +1,7 @@
+1791356447.130790782	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-kv270j3p","region":"","size":"standard","type":"queued"}
+1791356447.699407982	{"bytes":0,"bytes_up":0,"duration_ms":412,"files":0,"from_store":0,"full":false,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"warm"}
+1791356447.948048021	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-kv270j3p","region":"","size":"standard","type":"running","volume":true,"workspace":"warm"}
+1791356448.660389686	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 0.14s\n","type":"stderr"}
+1791356448.671287042	{"data":"BENCH_SCCACHE Compile requests                      0\nBENCH_SCCACHE Compile requests executed             0\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                          0\nBENCH_SCCACHE Cache hits rate                       -\n","type":"stdout"}
+1791356448.681819890	{"data":"BENCH_CMD_SECONDS=0.185804\n","type":"stdout"}
+1791356449.287136146	{"bytes_down":10797,"bytes_up":0,"duration_ms":62725,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"warm"}

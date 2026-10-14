@@ -1,0 +1,40 @@
+1791354532.365795619	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-e7n5z37m","region":"","size":"standard","type":"queued"}
+1791354534.910305249	{"bytes":3140085,"bytes_up":860951,"duration_ms":2459,"files":223,"from_store":0,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354535.283334977	{"cache":false,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-e7n5z37m","region":"","size":"standard","type":"running","volume":true,"workspace":"cold"}
+1791354536.427123120	{"data":"   Compiling memchr v2.8.3\n","type":"stderr"}
+1791354536.429485675	{"data":"   Compiling regex-syntax v0.8.11\n","type":"stderr"}
+1791354536.431020247	{"data":"   Compiling libc v0.2.186\n","type":"stderr"}
+1791354536.432821840	{"data":"   Compiling log v0.4.33\n   Compiling serde_core v1.0.228\n   Compiling cfg-if v1.0.4\n   Compiling crossbeam-utils v0.8.22\n","type":"stderr"}
+1791354536.434017794	{"data":"   Compiling zmij v1.0.23\n","type":"stderr"}
+1791354536.642159232	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791354536.881474423	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791354536.931145120	{"data":"   Compiling crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791354536.954837198	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791354537.549514157	{"data":"   Compiling","type":"stderr"}
+1791354537.550801098	{"data":" crossbeam-deque v0.8.7\n","type":"stderr"}
+1791354537.905936077	{"data":"   Compiling itoa v1.0.18\n","type":"stderr"}
+1791354537.936709058	{"data":"   Compiling aho-corasick v1.1.4\n","type":"stderr"}
+1791354538.030676228	{"data":"   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791354538.433182683	{"data":"   Compiling termcolor v1.4.1\n","type":"stderr"}
+1791354538.437417888	{"data":"   Compiling same-file v1.0.6\n","type":"stderr"}
+1791354538.601209973	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791354538.795280969	{"data":"   Compiling","type":"stderr"}
+1791354538.796690163	{"data":" anyhow v1.0.103\n","type":"stderr"}
+1791354539.067497306	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791354539.430058416	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791354539.816318084	{"data":"   Compiling textwrap v0.16.2\n","type":"stderr"}
+1791354539.878111300	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791354540.583511470	{"data":"   Compiling","type":"stderr"}
+1791354540.585547254	{"data":" lexopt v0.3.2\n","type":"stderr"}
+1791354541.830249008	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791354545.915930599	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791354546.929392117	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n","type":"stderr"}
+1791354546.930825918	{"data":"   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791354547.463087569	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791354548.020803933	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n","type":"stderr"}
+1791354548.024213349	{"data":"   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791354548.597487936	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791354552.858615456	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 17.14s\n","type":"stderr"}
+1791354552.868849311	{"data":"BENCH_SCCACHE Compile requests                     49\nBENCH_SCCACHE Compile requests executed            34\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                         33\nBENCH_SCCACHE Cache misses (Rust)                  33\nBENCH_SCCACHE Cache hits rate                    0.00 %\nBENCH_SCCACHE Cache hits rate (Rust)             0.00 %\n","type":"stdout"}
+1791354552.876177216	{"data":"BENCH_CMD_SECONDS=17.1825\n","type":"stdout"}
+1791354553.938642600	{"bytes_down":3857,"bytes_up":860951,"duration_ms":27245,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

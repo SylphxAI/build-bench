@@ -1,0 +1,67 @@
+1791356421.827421728	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-55whrkqn","region":"","size":"large","type":"queued"}
+1791356425.275239370	{"bytes":3140085,"bytes_up":21815,"duration_ms":3306,"files":223,"from_store":222,"full":true,"new_volume":true,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791356425.877781400	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-55whrkqn","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791356427.198271189	{"data":"    Updating `sylphx-mirror` index\n","type":"stderr"}
+1791356429.996834763	{"data":" Downloading crates ...\n","type":"stderr"}
+1791356430.060058742	{"data":"  Downloaded anyhow v1.0.103 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.125808972	{"data":"  Downloaded crossbeam-deque v0.8.7 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.128677235	{"data":"  Downloaded aho-corasick v1.1.4 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.193234725	{"data":"  Downloaded encoding_rs_io v0.1.7 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.238284236	{"data":"  Downloaded libc v0.2.186 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.378412476	{"data":"  Downloaded regex-automata v0.4.15 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.391787587	{"data":"  Downloaded serde_json v1.0.150 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.445297607	{"data":"  Downloaded crossbeam-epoch v0.9.20 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.457313510	{"data":"  Downloaded zmij v1.0.23 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.508981959	{"data":"  Downloaded lexopt v0.3.2 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.552948595	{"data":"  Downloaded regex-syntax v0.8.11 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.572542083	{"data":"  Downloaded textwrap v0.16.2 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.583098377	{"data":"  Downloaded cfg-if v1.0.4 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.644103980	{"data":"  Downloaded log v0.4.33 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.670851679	{"data":"  Downloaded serde v1.0.228 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.707716313	{"data":"  Downloaded crossbeam-utils v0.8.22 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.738800487	{"data":"  Downloaded termcolor v1.4.1 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.767412422	{"data":"  Downloaded memchr v2.8.3 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.791215034	{"data":"  Downloaded walkdir v2.5.0 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.810960110	{"data":"  Downloaded memmap2 v0.9.11 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.838318115	{"data":"  Downloaded itoa v1.0.18 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.904423167	{"data":"  Downloaded serde_core v1.0.228 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356430.970450983	{"data":"  Downloaded bstr v1.13.0 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356431.040657947	{"data":"  Downloaded same-file v1.0.6 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356431.558420126	{"data":"  Downloaded encoding_rs v0.8.35 (registry `sylphx-mirror`)\n","type":"stderr"}
+1791356431.877557835	{"data":"   Compiling memchr v2.8.3\n","type":"stderr"}
+1791356431.880482992	{"data":"   Compiling regex-syntax v0.8.11\n","type":"stderr"}
+1791356431.883228500	{"data":"   Compiling libc v0.2.186\n","type":"stderr"}
+1791356431.885844745	{"data":"   Compiling log v0.4.33\n","type":"stderr"}
+1791356431.887786007	{"data":"   Compiling serde_core v1.0.228\n","type":"stderr"}
+1791356431.889048750	{"data":"   Compiling zmij v1.0.23\n","type":"stderr"}
+1791356431.891165756	{"data":"   Compiling crossbeam-utils v0.8.22\n","type":"stderr"}
+1791356431.893487358	{"data":"   Compiling cfg-if v1.0.4\n","type":"stderr"}
+1791356431.895908539	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791356431.898792756	{"data":"   Compiling crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791356431.901509411	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791356431.903750722	{"data":"   Compiling crossbeam-deque v0.8.7\n","type":"stderr"}
+1791356431.905138083	{"data":"   Compiling itoa v1.0.18\n","type":"stderr"}
+1791356431.906329280	{"data":"   Compiling termcolor v1.4.1\n","type":"stderr"}
+1791356431.908001958	{"data":"   Compiling same-file v1.0.6\n","type":"stderr"}
+1791356431.910221628	{"data":"   Compiling anyhow v1.0.103\n","type":"stderr"}
+1791356432.273772453	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791356432.275629218	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791356432.299185631	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791356432.330947040	{"data":"   Compiling textwrap v0.16.2\n","type":"stderr"}
+1791356432.413686793	{"data":"   Compiling lexopt v0.3.2\n","type":"stderr"}
+1791356432.710782981	{"data":"   Compiling aho-corasick v1.1.4\n","type":"stderr"}
+1791356432.713193356	{"data":"   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791356433.273526639	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791356433.959359029	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791356434.716029671	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791356435.542208018	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791356436.338043965	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n","type":"stderr"}
+1791356436.339475972	{"data":"   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791356436.737924221	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791356436.759389097	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n","type":"stderr"}
+1791356436.760885231	{"data":"   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791356437.174259628	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791356441.805772000	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 15.26s\n","type":"stderr"}
+1791356441.833187772	{"data":"BENCH_SCCACHE Compile requests                      49\nBENCH_SCCACHE Compile requests executed             34\nBENCH_SCCACHE Cache hits                            33\nBENCH_SCCACHE Cache hits (Rust)                     33\nBENCH_SCCACHE Cache misses                           0\nBENCH_SCCACHE Cache hits rate                   100.00 %\nBENCH_SCCACHE Cache hits rate (Rust)            100.00 %\n","type":"stdout"}
+1791356441.845229212	{"data":"BENCH_CMD_SECONDS=15.3287\n","type":"stdout"}
+1791356442.756212943	{"bytes_down":6881,"bytes_up":21815,"duration_ms":67254,"exit_code":0,"from_store":222,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

@@ -1,0 +1,6 @@
+prime (ripgrep)	rust=false go= pnpm= next="
+run (ripgrep, 1)	rust=false go= pnpm= next="
+run (ripgrep, 2)	rust=true go= pnpm= next="
+run (ripgrep, 3)	rust=true go= pnpm= next="
+run (ripgrep, 4)	rust=true go= pnpm= next="
+run (ripgrep, 5)	rust=true go= pnpm= next="

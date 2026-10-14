@@ -1,0 +1,38 @@
+1791354838.577946426	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-x1jcdc36","region":"","size":"large","type":"queued"}
+1791354839.836786326	{"bytes":3140085,"bytes_up":860951,"duration_ms":1108,"files":223,"from_store":0,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354840.096390287	{"cache":false,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-x1jcdc36","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354841.307490106	{"data":"   Compiling memchr v2.8.3\n","type":"stderr"}
+1791354841.308918970	{"data":"   Compiling regex-syntax v0.8.11\n","type":"stderr"}
+1791354841.310297148	{"data":"   Compiling libc v0.2.186\n   Compiling log v0.4.33\n","type":"stderr"}
+1791354841.311652291	{"data":"   Compiling serde_core v1.0.228\n","type":"stderr"}
+1791354841.312962096	{"data":"   Compiling zmij v1.0.23\n","type":"stderr"}
+1791354841.314267335	{"data":"   Compiling cfg-if v1.0.4\n","type":"stderr"}
+1791354841.315621446	{"data":"   Compiling crossbeam-utils v0.8.22\n","type":"stderr"}
+1791354841.316975338	{"data":"   Compiling serde v1.0.228\n","type":"stderr"}
+1791354841.318255078	{"data":"   Compiling serde_json v1.0.150\n","type":"stderr"}
+1791354841.319608969	{"data":"   Compiling crossbeam-epoch v0.9.20\n","type":"stderr"}
+1791354841.320936271	{"data":"   Compiling crossbeam-deque v0.8.7\n","type":"stderr"}
+1791354841.322264824	{"data":"   Compiling termcolor v1.4.1\n","type":"stderr"}
+1791354841.323606558	{"data":"   Compiling itoa v1.0.18\n","type":"stderr"}
+1791354841.327407430	{"data":"   Compiling same-file v1.0.6\n","type":"stderr"}
+1791354841.328753310	{"data":"   Compiling anyhow v1.0.103\n","type":"stderr"}
+1791354841.733002407	{"data":"   Compiling encoding_rs v0.8.35\n","type":"stderr"}
+1791354841.791128209	{"data":"   Compiling ripgrep v15.2.0 (/workspace/tree)\n","type":"stderr"}
+1791354841.797372428	{"data":"   Compiling textwrap v0.16.2\n","type":"stderr"}
+1791354841.800758719	{"data":"   Compiling lexopt v0.3.2\n","type":"stderr"}
+1791354842.203969939	{"data":"   Compiling walkdir v2.5.0\n","type":"stderr"}
+1791354843.195871402	{"data":"   Compiling aho-corasick v1.1.4\n   Compiling grep-matcher v0.1.9 (/workspace/tree/crates/matcher)\n","type":"stderr"}
+1791354843.771055291	{"data":"   Compiling memmap2 v0.9.11\n","type":"stderr"}
+1791354844.262113146	{"data":"   Compiling encoding_rs_io v0.1.7\n","type":"stderr"}
+1791354846.156108375	{"data":"   Compiling regex-automata v0.4.15\n","type":"stderr"}
+1791354850.808992563	{"data":"   Compiling bstr v1.13.0\n","type":"stderr"}
+1791354851.780143923	{"data":"   Compiling globset v0.4.19 (/workspace/tree/crates/globset)\n","type":"stderr"}
+1791354851.783623774	{"data":"   Compiling grep-searcher v0.1.17 (/workspace/tree/crates/searcher)\n","type":"stderr"}
+1791354851.786648753	{"data":"   Compiling grep-regex v0.1.14 (/workspace/tree/crates/regex)\n","type":"stderr"}
+1791354852.424431645	{"data":"   Compiling grep-printer v0.3.1 (/workspace/tree/crates/printer)\n","type":"stderr"}
+1791354852.836354717	{"data":"   Compiling grep-cli v0.1.12 (/workspace/tree/crates/cli)\n   Compiling ignore v0.4.29 (/workspace/tree/crates/ignore)\n","type":"stderr"}
+1791354853.485227698	{"data":"   Compiling grep v0.4.1 (/workspace/tree/crates/grep)\n","type":"stderr"}
+1791354857.717045035	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 17.25s\n","type":"stderr"}
+1791354857.730881166	{"data":"BENCH_SCCACHE Compile requests                     49\nBENCH_SCCACHE Compile requests executed            34\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                         33\nBENCH_SCCACHE Cache misses (Rust)                  33\nBENCH_SCCACHE Cache hits rate                    0.00 %\nBENCH_SCCACHE Cache hits rate (Rust)             0.00 %\n","type":"stdout"}
+1791354857.741326278	{"data":"BENCH_CMD_SECONDS=17.3072\n","type":"stdout"}
+1791354858.461453349	{"bytes_down":3787,"bytes_up":860951,"duration_ms":27410,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

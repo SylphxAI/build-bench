@@ -1,0 +1,7 @@
+1791356594.908649087	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-tc1t0y59","region":"","size":"large","type":"queued"}
+1791356596.132068454	{"bytes":0,"bytes_up":0,"duration_ms":864,"files":0,"from_store":0,"full":false,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"warm"}
+1791356596.651738607	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-tc1t0y59","region":"","size":"large","type":"running","volume":true,"workspace":"warm"}
+1791356598.588524103	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 0.99s\n","type":"stderr"}
+1791356598.604311093	{"data":"BENCH_SCCACHE Compile requests                      0\nBENCH_SCCACHE Compile requests executed             0\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                          0\nBENCH_SCCACHE Cache hits rate                       -\n","type":"stdout"}
+1791356598.615553796	{"data":"BENCH_CMD_SECONDS=1.04591\n","type":"stdout"}
+1791356599.344620896	{"bytes_down":10729,"bytes_up":0,"duration_ms":28554,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"warm"}

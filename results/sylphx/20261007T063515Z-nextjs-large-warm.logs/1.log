@@ -1,0 +1,34 @@
+1791354958.538822397	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-p7ynrfht","region":"","size":"large","type":"queued"}
+1791354961.863767134	sylphx: warning: build store: 54 files could not be fetched from it; sending those files directly
+1791354963.718482344	{"bytes":789148,"bytes_up":147521,"duration_ms":5029,"files":91,"from_store":37,"full":true,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"cold"}
+1791354964.748093857	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-p7ynrfht","region":"","size":"large","type":"running","volume":true,"workspace":"cold"}
+1791354980.911866456	{"data":"BENCH_TOOL_SECONDS=14.6119\n","type":"stdout"}
+1791354981.387350384	{"data":"Lockfile is up to date, resolution step is skipped\n","type":"stdout"}
+1791354981.403976710	{"data":"Progress: resolved 1, reused 0, downloaded 0, added 0\n","type":"stdout"}
+1791354981.456912265	{"data":"Packages: +52\n++++++++++++++++++++++++++++++++++++++++++++++++++++\n","type":"stdout"}
+1791354981.669354644	{"data":"\n   ╭─────────────────────────────────────────╮\n   │                                         │\n   │   Update available! 10.34.6 → 12.9.1.   │\n   │   Changelog: https://pnpm.io/v/12.9.1   │\n   │    To update, run: pnpm self-update     │\n   │                                         │\n   ╰─────────────────────────────────────────╯\n\n","type":"stdout"}
+1791354982.404299096	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 51\n","type":"stdout"}
+1791354982.449998444	{"data":"Progress: resolved 52, reused 52, downloaded 0, added 52, done\n","type":"stdout"}
+1791354982.547859965	{"data":"\ndependencies:\n+ next 16.1.4\n+ react 19.2.3\n+ react-dom 19.2.3\n\ndevDependencies:\n+ @tailwindcss/postcss 4.1.18\n+ @types/node 20.19.30\n+ @types/react 19.2.9\n+ @types/react-dom 19.2.3\n+ tailwindcss 4.1.18\n+ typescript 5.9.3\n\n","type":"stdout"}
+1791354982.571565593	{"data":"Done in 1.6s using pnpm v10.34.6\n","type":"stdout"}
+1791354982.947464734	{"data":"\n> @ build /workspace/tree/nextjs\n> next build\n\n","type":"stdout"}
+1791354984.184940285	{"data":"Attention: Next.js now collects completely anonymous telemetry regarding usage.\n","type":"stdout"}
+1791354984.188760237	{"data":"This information is used to shape Next.js' roadmap and prioritize features.\nYou can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\nhttps://nextjs.org/telemetry\n","type":"stdout"}
+1791354984.190826507	{"data":"\n","type":"stdout"}
+1791354984.193854700	{"data":"▲ Next.js 16.1.4 (Turbopack)\n","type":"stdout"}
+1791354984.195149843	{"data":"\n","type":"stdout"}
+1791354984.232488667	{"data":"  Creating an optimized production build ...\n","type":"stdout"}
+1791354990.501741250	{"data":"✓ Compiled successfully in 5.1s\n","type":"stdout"}
+1791354990.519964332	{"data":"  Running TypeScript ...\n","type":"stdout"}
+1791354992.587494730	{"data":"  Collecting page data using 16 workers ...\n","type":"stdout"}
+1791354993.367898359	{"data":"  Generating static pages using 16 workers (0/4) ...\n","type":"stdout"}
+1791354993.653254439	{"data":"  Generating static pages using 16 workers (1/4) \r\n","type":"stdout"}
+1791354993.654704184	{"data":"  Generating static pages using 16 workers (2/4) \r\n","type":"stdout"}
+1791354993.656092186	{"data":"  Generating static pages using 16 workers (3/4) \r\n","type":"stdout"}
+1791354993.657495772	{"data":"✓ Generating static pages using 16 workers (4/4) in 287.7ms\n","type":"stdout"}
+1791354993.669692011	{"data":"  Finalizing page optimization ...\n","type":"stdout"}
+1791354994.432440020	{"data":"\n","type":"stdout"}
+1791354994.435194864	{"data":"Route (app)\n┌ ○ /\n└ ○ /_not-found\n\n\n","type":"stdout"}
+1791354994.436656758	{"data":"○  (Static)  prerendered as static content\n\n","type":"stdout"}
+1791354994.513971030	{"data":"BENCH_CMD_SECONDS=13.587\n","type":"stdout"}
+1791354995.696668473	{"bytes_down":3974,"bytes_up":147521,"duration_ms":44697,"exit_code":0,"from_store":37,"outcome":"succeeded","retryable":false,"type":"result","workspace":"cold"}

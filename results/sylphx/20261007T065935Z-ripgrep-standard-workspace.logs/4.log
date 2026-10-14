@@ -1,0 +1,7 @@
+1791356554.032237556	{"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-g43fxx0t","region":"","size":"standard","type":"queued"}
+1791356554.980481623	{"bytes":0,"bytes_up":0,"duration_ms":822,"files":0,"from_store":0,"full":false,"new_volume":false,"removed":0,"type":"sync","volume":true,"workspace":"warm"}
+1791356555.223759557	{"cache":true,"lease":"orgs/ORG/projects/PROJECT/envs/ENV/leases/sbx-g43fxx0t","region":"","size":"standard","type":"running","volume":true,"workspace":"warm"}
+1791356556.023306035	{"data":"    Finished `release` profile [optimized + debuginfo] target(s) in 0.12s\n","type":"stderr"}
+1791356556.035580726	{"data":"BENCH_SCCACHE Compile requests                      0\nBENCH_SCCACHE Compile requests executed             0\nBENCH_SCCACHE Cache hits                            0\nBENCH_SCCACHE Cache misses                          0\nBENCH_SCCACHE Cache hits rate                       -\n","type":"stdout"}
+1791356556.052348377	{"data":"BENCH_CMD_SECONDS=0.173286\n","type":"stdout"}
+1791356556.599636200	{"bytes_down":10804,"bytes_up":0,"duration_ms":57167,"exit_code":0,"from_store":0,"outcome":"succeeded","retryable":false,"type":"result","workspace":"warm"}
