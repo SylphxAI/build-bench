@@ -68,19 +68,16 @@ jobs:
         with:
           persist-credentials: false
 
-      # The pinned packageManager is the only pnpm on the runner, and Node 24
-      # is the version bench.yml builds under.
+      # The same pnpm and Node that bench.yml builds `nextjs/` with: pnpm
+      # comes from the pinned `packageManager` in nextjs/package.json.
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          package_json_file: nextjs/package.json
+
       - id: setupnode
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "24"
-
-      - name: pnpm from packageManager
-        run: |
-          set -euo pipefail
-          corepack enable
-          corepack install
-          pnpm --version
 
       - name: Install
         working-directory: nextjs
