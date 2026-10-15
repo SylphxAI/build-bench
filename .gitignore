@@ -2,3 +2,8 @@
 node_modules/
 .next/
 .sylphx/
+# The gate compiles scripts/ (python3 -m compileall) and builds nextjs/.
+__pycache__/
+*.pyc
+nextjs/.next/
+nextjs/node_modules/

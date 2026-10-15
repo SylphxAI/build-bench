@@ -1,0 +1,115 @@
+# The required gate of this repository: one check, `ci-ok`, on every pull
+# request and merge-queue group, so a change to the benchmark scripts or the
+# Next.js example is built before it lands. `bench.yml` is dispatch-only (it
+# times pinned upstream commits), so it never reports on a change here and
+# cannot be the required check.
+#
+# `ci-ok` is the job's `name:`, not its job id: GitHub resolves the required
+# context from the job name. Self-hosted runners only; the SylphxAI
+# organization has no GitHub-hosted allocation.
+name: CI
+
+on:
+  pull_request:
+  merge_group:
+  # The post-merge run on main re-proves what landed and writes the compile
+  # cache a pull request and the queue read.
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  # The merge pool serves merge_queue jobs only, at ship priority; a pull
+  # request and a push use the plain pool.
+  scripts:
+    name: scripts
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Shell syntax
+        run: |
+          set -euo pipefail
+          for f in scripts/*.sh; do bash -n "$f"; echo "ok: $f"; done
+
+      # scripts/report.py turns the raw runs in results/ into the README's
+      # tables, and scripts/github-fetch.sh embeds a second program that reads
+      # the jobs API answer: both are compiled here.
+      - name: Python compiles
+        run: |
+          set -euo pipefail
+          python3 -m compileall -q scripts
+
+      # The tables the README carries, printed from the raw runs in results/.
+      - name: report.py prints the tables
+        run: |
+          set -euo pipefail
+          python3 scripts/report.py | head -20
+
+  # `nextjs/` is the upstream example this benchmark builds; the gate builds
+  # it exactly as `bench.yml` does (`pnpm install --frozen-lockfile && pnpm
+  # build`), so a broken example fails before it lands.
+  nextjs:
+    name: nextjs
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      # The pinned packageManager is the only pnpm on the runner, and Node 24
+      # is the version bench.yml builds under.
+      - id: setupnode
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "24"
+
+      - name: pnpm from packageManager
+        run: |
+          set -euo pipefail
+          corepack enable
+          corepack install
+          pnpm --version
+
+      - name: Install
+        working-directory: nextjs
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        working-directory: nextjs
+        run: pnpm build
+
+  # The one check the default branch marks required: it succeeds only when
+  # every job above succeeded or was deliberately skipped. It runs on the
+  # reserved control pool, so it never waits behind a build for a runner.
+  ci-ok:
+    name: ci-ok
+    if: always()
+    needs: [scripts, nextjs]
+    runs-on: sylphx-linux-control
+    timeout-minutes: 3
+    steps:
+      - name: Every job succeeded or was skipped
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          needs = json.loads(os.environ["NEEDS"])
+          failed = {job: v["result"] for job, v in needs.items() if v["result"] not in ("success", "skipped")}
+          for job, v in sorted(needs.items()):
+              print(f"{job}: {v['result']}")
+          if failed:
+              sys.exit(f"ci-ok: not green: {failed}")
+          PY
