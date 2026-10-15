@@ -51,10 +51,15 @@ jobs:
           python3 -m compileall -q scripts
 
       # The tables the README carries, printed from the raw runs in results/.
+      # `head` is not used: it closes the pipe and Python exits 120 on the
+      # broken write. The summary is bounded by the script itself.
       - name: report.py prints the tables
         run: |
           set -euo pipefail
-          python3 scripts/report.py | head -20
+          python3 scripts/report.py > "$RUNNER_TEMP/tables.md"
+          wc -l < "$RUNNER_TEMP/tables.md"
+          head -20 "$RUNNER_TEMP/tables.md"
+          grep -q '^| Target | Cache | Runner |' "$RUNNER_TEMP/tables.md"
 
   # `nextjs/` is the upstream example this benchmark builds; the gate builds
   # it exactly as `bench.yml` does (`pnpm install --frozen-lockfile && pnpm
