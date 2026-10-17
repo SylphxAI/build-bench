@@ -29,6 +29,16 @@ wall time and not in the command time; each run records it as `toolchain`.
 - **Sylphx Build**: `sylphx build run` on a `standard` (8 vCPU) and a `large`
   (16 vCPU) build machine, [`scripts/sylphx-bench.sh`](scripts/sylphx-bench.sh).
 
+## Gate
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every pull
+request and merge-queue group and publishes the required check `ci-ok`: it
+syntax-checks and compiles `scripts/`, prints the README's tables with
+`scripts/report.py`, and builds `nextjs/` exactly as `bench.yml` does
+(`pnpm install --frozen-lockfile && pnpm build`). `bench.yml` is
+dispatch-only — it times pinned upstream commits — so it reports on nothing
+here and cannot be the required check.
+
 ## Cache states
 
 | State | GitHub | Sylphx Build |
