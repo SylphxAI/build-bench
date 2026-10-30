@@ -102,6 +102,9 @@ the targets it names; older raw files remain available.
 
 ## Running it
 
+The separate [per-operation simulator transport](scripts/simulator-transport.md)
+keeps private simulator inputs and results encrypted on this public repository.
+
 ```sh
 # GitHub side: one workflow run per cache state
 gh workflow run bench.yml -f cache=cold
