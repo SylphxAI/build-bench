@@ -98,21 +98,28 @@ jobs:
   # reserved control pool, so it never waits behind a build for a runner.
   ci-ok:
     name: ci-ok
-    if: always()
+    if: ${{ always() }}
     needs: [scripts, nextjs]
     runs-on: sylphx-linux-control
     timeout-minutes: 3
     steps:
-      - name: Every job succeeded or was skipped
+      - name: Require every selected job to succeed
         env:
           NEEDS: ${{ toJSON(needs) }}
+          REQUIRED: scripts,nextjs
         run: |
           python3 - <<'PY'
           import json, os, sys
           needs = json.loads(os.environ["NEEDS"])
-          failed = {job: v["result"] for job, v in needs.items() if v["result"] not in ("success", "skipped")}
-          for job, v in sorted(needs.items()):
-              print(f"{job}: {v['result']}")
+          required = {job.strip() for job in os.environ["REQUIRED"].split(",") if job.strip()}
+          if not isinstance(needs, dict) or not needs or not required:
+              sys.exit("ci-ok: needs and required jobs must be nonempty")
+          failed = {job: "absent" for job in required - needs.keys()}
+          for job, value in sorted(needs.items()):
+              result = value.get("result") if isinstance(value, dict) else None
+              print(f"{job}: {result}")
+              if result not in ("success", "skipped") or (job in required and result != "success"):
+                  failed[job] = result or "absent"
           if failed:
-              sys.exit(f"ci-ok: not green: {failed}")
+              sys.exit(f"ci-ok: required jobs did not succeed: {failed}")
           PY
