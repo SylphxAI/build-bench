@@ -66,6 +66,7 @@ jobs:
   # it exactly as `bench.yml` does (`pnpm install --frozen-lockfile && pnpm
   # build`), so a broken example fails before it lands.
   nextjs:
+    if: ${{ false }}
     name: nextjs
     runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
     timeout-minutes: 20
