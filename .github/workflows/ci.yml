@@ -66,7 +66,6 @@ jobs:
   # it exactly as `bench.yml` does (`pnpm install --frozen-lockfile && pnpm
   # build`), so a broken example fails before it lands.
   nextjs:
-    if: ${{ false }}
     name: nextjs
     runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
     timeout-minutes: 20
@@ -95,7 +94,7 @@ jobs:
         run: pnpm build
 
   # The one check the default branch marks required: it succeeds only when
-  # every job above succeeded or was deliberately skipped. It runs on the
+  # every job above succeeded. It runs on the
   # reserved control pool, so it never waits behind a build for a runner.
   ci-ok:
     name: ci-ok
