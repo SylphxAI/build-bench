@@ -1,0 +1,36 @@
+name: Encrypted simulator validation
+on:
+  workflow_dispatch:
+    inputs:
+      payload_url:
+        description: HTTPS URL of authenticated ciphertext
+        required: true
+      payload_sha256:
+        description: SHA256 of ciphertext
+        required: true
+permissions:
+  contents: read
+jobs:
+  validate:
+    if: ${{ !github.event.repository.private }}
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Run authenticated private payload
+        env:
+          SIMULATOR_ENVELOPE_KEY: ${{ secrets.SIMULATOR_ENVELOPE_KEY }}
+          PAYLOAD_URL: ${{ inputs.payload_url }}
+          PAYLOAD_SHA256: ${{ inputs.payload_sha256 }}
+        run: |
+          export OPENSSL_BIN="$(brew --prefix openssl@3)/bin/openssl"
+          python3 scripts/simulator_envelope.py receive "$PAYLOAD_URL" "$PAYLOAD_SHA256" "$RUNNER_TEMP/simulator-envelope"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: simulator-results-${{ github.run_id }}
+          path: ${{ runner.temp }}/simulator-envelope/results.enc
+          retention-days: 1
+          if-no-files-found: error
