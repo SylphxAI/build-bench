@@ -1,0 +1,35 @@
+name: Metal simulator probe
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/metal-probe.yml
+      - scripts/metal-probe/**
+permissions:
+  contents: read
+jobs:
+  probe:
+    # Standard hosted runners are free only while this repository is public.
+    if: ${{ !github.event.repository.private }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-latest]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Probe host and native / Rosetta simulators
+        run: bash scripts/metal-probe/run.sh "$RUNNER_TEMP/metal-probe"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: metal-probe-${{ matrix.runner }}
+          path: |
+            ${{ runner.temp }}/metal-probe/*.json
+            ${{ runner.temp }}/metal-probe/*.log
+            ${{ runner.temp }}/metal-probe/*.txt
+            ${{ runner.temp }}/metal-probe/*.tsv
+          retention-days: 2
