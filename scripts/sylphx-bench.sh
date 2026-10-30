@@ -44,8 +44,8 @@ fetch() { # <dir> <url> <sha>
   [ -f "$SRC/$1/.sylphx/project.json" ] || { mkdir -p "$SRC/$1/.sylphx" && cp "$here/.sylphx/project.json" "$SRC/$1/.sylphx/"; }
 }
 
-# The command runs under `sh -c` in the lease; BENCH_CMD_SECONDS is the build
-# alone, timed inside the machine.
+# Non-image commands run under `sh -c` in the lease; BENCH_CMD_SECONDS is the
+# build alone. Image timing uses running-to-result instead (see below).
 timed() { printf 't0=$(date +%%s.%%N); %s; rc=$?; t1=$(date +%%s.%%N); echo "BENCH_CMD_SECONDS=$(awk "BEGIN{print $t1-$t0}")"; exit $rc' "$1"; }
 
 # The build machine's image carries Rust, Bun and BuildKit but no Go or Node
@@ -163,7 +163,9 @@ for body in "".join(text).splitlines():
 res = ev.get("result", (None, {}))[1]
 run = ev.get("running")
 if target == "image" and run and "result" in ev:
-    cmd = ev["result"][0] - run[0]  # the build on the machine, from `running` to `result`
+    # Includes BuildKit startup, attestations and OCI export; not just the
+    # Dockerfile build steps or the same span as GitHub's build action.
+    cmd = ev["result"][0] - run[0]
 hit = None
 if target == "ripgrep" and sc.get("Compile requests"):
     hit = f"sccache {sc.get('Cache hits', 0)}/{sc['Compile requests']}"
