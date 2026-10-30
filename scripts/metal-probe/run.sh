@@ -39,13 +39,22 @@ PLIST
 done
 
 python3 - "$probe_output/simulators.json" > "$probe_output/device-plan.tsv" <<'PY'
-import json, sys
+import json, subprocess, sys
 data = json.load(open(sys.argv[1]))
 devices = [dict(d, runtime=r) for r, ds in data['devices'].items() for d in ds if d.get('isAvailable') and 'iOS' in r]
+runtimes = [r for r in data['runtimes'] if r.get('isAvailable') and r.get('platform') == 'iOS']
+if not runtimes:
+    raise SystemExit('No available iOS runtime')
+runtime = next((r for r in runtimes if r['version'] == '26.2'), max(runtimes, key=lambda r: tuple(map(int, r['version'].split('.')))))
 for family, match in [('iphone', lambda n: n == 'iPhone 16 Pro Max'), ('ipad', lambda n: 'iPad Pro' in n and '13-inch' in n)]:
-    choices = [d for d in devices if match(d['name'])]
+    choices = [d for d in devices if match(d['name']) and d['runtime'] == runtime['identifier']]
     if not choices:
-        raise SystemExit(f'No requested {family} simulator found')
+        types = [t for t in runtime['supportedDeviceTypes'] if match(t['name'])]
+        if not types:
+            raise SystemExit(f'No supported {family} device type')
+        kind = types[0]
+        udid = subprocess.check_output(['xcrun', 'simctl', 'create', f'MetalProbe-{family}', kind['identifier'], runtime['identifier']], text=True).strip()
+        choices = [dict(name=kind['name'], udid=udid, runtime=runtime['identifier'])]
     device = sorted(choices, key=lambda d: d['runtime'], reverse=True)[0]
     print(f"{family}\t{device['udid']}\t{device['runtime']}\t{device['name']}")
 PY
