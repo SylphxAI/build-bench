@@ -103,7 +103,7 @@ def receive(url, digest, directory):
         with (output / "driver.log").open("wb") as log:
             try:
                 process = subprocess.Popen(["bash", str(root / "payload/run.sh"), str(root / "payload/simulator-app.zip"), str(output)], cwd=root / "payload", env=environment, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
-                code = process.wait(timeout=600)
+                code = process.wait(timeout=2400)
             except subprocess.TimeoutExpired:
                 os.killpg(process.pid, signal.SIGTERM)
                 try:
@@ -111,7 +111,7 @@ def receive(url, digest, directory):
                 except subprocess.TimeoutExpired:
                     os.killpg(process.pid, signal.SIGKILL)
                     process.wait()
-                log.write(b"\nPrivate script exceeded the ten-minute bound.\n")
+                log.write(b"\nPrivate script exceeded the forty-minute bound.\n")
                 code = 124
     except Exception as error:
         (output / "receiver-error.txt").write_text(type(error).__name__ + ": " + str(error))

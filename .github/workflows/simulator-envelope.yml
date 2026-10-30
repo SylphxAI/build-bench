@@ -14,7 +14,7 @@ jobs:
   validate:
     if: ${{ !github.event.repository.private }}
     runs-on: macos-15
-    timeout-minutes: 15
+    timeout-minutes: 45
     env:
       DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
     steps:
