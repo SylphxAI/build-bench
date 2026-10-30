@@ -8,9 +8,8 @@ results/github/<run id>.cache.tsv  target, n, cache line of each job (from
 results/sylphx/*.jsonl             one line per run (scripts/sylphx-bench.sh)
 
 Per cell: p50 and p90 (nearest rank; with five runs p90 is the slowest run)
-of the wall time from request to result, of the queue wait (request to the
-machine starting the job), and of the build command alone; and how many runs
-restored a cache.
+of the wall, queue and command spans described in README.md (image spans
+differ between runners); and how many runs restored a cache.
 """
 import glob
 import json
@@ -22,11 +21,17 @@ from datetime import datetime
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 TARGETS = ["ripgrep", "caddy", "nextjs", "image"]
+# The counted matrix in bench.yml; a missing job is not a successful sample.
+RUN_NUMBERS = range(1, 6)
 REPO = "https://github.com/SylphxAI/build-bench"
 
 
 def ts(s):
     return datetime.fromisoformat(s.replace("Z", "+00:00")).timestamp()
+
+
+def elapsed(start, end):
+    return ts(end) - ts(start) if start and end else None
 
 
 def pct(xs, p):
@@ -46,32 +51,49 @@ def fmt(s):
 def github():
     rows = []
     for f in sorted(glob.glob(os.path.join(ROOT, "github", "*.jobs.json"))):
-        run = json.load(open(f))
+        with open(f) as source:
+            run = json.load(source)
         cache_file = f.replace(".jobs.json", ".cache.tsv")
         hits = {}
         if os.path.exists(cache_file):
             for line in open(cache_file):
                 name, rest = line.rstrip("\n").split("\t", 1)
                 hits[name] = rest.replace('"', "").replace("rust= ", "").replace("go= ", "").replace("pnpm= ", "").strip()
+        jobs = {}
+        targets = set()
         for j in run["jobs"]:
-            if not j["name"].startswith("run (") or j["conclusion"] != "success":
-                continue
-            target, n = j["name"][5:-1].split(", ")
-            build = next(s for s in j["steps"] if s["name"] in (f"build {target}", "build image") and s["conclusion"] == "success")
+            counted = re.fullmatch(r"run \(([^,]+), (\d+)\)", j["name"])
+            prime = re.fullmatch(r"prime \(([^,]+)\)", j["name"])
+            if counted:
+                target, n = counted.groups()
+                jobs[(target, int(n))] = j
+                targets.add(target)
+            elif prime:
+                targets.add(prime.group(1))
+        if not targets:
+            raise ValueError(f"run {run['run_id']}: cannot identify benchmark targets from jobs")
+        for target, n in sorted({(t, n) for t in targets for n in RUN_NUMBERS} | set(jobs)):
+            j = jobs.get((target, n), {})
+            build = next((s for s in j.get("steps", []) if s["name"] == f"build {target}" and s["conclusion"] != "skipped"), {})
+            result = (j.get("conclusion") or j.get("status") or "unknown") if j else "missing"
+            source = f"{REPO}/actions/runs/{run['run_id']}"
+            if j:
+                source += f"/job/{j['id']}"
             rows.append({
                 "side": "GitHub ubuntu-latest (4 vCPU)",
                 "run_id": run["run_id"],
-                "ok": True,
+                "ok": result == "success",
+                "result": "ok" if result == "success" else result,
                 "toolchain": None,
                 "target": target,
                 "cache": run["cache"],
-                "n": int(n),
-                "start": j["created_at"],
-                "wall": ts(j["completed_at"]) - ts(j["created_at"]),
-                "queue": ts(j["started_at"]) - ts(j["created_at"]),
-                "command": ts(build["completed_at"]) - ts(build["started_at"]),
-                "hit": hits.get(j["name"]),
-                "source": f"{REPO}/actions/runs/{run['run_id']}/job/{j['id']}",
+                "n": n,
+                "start": j.get("created_at"),
+                "wall": elapsed(j.get("created_at"), j.get("completed_at")),
+                "queue": elapsed(j.get("created_at"), j.get("started_at")),
+                "command": elapsed(build.get("started_at"), build.get("completed_at")),
+                "hit": hits.get(j.get("name")),
+                "source": source,
             })
     return rows
 
@@ -118,7 +140,8 @@ def restored(h):
 def latest(rows):
     """Per target and cache state, only the runs of the newest workflow run:
     a cell re-run after a workflow fix replaces the earlier one (whose raw
-    files stay in results/github/)."""
+    files stay in results/github/). Failed and missing jobs participate too,
+    so a failed rerun never falls back to an older successful cell."""
     newest = {}
     for r in rows:
         k = (r["target"], r["cache"])
@@ -155,13 +178,19 @@ def main():
         hit = f"{sum(1 for h in hits if restored(h))}/{len(ok)}" if hits else "-"
         raw = ", ".join(sorted({cell_link(r["source"]) for r in rs}))
         print(f"| {target} | {cache} | {side} | {len(ok)}/{len(rs)} | {fmt(pct(w, 50))} | {fmt(pct(w, 90))} | {fmt(pct(q, 50))} | {fmt(pct(q, 90))} | {fmt(pct(c, 50))} | {fmt(pct(c, 90))} | {hit} | {raw} |")
+    print("\nPercentiles use successful runs only; Runs ok includes failed, skipped, cancelled and missing samples. "
+          "GitHub uses the newest workflow per target/cache, including failures. "
+          "Image command spans differ: GitHub times the build action; Sylphx times running to result, "
+          "including BuildKit startup and OCI export. These are elapsed times on different CPU sizes and cache systems, "
+          "not equal-resource speedups.")
     if "--runs" in sys.argv:
         print()
         print("| Target | Cache | Runner | Run | Start (UTC) | Result | Wall s | Queue s | Command s | Toolchain s | Cache | Raw |")
         print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
         num = lambda x: "-" if x is None else f"{x:.0f}"
         for r in sorted(rows, key=lambda r: (order.get(r["target"], 9), r["cache"], r["side"], r["n"])):
-            print(f"| {r['target']} | {r['cache']} | {r['side']} | {r['n']} | {r['start']} | {'ok' if r['ok'] else 'failed'} | {num(r['wall'])} | {num(r['queue'])} | {num(r['command'])} | {num(r['toolchain'])} | {r['hit'] or '-'} | {link(r['source'])} |")
+            result = r.get("result", "ok" if r["ok"] else "failed")
+            print(f"| {r['target']} | {r['cache']} | {r['side']} | {r['n']} | {r['start'] or '-'} | {result} | {num(r['wall'])} | {num(r['queue'])} | {num(r['command'])} | {num(r['toolchain'])} | {r['hit'] or '-'} | {link(r['source'])} |")
 
 
 if __name__ == "__main__":

@@ -53,27 +53,52 @@ repository per run (a new workspace, so an empty BuildKit state), warm is one
 repository per size rebuilt unchanged after a priming build (BuildKit's layers
 and cache mounts stay on the warm workspace, its only cache).
 
-`--no-cache` also turns off the build cache's package mirrors, so a cold run
-reaches the public registries (crates.io, the Go proxy, npm), as a GitHub
-runner does. On 2026-10-07 the build cache's Go mirror answered 502 for larger
-module zips, so every warm caddy run through it failed; those runs are kept,
+For non-image targets, `--no-cache` also turns off the build cache's package
+mirrors, so a cold run reaches the public registries (crates.io, the Go proxy,
+npm), as a GitHub runner does. On 2026-10-07 the build cache's Go mirror
+answered 502 for larger module zips, so every warm caddy run through it failed; those runs are kept,
 and `BENCH_GOPROXY=public` measures the same cell with the public Go proxy
 (files named `*-publicproxy.jsonl`).
 
-Package downloads go to the public registries on GitHub and to the build
-cache's mirrors (crates, Go modules, npm) on Sylphx Build in every state.
+Package downloads on GitHub use public registries. For the non-image Sylphx
+targets, cold runs disable the shared cache and its package mirrors; warm and
+workspace runs use the mirrors unless `BENCH_GOPROXY=public` overrides Go.
+Image cold runs use a new workspace with empty BuildKit state; the image
+command does not pass `--no-cache`, so this does not establish that its package
+downloads bypass the mirrors.
 
 ## Measures
 
-- **Wall**: from the request to the result. GitHub: the job's `created_at` to
+- **Wall**: GitHub: the job's `created_at` to
   `completed_at` (the API's own times). Sylphx: the CLI call to its `result`
-  event, retries of a retryable platform failure included.
-- **Queue**: from the request to a machine starting the job. GitHub: the job's
+  event, retries of a retryable platform failure included. The GitHub span
+  excludes workflow dispatch and the warm priming job; it is not the time from
+  dispatch to the final result.
+- **Queue**: GitHub: the job's
   `created_at` to `started_at`. Sylphx: the CLI call to its `running` event
   (the machine booted and its workspace attached).
-- **Command**: the build command alone. GitHub: the build step's start and end.
-  Sylphx: timed inside the machine around the command.
+- **Command**: for `ripgrep`, `caddy` and `nextjs`, GitHub uses the build
+  step's start and end; Sylphx times the command inside the machine. For
+  `image`, GitHub times `docker/build-push-action` (including its cache
+  import/export), while Sylphx uses the `running` to `result` event interval
+  (including BuildKit startup, attestations and OCI export). GitHub sets
+  `push: false` with no output; Sylphx produces an OCI image. These image spans
+  measure different work and cannot establish a like-for-like build speedup.
 - p50 and p90 are nearest-rank; with five runs p90 is the slowest run.
+
+These are elapsed times for the listed runner sizes and cache systems, not
+equal-resource comparisons: GitHub has 4 vCPU and Sylphx has 8 or 16 vCPU.
+The data does not measure CPU utilization, peak memory, output size or cost
+per build, so it cannot establish efficiency or price-performance ratios.
+
+The report selects the newest GitHub workflow for each target/cache cell,
+including failed workflows. Failed, skipped, cancelled and missing matrix
+jobs remain in `Runs ok`'s denominator; percentiles use successful runs only.
+Missing slots in the five-run matrix are shown as `missing` in `--runs`.
+Priming-job names identify the target even when its counted jobs never start.
+If an archive has no identifiable target, reporting fails with its run ID
+rather than silently showing an older cell. A targeted rerun replaces only
+the targets it names; older raw files remain available.
 
 ## Running it
 
