@@ -56,6 +56,28 @@ def census(paths, exclude=()):
     return result
 
 
+def child_processes(pid):
+    """Inspect the visible process census without optional CONFIG_PROC_CHILDREN.
+
+    The custodian must have one thread, so child process leaders suffice. A
+    process which vanishes during the scan cannot retain live output work;
+    unreadable or malformed metadata for a still-visible process fails closed.
+    """
+    children = []
+    for entry in Path('/proc').iterdir():
+        if not entry.name.isdecimal():
+            continue
+        try:
+            fields = (entry / 'stat').read_text().rsplit(')', 1)[1].split()
+        except (FileNotFoundError, ProcessLookupError):
+            require(not entry.exists(), 'Process census changed without readable metadata.')
+            continue
+        require(len(fields) > 1, 'Incomplete process census metadata.')
+        if int(fields[1]) == pid:
+            children.append(int(entry.name))
+    return children
+
+
 def process_identity(pid):
     """No environment or memory access; identity uses kernel metadata only."""
     root = Path('/proc') / str(pid)
@@ -67,7 +89,7 @@ def process_identity(pid):
         stage = 'process arguments'
         argv = (root / 'cmdline').read_bytes()
         stage = 'process children'
-        require(fields[0] == 'S' and not (root / 'task' / str(pid) / 'children').read_text().strip(),
+        require(fields[0] == 'S' and not child_processes(int(pid)),
                 'Custodian must be idle without child processes.')
         require(int(status['Threads']) == 1 and int(status['Uid'].split()[0]) == os.geteuid(), 'Custodian ownership differs.')
         mask = 1 << (signal.SIGTERM - 1)

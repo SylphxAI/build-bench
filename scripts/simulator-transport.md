@@ -247,6 +247,12 @@ without another signal. The receipt records a distinct process-address-space
 retirement, with no key read or transfer; it does **not** claim the original
 custodian automatically exited zero or released its key through ordinary cleanup.
 
+The no-child check scans visible `/proc/*/stat` parent PIDs; it does not depend
+on the optional `CONFIG_PROC_CHILDREN` file. Unreadable metadata for a still
+visible process refuses retirement. The process census and original identity
+are checked again before each effect; the supported supervisor remains idle
+and single-threaded throughout this contract.
+
 The operator independently reads the final exact run/jobs/artifact census, three
 owned-resource 404s, parallel resources, every preserved hash and the original
 process's exit/PID absence. Keep both source scopes: the original loaded receiver

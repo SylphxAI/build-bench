@@ -368,6 +368,36 @@ class RetirementTests(unittest.TestCase):
                 self.assertRaisesRegex(transport.TransportError, r'^Custodian kernel identity unavailable \(kernel boot time\)\.$'):
             retirement.process_identity(self.child.pid)
 
+    def test_retirement_works_without_optional_proc_children_file(self):
+        read = Path.read_text
+        def without_children(path, *args, **kwargs):
+            if path.name == 'children':
+                raise FileNotFoundError('CONFIG_PROC_CHILDREN unavailable')
+            return read(path, *args, **kwargs)
+        with patch.object(Path, 'read_text', without_children):
+            controller = self.prepare_retirement()
+            self.assertTrue(controller.apply())
+        self.assertEqual(self.child.wait(timeout=5), -signal.SIGTERM)
+
+    def test_process_census_detects_real_live_child(self):
+        self.assertIn(self.child.pid, retirement.child_processes(os.getpid()))
+        with patch.object(retirement, 'child_processes', return_value=[123]), \
+                self.assertRaisesRegex(transport.TransportError, 'without child processes'):
+            retirement.process_identity(self.child.pid)
+
+    def test_unreadable_census_refuses_before_any_mutation(self):
+        read = Path.read_text
+        def denied(path, *args, **kwargs):
+            if path == Path('/proc') / str(os.getpid()) / 'stat':
+                raise PermissionError('private process metadata')
+            return read(path, *args, **kwargs)
+        before = list(self.provider.mutations)
+        with patch.object(Path, 'read_text', denied), \
+                self.assertRaisesRegex(transport.TransportError, r'^Custodian kernel identity unavailable \(process children\)\.$'):
+            self.prepare_retirement()
+        self.assertEqual(self.provider.mutations, before)
+        self.assertIsNone(self.child.poll())
+
     def test_pid_recycle_during_open_refuses(self):
         expected = retirement.process_identity(self.child.pid)
         other = {**expected, 'start_ticks': expected['start_ticks'] + 1}
