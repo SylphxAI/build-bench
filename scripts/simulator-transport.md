@@ -45,11 +45,14 @@ Send one JSON object per line to the same process:
 {"action":"refresh"}
 {"action":"dispatch"}
 {"action":"runs"}
+{"action":"diagnostic","run_id":12345}
 {"action":"decrypt","run_id":12345}
 {"action":"cleanup","run_id":12345,"independent_receipt":"consumer receipt reference"}
 ```
 
-Wait for the actual run to become terminal before decrypting. `runs` reads every
+The optional `diagnostic` read can run as soon as its small artifact is published,
+while the same run is still packaging bulk results. Wait for the actual run to
+become terminal before `decrypt`. `runs` reads every
 page and reports only this operation's run. A queued run or timestamp alone
 does not establish physical execution. Every accepted mutation has a journal
 entry written before submission; preserve its first receipt and inspect an
@@ -65,7 +68,29 @@ next effect.
 
 ## Results and recovery
 
-The receiver keeps script stdout/stderr in encrypted `driver.log`; the public
+The workflow publishes `simulator-diagnostic-RUN` before it starts compressing
+the complete output. That artifact contains only `diagnostic.enc`, authenticated
+with the distinct `diagnostic` envelope purpose. It is bounded to 9 MiB, including
+one unchanged PNG of at most 8 MiB, a 64 KiB driver-log tail, the operation's input
+manifest and a small status record. The private capture driver updates
+`capture-progress.json` with its current `step` and a relative `last_screenshot`
+path. The receiver reads no bulk file to build this diagnostic. Missing or invalid
+progress/screenshot evidence is explicitly absent; it does not become successful
+capture evidence. No private output appears in the public workflow log.
+
+The receiver then packages every original output into `results.enc`, including
+the full logs and progress record. The workflow preserves the private driver's
+failure status even when diagnostic upload and bulk packaging both succeed.
+The legacy `receive` command retains its single-result behavior; the workflow
+uses `receive-summary-first` followed by `package-results`.
+
+Each distinct diagnostic and bulk artifact has its own once-only unseal journal
+phase under the same original operation custodian. An unknown unseal is never
+repeated. Delivering a diagnostic does not satisfy full-output consumption or
+authorize cleanup. Cleanup requires both retained byte populations unchanged and
+deletes only the exact owned diagnostic and bulk artifacts, secret and refs.
+
+The receiver keeps script stdout/stderr in encrypted `driver.log`; the bulk public
 artifact contains only `results.enc`. The helper verifies the completed first
 attempt's head SHA, ref, event and artifact before authenticating the result. It
 rejects duplicate, aliased, traversing and symlink ZIP members, compares the full

@@ -31,6 +31,7 @@ class Provider(transport.GitHub):
         self.secrets = {"SIMULATOR_ENVELOPE_KEY": b"0" * 64}
         self.metadata = {"SIMULATOR_ENVELOPE_KEY": {"name": "SIMULATOR_ENVELOPE_KEY"}}
         self.refs, self.blobs, self.artifacts, self.ciphertexts = {}, {}, {}, {}
+        self.diagnostic_ciphertexts = {}
         self.run_records = {1: {"id": 1, "head_branch": "legacy-active", "head_sha": "b" * 40,
                                 "status": "in_progress", "run_attempt": 1}}
         self.mutations = []
@@ -155,7 +156,10 @@ class Provider(transport.GitHub):
             raise AssertionError("Unexpected mutation: " + endpoint)
 
     def download(self, repo, run_id, name, directory):
-        (directory / "results.enc").write_bytes(self.ciphertexts[int(run_id)])
+        if name == f"simulator-diagnostic-{run_id}":
+            (directory / "diagnostic.enc").write_bytes(self.diagnostic_ciphertexts[int(run_id)])
+        else:
+            (directory / "results.enc").write_bytes(self.ciphertexts[int(run_id)])
 
 
 class TransportTests(unittest.TestCase):
@@ -193,6 +197,107 @@ class TransportTests(unittest.TestCase):
         run_id = op.runs()[0]["id"]
         op.decrypt(run_id)
         return run_id
+
+    def add_diagnostic(self, op, run_id):
+        root = self.root / ('diagnostic-' + str(run_id))
+        root.mkdir()
+        image = b'\x89PNG\r\n\x1a\nunchanged-private-image'
+        summary = {'schema': 'simulator-diagnostic-v1', 'exit_code': 7, 'failing_step': 'native-observation',
+                   'payload_manifest': op.receipt['manifest'],
+                   'screenshot': {'source': 'last.png', 'bytes': len(image), 'sha256': hashlib.sha256(image).hexdigest()}}
+        with zipfile.ZipFile(root / 'plain.zip', 'w') as archive:
+            archive.writestr('summary.json', json.dumps(summary))
+            archive.writestr('driver-tail.log', 'private-diagnostic-tail')
+            archive.writestr('last-screenshot.png', image)
+        envelope.seal(op.key, 'diagnostic', root / 'plain.zip', root / 'diagnostic.enc')
+        data = (root / 'diagnostic.enc').read_bytes()
+        self.provider.diagnostic_ciphertexts[run_id] = data
+        self.provider.artifacts[run_id + 10000] = {'id': run_id + 10000, 'name': f'simulator-diagnostic-{run_id}',
+            'size_in_bytes': len(data) + 200, 'expired': False,
+            'workflow_run': {'id': run_id, 'head_sha': SHA, 'head_branch': op.operation}}
+
+    def test_small_diagnostic_can_arrive_before_bulk_or_run_completion(self):
+        op = self.operation()
+        self.ready(op)
+        op.dispatch()
+        run_id = op.runs()[0]['id']
+        self.provider.run_records[run_id]['status'] = 'in_progress'
+        self.provider.artifacts.pop(run_id)
+        self.add_diagnostic(op, run_id)
+        op.diagnostic(run_id)
+        self.assertEqual(op.receipt['phases']['diagnostic'], 'complete')
+        self.assertNotIn('unseal', op.receipt['phases'])
+        self.assertFalse((op.work / 'results.zip').exists())
+        self.assertEqual((op.work / 'diagnostic/driver-tail.log').read_text(), 'private-diagnostic-tail')
+        self.assertNotIn('private-diagnostic-tail', self.output.getvalue())
+        with self.assertRaises(transport.TransportError):
+            op.diagnostic(run_id)
+
+    def test_cleanup_preserves_both_artifacts_and_diagnostic_originals(self):
+        op = self.operation()
+        run_id = self.completed(op)
+        self.add_diagnostic(op, run_id)
+        before = copy.deepcopy(self.provider.mutations)
+        with self.assertRaises(transport.TransportError):
+            op.cleanup(run_id, 'full-consumer-receipt')
+        self.assertEqual(before, self.provider.mutations)
+        op.diagnostic(run_id)
+        file = op.work / 'diagnostic/driver-tail.log'
+        saved = file.read_bytes()
+        file.write_bytes(b'changed')
+        with self.assertRaises(transport.TransportError):
+            op.cleanup(run_id, 'full-consumer-receipt')
+        self.assertIn(op.secret, self.provider.secrets)
+        file.write_bytes(saved)
+        self.assertTrue(op.cleanup(run_id, 'full-consumer-receipt'))
+        self.assertNotIn(run_id, self.provider.artifacts)
+        self.assertNotIn(run_id + 10000, self.provider.artifacts)
+        self.assertEqual(file.read_bytes(), saved)
+        self.assertIsNone(op.key)
+
+    def test_unknown_diagnostic_unseal_is_not_repeated(self):
+        op = self.operation()
+        self.ready(op)
+        op.dispatch()
+        run_id = op.runs()[0]['id']
+        self.add_diagnostic(op, run_id)
+        with patch.object(envelope, 'unseal', side_effect=ValueError('unknown local result')) as unseal:
+            with self.assertRaises(ValueError):
+                op.diagnostic(run_id)
+            with self.assertRaises(transport.TransportError):
+                op.diagnostic(run_id)
+        self.assertEqual(unseal.call_count, 1)
+        self.assertEqual(op.receipt['phases']['diagnostic-unseal'], 'started')
+
+    def test_diagnostic_size_refuses_before_download_and_timeout_remains_read_only(self):
+        op = self.operation()
+        self.ready(op)
+        op.dispatch()
+        run_id = op.runs()[0]['id']
+        self.add_diagnostic(op, run_id)
+        artifact = self.provider.artifacts[run_id + 10000]
+        original_size = artifact['size_in_bytes']
+        artifact['size_in_bytes'] = 11 * 1024 * 1024
+        with patch.object(self.provider, 'download') as download:
+            with self.assertRaises(transport.TransportError):
+                op.diagnostic(run_id)
+            download.assert_not_called()
+        artifact['size_in_bytes'] = original_size
+        real = self.provider.download
+        calls = 0
+        def download(*args):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise subprocess.TimeoutExpired('read', 1)
+            return real(*args)
+        before = copy.deepcopy(self.provider.mutations)
+        with patch.object(self.provider, 'download', side_effect=download):
+            with self.assertRaises(subprocess.TimeoutExpired):
+                op.diagnostic(run_id)
+            self.assertNotIn('diagnostic-unseal', op.receipt['phases'])
+            op.diagnostic(run_id)
+        self.assertEqual(before, self.provider.mutations)
 
     def test_concurrent_operations_keep_distinct_keys_and_cleanup_ownership(self):
         first, second = self.operation(), self.operation()

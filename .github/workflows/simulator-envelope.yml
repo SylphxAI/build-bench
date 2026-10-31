@@ -26,6 +26,8 @@ jobs:
         with:
           persist-credentials: false
       - name: Run authenticated private payload
+        id: capture
+        continue-on-error: true
         env:
           SIMULATOR_ENVELOPE_KEY: ${{ secrets[inputs.key_secret_name || 'SIMULATOR_ENVELOPE_KEY'] }}
           PAYLOAD_URL: ${{ inputs.payload_url }}
@@ -33,7 +35,23 @@ jobs:
         run: |
           OPENSSL_BIN="$(brew --prefix openssl@3)/bin/openssl"
           export OPENSSL_BIN
-          python3 scripts/simulator_envelope.py receive "$PAYLOAD_URL" "$PAYLOAD_SHA256" "$RUNNER_TEMP/simulator-envelope"
+          python3 scripts/simulator_envelope.py receive-summary-first "$PAYLOAD_URL" "$PAYLOAD_SHA256" "$RUNNER_TEMP/simulator-envelope"
+      - name: Upload small encrypted diagnostic before bulk packaging
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: simulator-diagnostic-${{ github.run_id }}
+          path: ${{ runner.temp }}/simulator-envelope/diagnostic.enc
+          retention-days: 1
+          if-no-files-found: error
+      - name: Package complete unchanged private results
+        if: always()
+        env:
+          SIMULATOR_ENVELOPE_KEY: ${{ secrets[inputs.key_secret_name || 'SIMULATOR_ENVELOPE_KEY'] }}
+        run: |
+          OPENSSL_BIN="$(brew --prefix openssl@3)/bin/openssl"
+          export OPENSSL_BIN
+          python3 scripts/simulator_envelope.py package-results "$RUNNER_TEMP/simulator-envelope"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -41,3 +59,6 @@ jobs:
           path: ${{ runner.temp }}/simulator-envelope/results.enc
           retention-days: 1
           if-no-files-found: error
+      - name: Preserve the private workload failure
+        if: always() && steps.capture.outcome != 'success'
+        run: exit 1
