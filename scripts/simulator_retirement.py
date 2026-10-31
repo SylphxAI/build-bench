@@ -177,7 +177,7 @@ class Retirement:
         self.data = json.loads(self.journal.read_text()) if self.journal.exists() else None
 
     def path(self, suffix):
-        return f"repos/{self.data['original']['repo']}/{suffix}"
+        return f"repos/{self.data['original']['repo']}" + ('/' + suffix if suffix else '')
 
     def record(self, event, **values):
         self.data['events'].append({'utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'event': event, **values})

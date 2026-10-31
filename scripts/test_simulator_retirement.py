@@ -22,6 +22,9 @@ Provider, REPO, SHA = support.Provider, support.REPO, support.SHA
 
 class RetirementProvider(Provider):
     def get(self, endpoint):
+        # GitHub's repository root rejects a trailing slash (HTTP 404).
+        if endpoint.partition('?')[0] == f'repos/{REPO}/':
+            raise transport.ApiError(404)
         suffix = endpoint.partition('?')[0].removeprefix(f'repos/{REPO}/')
         if suffix == 'actions/secrets':
             return {'total_count': len(self.metadata), 'secrets': copy.deepcopy(list(self.metadata.values()))}
@@ -119,6 +122,11 @@ class RetirementTests(unittest.TestCase):
 
     def test_nonterminal_run_refuses(self):
         self.rejected(lambda: self.provider.run_records[self.run_id].update(status='in_progress'))
+
+    def test_repository_root_uses_canonical_endpoint(self):
+        controller = self.prepare_retirement()
+        self.assertEqual(controller.path(''), f'repos/{REPO}')
+        self.assertTrue(controller.apply())
 
     def test_success_without_output_requires_a_distinct_investigation(self):
         self.rejected(lambda: self.provider.run_records[self.run_id].update(conclusion='success'))
