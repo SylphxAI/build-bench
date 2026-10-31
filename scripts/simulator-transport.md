@@ -169,3 +169,107 @@ operations with distinct keys, verify actual overlap and both own-key positives
 and cross-key negatives, inspect public-log/artifact privacy, and prove one
 operation's cleanup preserves the other. Leave active legacy consumers on their
 existing path until their independent receipt and cleanup complete.
+
+## Terminal runs that publish no output
+
+A cancelled or failed provider job can finish without publishing either encrypted
+artifact. The ordinary `cleanup` command intentionally still requires an
+authenticated delivered result. `simulator_retirement.py` provides a separate,
+explicit `terminal-without-output` disposition for this case, including legacy
+custodians whose loaded transport has no such command. It never changes the
+original receiver pin, fabricates a packet, runs an unseal, or rewrites the
+original receipt to claim normal cleanup or workload acceptance.
+
+Use the published controller on Linux with Python's `pidfd_open` and
+`pidfd_send_signal` support. Retain the original process and its open stdin until
+this path is qualified. Prepare a private request file with the original receipt,
+exact run and complete job IDs, an independent authorization reference, preserved
+provider diagnostics, and the original supervisor's source files. `preserve` adds
+other immutable evidence or parallel-operation bytes that must remain unchanged.
+All file paths in the request are absolute. Paths in the original supervisor's
+argv are resolved against that supervisor's kernel-reported working directory.
+
+```json
+{
+  "disposition": "terminal-without-output",
+  "authorization": "independent no-output disposition receipt",
+  "receipt": "/private/operations/simulator-UUID/receipt.json",
+  "run_id": 12345,
+  "job_ids": [67890],
+  "code_files": ["/private/old-checkout/scripts/simulator_transport.py"],
+  "evidence_files": ["/private/provider-diagnostics.json"],
+  "preserve": ["/private/independent-evidence"]
+}
+```
+
+If a launcher imported the original transport, include both the launcher and its
+loaded source files in `code_files`; the actual argv program must be present.
+The journal has one enforced location inside the original operation:
+`OPERATION_WORK/.no-output-retirement/journal.json`. Only the controller-owned `journal.json` and empty `journal.lock` are excluded
+from the preserved population; other bytes in that directory remain protected.
+The state directory entry and each journal replacement are fsynced before effects.
+It follows the original through a verified work-directory relocation. A different
+journal path, a copied journal or concurrent invocation refuses; every call reloads
+the existing operation journal before considering an effect.
+
+```sh
+python3 scripts/simulator_retirement.py prepare \
+  --request /private/no-output-request.json --journal /private/operations/simulator-UUID/.no-output-retirement/journal.json
+python3 scripts/simulator_retirement.py apply --journal /private/operations/simulator-UUID/.no-output-retirement/journal.json
+```
+
+`prepare` makes authenticated complete workflow-run, attempt, job, artifact,
+repository-secret and Git-ref reads. The original must have one accepted dispatch,
+a sole exact first-attempt terminal failure/cancellation, the specified complete
+terminal jobs, and zero artifacts, including expired or diagnostic artifacts.
+Unknown dispatch, another attempt, missing/mismatched jobs, or local output or an
+uncertain transfer refuses. The controller records every original work file,
+frozen input, supplied source and evidence byte, mode, owner and symlink target.
+The original receipt, provider diagnostics and all preserved populations remain
+unchanged by retirement.
+
+`apply` repeats the authenticated terminal and empty-artifact checks, validates
+owned secret/ref metadata and unrelated secret/ref populations before each
+mutation, and rehashes all preserved bytes. It journals each of the three owned
+DELETEs before submission. Accepted or unknown DELETEs are never replayed; a
+later `apply` only reads their absence and starts unsubmitted steps. A changed
+object, unrelated population or late artifact stops progress and retains the
+custodian. Preserve any newly discovered output through normal authenticated
+custody; do not edit the journal to suppress a refusal.
+
+After fresh owned-resource absence and the final no-output checks, the controller
+binds the original PID, birth ticks, argv digest, executable and working directory
+to a stable Linux pidfd. It requires the recorded original supervisor's birth,
+input/receipt ownership, idle single-threaded state, no children and the default
+SIGTERM disposition. Only that pidfd receives one journaled SIGTERM. There is no
+PID-based kill or arbitrary EOF fallback. A lost signal response is reconciled
+without another signal. The receipt records a distinct process-address-space
+retirement, with no key read or transfer; it does **not** claim the original
+custodian automatically exited zero or released its key through ordinary cleanup.
+
+The no-child check scans visible `/proc/*/stat` parent PIDs; it does not depend
+on the optional `CONFIG_PROC_CHILDREN` file. Unreadable metadata for a still
+visible process refuses retirement. The process census and original identity
+are checked again before each effect; the supported supervisor remains idle
+and single-threaded throughout this contract.
+
+The operator independently reads the final exact run/jobs/artifact census, three
+owned-resource 404s, parallel resources, every preserved hash and the original
+process's exit/PID absence. Keep both source scopes: the original loaded receiver
+commit and the new published controller commit/hash. No-output disposition means
+native results are unavailable. It proves neither native actions nor their
+absence, UI quality, account continuity, or the cause of cancellation. Provider
+reads establish the witnessed state at their recorded times; they do not promise
+that no future provider mutation is possible.
+
+This is an on-demand local lifecycle command, with no new runner, grant or spend.
+At 10x/100x retained operations, each journal and pidfd still owns one original;
+complete provider censuses and preserved-byte hashing determine cost. No daemon
+or shared key store is added.
+
+Primary contracts read 2026-10-31 at 09:09 UTC (references additionally read
+09:18 UTC): [workflow runs/attempts and jobs](https://docs.github.com/en/rest/actions/workflow-jobs),
+[workflow-run artifacts](https://docs.github.com/en/rest/actions/artifacts),
+[list matching Git references](https://docs.github.com/en/rest/git/refs#list-matching-references),
+[pidfd_open(2)](https://man7.org/linux/man-pages/man2/pidfd_open.2.html) and
+[pidfd_send_signal(2)](https://man7.org/linux/man-pages/man2/pidfd_send_signal.2.html).

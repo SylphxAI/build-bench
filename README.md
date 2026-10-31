@@ -102,7 +102,8 @@ the targets it names; older raw files remain available.
 
 ## Running it
 
-The separate [per-operation simulator transport](scripts/simulator-transport.md)
+The separate [per-operation simulator transport](scripts/simulator-transport.md),
+including explicit retirement when a terminal run publishes no output,
 keeps private simulator inputs and results encrypted on this public repository.
 
 ```sh
