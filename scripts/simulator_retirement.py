@@ -59,23 +59,29 @@ def census(paths, exclude=()):
 def process_identity(pid):
     """No environment or memory access; identity uses kernel metadata only."""
     root = Path('/proc') / str(pid)
+    stage = 'process stat'
     try:
         fields = (root / 'stat').read_text().rsplit(')', 1)[1].split()
+        stage = 'process status'
         status = dict(line.split(':', 1) for line in (root / 'status').read_text().splitlines() if ':' in line)
+        stage = 'process arguments'
         argv = (root / 'cmdline').read_bytes()
+        stage = 'process children'
         require(fields[0] == 'S' and not (root / 'task' / str(pid) / 'children').read_text().strip(),
                 'Custodian must be idle without child processes.')
         require(int(status['Threads']) == 1 and int(status['Uid'].split()[0]) == os.geteuid(), 'Custodian ownership differs.')
         mask = 1 << (signal.SIGTERM - 1)
         require(not any(int(status[name], 16) & mask for name in ('SigBlk', 'SigIgn', 'SigCgt')),
                 'Custodian must retain default SIGTERM disposition.')
+        stage = 'kernel boot time'
         boot = next(int(line.split()[1]) for line in Path('/proc/stat').read_text().splitlines() if line.startswith('btime '))
+        stage = 'process birth and executable'
         return {'pid': int(pid), 'start_ticks': int(fields[19]),
                 'started_epoch': boot + int(fields[19]) / os.sysconf('SC_CLK_TCK'),
                 'cmdline_sha256': hashlib.sha256(argv).hexdigest(),
                 'executable': str((root / 'exe').resolve()), 'cwd': str((root / 'cwd').resolve())}
     except (OSError, ValueError, StopIteration):
-        raise TransportError('Custodian kernel identity unavailable.') from None
+        raise TransportError(f'Custodian kernel identity unavailable ({stage}).') from None
 
 
 class Custodian:

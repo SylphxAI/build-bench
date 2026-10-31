@@ -9,6 +9,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -50,20 +51,14 @@ class RetirementTests(unittest.TestCase):
         self.run_id = self.op.runs()[0]['id']
         self.provider.artifacts.clear()
         self.program = self.root / 'fixture.py'
-        self.program.write_text('import sys\nsys.stdin.read()\n')
+        self.program.write_text('import sys\nprint("ready", flush=True)\nsys.stdin.read()\n')
         argv = [sys.executable, str(self.program), '--repo', REPO, '--receiver-ref', SHA,
                 '--script', str(self.script), '--script-sha256', transport.sha256(self.script),
                 '--app', str(self.app), '--app-sha256', transport.sha256(self.app),
                 '--work-root', str(self.op.work.parent), '--prefix', 'simulator']
-        self.child = subprocess.Popen(argv, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        self.child = subprocess.Popen(argv, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         self.addCleanup(self.stop_child)
-        # Wait for the fixture to reach its idle read without an arbitrary sleep.
-        for _ in range(1000):
-            try:
-                retirement.process_identity(self.child.pid)
-                break
-            except transport.TransportError:
-                os.sched_yield()
+        self.wait_for_fixture()
         self.op.receipt['pid'] = self.child.pid
         self.op.receipt['events'][0]['utc'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         self.op.save()
@@ -74,6 +69,17 @@ class RetirementTests(unittest.TestCase):
                         'receipt': str(self.op.work / 'receipt.json'), 'run_id': self.run_id, 'job_ids': [42],
                         'code_files': [str(self.program)], 'evidence_files': [str(self.evidence)], 'preserve': []}
         self.journal = retirement.canonical_journal(self.op.work / 'receipt.json')
+
+    def wait_for_fixture(self):
+        self.assertEqual(self.child.stdout.readline(), b'ready\n')
+        expires = time.monotonic() + 3
+        # Await only the scheduling transition into the blocking read. A missing
+        # kernel field must fail the fixture, not accidentally pass refusal tests.
+        path = Path('/proc') / str(self.child.pid) / 'stat'
+        while path.read_text().rsplit(')', 1)[1].split()[0] != 'S':
+            self.assertLess(time.monotonic(), expires)
+            os.sched_yield()
+        retirement.process_identity(self.child.pid)
 
     def stop_child(self):
         if self.child.poll() is None:
@@ -264,13 +270,8 @@ class RetirementTests(unittest.TestCase):
             '--script', self.script.name, '--script-sha256', transport.sha256(self.script),
             '--app', self.app.name, '--app-sha256', transport.sha256(self.app),
             '--work-root', 'ops', '--prefix', 'simulator'], cwd=self.root,
-            stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        for _ in range(10000):
-            try:
-                retirement.process_identity(self.child.pid)
-                break
-            except transport.TransportError:
-                os.sched_yield()
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        self.wait_for_fixture()
         self.op.receipt['pid'] = self.child.pid
         self.op.receipt['events'][0]['utc'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         self.op.save()
@@ -356,6 +357,16 @@ class RetirementTests(unittest.TestCase):
             synced.clear()
             self.provider.before_mutation = lambda name: self.assertIn(self.op.work, synced)
             self.assertTrue(controller.apply())
+
+    def test_kernel_failure_names_only_the_fixed_field(self):
+        read = Path.read_text
+        def unavailable(path, *args, **kwargs):
+            if str(path) == '/proc/stat':
+                raise OSError('private diagnostic must never escape')
+            return read(path, *args, **kwargs)
+        with patch.object(Path, 'read_text', unavailable), \
+                self.assertRaisesRegex(transport.TransportError, r'^Custodian kernel identity unavailable \(kernel boot time\)\.$'):
+            retirement.process_identity(self.child.pid)
 
     def test_pid_recycle_during_open_refuses(self):
         expected = retirement.process_identity(self.child.pid)
