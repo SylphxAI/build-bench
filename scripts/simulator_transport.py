@@ -315,16 +315,95 @@ class Transport:
                    ("id", "run_attempt", "head_branch", "head_sha", "status", "conclusion", "html_url")} for run in matches])
         return matches
 
-    def owned_run(self, run_id):
+    def owned_run(self, run_id, *, completed=True):
         run = self.github.get(self.path(f"actions/runs/{int(run_id)}"))
         require(run["head_branch"] == self.operation and run["head_sha"] == self.receipt["source_sha"] and
-                run["event"] == "workflow_dispatch" and run["run_attempt"] == 1 and run["status"] == "completed",
-                "Run is not this operation's completed first attempt.")
+                run["event"] == "workflow_dispatch" and run["run_attempt"] == 1 and
+                run["status"] in ({"completed"} if completed else {"in_progress", "completed"}),
+                "Run is not this operation's expected first attempt.")
         return run
 
     def hashes(self):
         root = self.work / "decrypted"
         return {str(path.relative_to(root)): sha256(path) for path in sorted(root.rglob("*")) if path.is_file()}
+
+    def diagnostic_hashes(self):
+        root = self.work / "diagnostic"
+        return {str(path.relative_to(root)): sha256(path) for path in sorted(root.rglob("*")) if path.is_file()}
+
+    def diagnostic(self, run_id):
+        """Read the distinct bounded artifact while bulk packaging can continue."""
+        require(self.receipt["phases"].get("dispatch") == "complete", "Dispatch must complete first.")
+        require(self.receipt["phases"].get("diagnostic") != "complete", "Use the retained diagnostic; do not unseal it again.")
+        run = self.owned_run(run_id, completed=False)
+        artifacts = self.github.pages(self.path(f"actions/runs/{int(run_id)}/artifacts"), "artifacts")
+        name = f"simulator-diagnostic-{int(run_id)}"
+        matches = [a for a in artifacts if a["name"] == name and not a["expired"]]
+        require(len(matches) == 1, "Expected one unexpired small diagnostic artifact.")
+        artifact = matches[0]
+        scope = artifact.get("workflow_run", {})
+        require(scope.get("id") == int(run_id) and scope.get("head_sha") == self.receipt["source_sha"] and
+                scope.get("head_branch") == self.operation, "Diagnostic artifact run scope differs.")
+        require(isinstance(artifact.get("size_in_bytes"), int) and 0 < artifact["size_in_bytes"] <= 10 * 1024 * 1024,
+                "Diagnostic artifact exceeds its small-transfer bound.")
+        encrypted = self.work / "encrypted-diagnostic"
+        encrypted.mkdir(mode=0o700, exist_ok=True)
+        target = encrypted / "diagnostic.enc"
+        if not target.exists():
+            with tempfile.TemporaryDirectory(dir=self.work) as temporary:
+                attempt = Path(temporary)
+                self.github.download(self.repo, run_id, name, attempt)
+                require(sorted(p.name for p in attempt.iterdir()) == ["diagnostic.enc"] and
+                        (attempt / "diagnostic.enc").is_file() and not (attempt / "diagnostic.enc").is_symlink(),
+                        "Diagnostic artifact contains unexpected files.")
+                require((attempt / "diagnostic.enc").stat().st_size <= 9 * 1024 * 1024,
+                        "Diagnostic envelope exceeds its bound.")
+                os.replace(attempt / "diagnostic.enc", target)
+        ciphertext_sha = sha256(target)
+        require(self.receipt.get("diagnostic_ciphertext_sha256", ciphertext_sha) == ciphertext_sha,
+                "Retained diagnostic ciphertext changed.")
+        self.receipt["diagnostic_ciphertext_sha256"] = ciphertext_sha
+        archive_path = self.work / "diagnostic.zip"
+        if "diagnostic-unseal" not in self.receipt["phases"]:
+            self.once("diagnostic-unseal")
+            envelope.unseal(self.key, "diagnostic", target, archive_path)
+            self.receipt["phases"]["diagnostic-unseal"] = "complete"
+            self.receipt["diagnostic_archive_sha256"] = sha256(archive_path)
+            self.event("diagnostic-unsealed")
+        require(self.receipt["phases"].get("diagnostic-unseal") == "complete",
+                "Diagnostic unseal outcome unknown; never repeat it.")
+        require(sha256(archive_path) == self.receipt["diagnostic_archive_sha256"], "Retained diagnostic archive changed.")
+        output = self.work / "diagnostic"
+        output.mkdir(mode=0o700, exist_ok=True)
+        with zipfile.ZipFile(archive_path) as archive:
+            members = archive.infolist()
+            names = [item.filename for item in members]
+            require(len(names) == len(set(names)) and set(names) in (
+                    {"summary.json", "driver-tail.log"}, {"summary.json", "driver-tail.log", "last-screenshot.png"}),
+                    "Unexpected diagnostic inventory.")
+            require(sum(i.file_size for i in members) <= 9 * 1024 * 1024 and
+                    all(not i.is_dir() and stat.S_IFMT(i.external_attr >> 16) in (0, stat.S_IFREG) for i in members),
+                    "Diagnostic members exceed bounded regular files.")
+            data = {item.filename: archive.read(item) for item in members}
+        summary = json.loads(data["summary.json"])
+        require(summary.get("schema") == "simulator-diagnostic-v1" and
+                summary.get("payload_manifest") == self.receipt["manifest"], "Diagnostic payload binding differs.")
+        require(isinstance(summary.get("exit_code"), int) and len(data["driver-tail.log"]) <= 64 * 1024,
+                "Invalid diagnostic exit status or log bound.")
+        image = summary.get("screenshot")
+        require((image is None and "last-screenshot.png" not in data) or
+                (isinstance(image, dict) and "last-screenshot.png" in data and
+                 len(data["last-screenshot.png"]) == image.get("bytes") and
+                 hashlib.sha256(data["last-screenshot.png"]).hexdigest() == image.get("sha256")),
+                "Diagnostic screenshot binding differs.")
+        for name, contents in data.items():
+            (output / name).write_bytes(contents)
+            os.chmod(output / name, 0o600)
+        require(set(self.diagnostic_hashes()) == set(data), "Retained diagnostic population differs.")
+        self.receipt.update(diagnostic_artifact=artifact, diagnostic_run_id=int(run_id),
+                            diagnostic_file_hashes=self.diagnostic_hashes())
+        self.receipt["phases"]["diagnostic"] = "complete"
+        self.event("diagnostic-delivered", run_id=int(run_id), file_count=len(data), output=str(output))
 
     def decrypt(self, run_id):
         if self.receipt["phases"].get("dispatch") == "started":
@@ -421,6 +500,14 @@ class Transport:
                 "Only this operation's authenticated delivered run can be cleaned.")
         require(self.hashes() == self.receipt["file_hashes"], "Retained originals changed; preserve before cleanup.")
         self.owned_run(run_id)
+        diagnostics = [a for a in self.github.pages(self.path(f"actions/runs/{int(run_id)}/artifacts"), "artifacts")
+                       if a["name"] == f"simulator-diagnostic-{int(run_id)}"]
+        require(not diagnostics or (self.receipt["phases"].get("diagnostic") == "complete" and
+                self.receipt.get("diagnostic_run_id") == int(run_id) and len(diagnostics) == 1 and
+                diagnostics[0] == self.receipt["diagnostic_artifact"]),
+                "Preserve and authenticate the published diagnostic before cleanup.")
+        if self.receipt.get("diagnostic_artifact"):
+            require(self.diagnostic_hashes() == self.receipt["diagnostic_file_hashes"], "Retained diagnostic changed.")
         previous = self.receipt.get("independent_receipt")
         require(previous in (None, independent_receipt), "Consumer receipt changed.")
         self.receipt["independent_receipt"] = independent_receipt
@@ -433,11 +520,18 @@ class Transport:
         complete.append(self.delete_owned("delete-artifact", endpoint, endpoint,
                         lambda obj: obj["id"] == artifact["id"] and obj["name"] == artifact["name"] and
                         obj.get("workflow_run") == artifact["workflow_run"]))
+        diagnostic = self.receipt.get("diagnostic_artifact")
+        if diagnostic:
+            endpoint = self.path(f"actions/artifacts/{diagnostic['id']}")
+            complete.append(self.delete_owned("delete-diagnostic-artifact", endpoint, endpoint,
+                            lambda obj: obj == diagnostic))
         for kind, endpoint, expected in self.refs():
             complete.append(self.delete_owned("delete-" + kind, endpoint, endpoint.replace("git/ref/", "git/refs/"),
                             lambda obj: obj["object"]["sha"] == expected))
         if all(complete):
             require(self.hashes() == self.receipt["file_hashes"], "Retained originals changed during cleanup.")
+            if diagnostic:
+                require(self.diagnostic_hashes() == self.receipt["diagnostic_file_hashes"], "Retained diagnostic changed during cleanup.")
             self.receipt["phases"]["cleanup"] = "complete"
             self.key = None
             self.event("cleanup-complete", pid=os.getpid(), originals_sha256_file=str(self.work / "decrypted-file-hashes.json"))
@@ -451,6 +545,8 @@ class Transport:
             getattr(self, action)()
         elif action == "decrypt":
             self.decrypt(request["run_id"])
+        elif action == "diagnostic":
+            self.diagnostic(request["run_id"])
         elif action == "cleanup":
             return self.cleanup(request["run_id"], request.get("independent_receipt"))
         else:
