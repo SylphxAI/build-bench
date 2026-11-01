@@ -133,11 +133,14 @@ def fetch(url):
 
 class Transport:
     def __init__(self, *, repo, receiver_ref, script, script_sha256, app, app_sha256,
-                 work_root, prefix="simulator", github=None, fetcher=fetch, source_root=None):
+                 work_root, prefix="simulator", github=None, fetcher=fetch, source_root=None,
+                 runner_architecture="arm64"):
         require(bool(re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo)), "Invalid repository.")
         require(bool(re.fullmatch(r"[a-z][a-z0-9-]{0,39}", prefix)), "Invalid operation prefix.")
         require(bool(re.fullmatch(r"[0-9a-f]{64}", script_sha256)), "Invalid script SHA256.")
         require(bool(re.fullmatch(r"[0-9a-f]{64}", app_sha256)), "Invalid app SHA256.")
+        require(runner_architecture in ("arm64", "x86_64"), "Unsupported standard runner architecture.")
+        self.runner_architecture = runner_architecture
         self.repo, self.receiver_ref = repo, receiver_ref
         self.script, self.app = Path(script).resolve(), Path(app).resolve()
         self.script_sha, self.app_sha = script_sha256, app_sha256
@@ -152,6 +155,8 @@ class Transport:
         self.key = secrets.token_hex(32).encode()
         self.receipt = {"operation": self.operation, "repo": repo, "secret_name": self.secret,
                         "pid": os.getpid(), "script_sha256": script_sha256, "app_sha256": app_sha256,
+                        "runner_architecture": runner_architecture,
+                        "runner_label": "macos-15-intel" if runner_architecture == "x86_64" else "macos-15",
                         "effects": {}, "phases": {}, "events": []}
         self.event("supervisor-alive", work=str(self.work))
 
@@ -200,8 +205,9 @@ class Transport:
             require(base64.b64decode(obj["content"]) == (self.source_root / path).read_bytes(),
                     "Pinned receiver bytes differ from this checkout.")
         workflow = (self.source_root / WORKFLOW).read_text()
+        runner_lines = re.findall(r"^[ \t]*runs-on:.*$", workflow, flags=re.MULTILINE)
         require("    if: ${{ !github.event.repository.private }}\n" in workflow and
-                "    runs-on: macos-15\n" in workflow and
+                runner_lines == ["    runs-on: ${{ inputs.runner_architecture == 'x86_64' && 'macos-15-intel' || 'macos-15' }}"] and
                 "secrets[inputs.key_secret_name || 'SIMULATOR_ENVELOPE_KEY']" in workflow,
                 "Public/free isolated receiver contract is missing.")
 
@@ -296,7 +302,8 @@ class Transport:
         self.once("dispatch")
         endpoint = self.path("actions/workflows/simulator-envelope.yml/dispatches")
         body = {"ref": self.operation, "inputs": {"payload_url": self.receipt["payload_url"],
-                "payload_sha256": self.receipt["payload_sha256"], "key_secret_name": self.secret}}
+                "payload_sha256": self.receipt["payload_sha256"], "key_secret_name": self.secret,
+                "runner_architecture": self.runner_architecture}}
         self.effect("dispatch", endpoint, lambda: self.github.api("POST", endpoint, body))
         self.receipt["phases"]["dispatch"] = "complete"
         self.event("dispatched")
@@ -559,6 +566,7 @@ def main():
     for name in ("repo", "receiver-ref", "script", "script-sha256", "app", "app-sha256", "work-root"):
         parser.add_argument("--" + name, required=True)
     parser.add_argument("--prefix", default="simulator")
+    parser.add_argument("--runner-architecture", choices=("arm64", "x86_64"), default="arm64")
     options = vars(parser.parse_args())
     os.umask(0o077)
     transport = Transport(**options)

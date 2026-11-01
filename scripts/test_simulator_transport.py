@@ -180,11 +180,11 @@ class TransportTests(unittest.TestCase):
         self.capture.__enter__()
         self.addCleanup(self.capture.__exit__, None, None, None)
 
-    def operation(self):
+    def operation(self, **options):
         return transport.Transport(repo=REPO, receiver_ref=SHA, script=self.script,
                                    script_sha256=transport.sha256(self.script), app=self.app,
                                    app_sha256=transport.sha256(self.app), work_root=self.root / "ops",
-                                   github=self.provider, fetcher=self.provider.fetch)
+                                   github=self.provider, fetcher=self.provider.fetch, **options)
 
     def ready(self, op):
         op.prepare()
@@ -215,6 +215,51 @@ class TransportTests(unittest.TestCase):
         self.provider.artifacts[run_id + 10000] = {'id': run_id + 10000, 'name': f'simulator-diagnostic-{run_id}',
             'size_in_bytes': len(data) + 200, 'expired': False,
             'workflow_run': {'id': run_id, 'head_sha': SHA, 'head_branch': op.operation}}
+
+    def test_standard_runner_architecture_selection_and_legacy_default(self):
+        for architecture, label in (("arm64", "macos-15"), ("x86_64", "macos-15-intel")):
+            op = self.operation(runner_architecture=architecture)
+            self.ready(op)
+            with patch.object(self.provider, "api", wraps=self.provider.api) as api:
+                op.dispatch()
+            dispatches = [call for call in api.call_args_list if call.args[1].endswith("/dispatches")]
+            self.assertEqual(len(dispatches), 1)
+            self.assertEqual(dispatches[0].args[2]["inputs"]["runner_architecture"], architecture)
+            self.assertEqual(op.receipt["runner_architecture"], architecture)
+            self.assertEqual(op.receipt["runner_label"], label)
+        self.assertEqual(self.operation().receipt["runner_label"], "macos-15")
+        for unsupported in ("macos-15-large", "macos-15-intel", "self-hosted", "", "amd64"):
+            before = copy.deepcopy(self.provider.mutations)
+            with self.assertRaises(transport.TransportError):
+                self.operation(runner_architecture=unsupported)
+            self.assertEqual(self.provider.mutations, before)
+
+    def test_runner_expression_is_exact_public_free_allowlist(self):
+        workflow = (SOURCE / transport.WORKFLOW).read_text()
+        expression = "    runs-on: ${{ inputs.runner_architecture == 'x86_64' && 'macos-15-intel' || 'macos-15' }}\n"
+        self.assertEqual(workflow.count("runs-on:"), 1)
+        self.assertIn(expression, workflow)
+        self.assertIn("        default: arm64\n        options:\n          - arm64\n          - x86_64\n", workflow)
+        # Simulate a published workflow with a paid/arbitrary label; byte-pinning
+        # alone is insufficient if the operator checked out the same unsafe file.
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp)
+            for file in (transport.WORKFLOW, transport.RECEIVER):
+                target = source / file
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((SOURCE / file).read_bytes())
+            (source / transport.WORKFLOW).write_text(workflow.replace("'macos-15-intel'", "'macos-15-large'"))
+            original_get = self.provider.get
+            def remote(endpoint):
+                if "/contents/" in endpoint:
+                    file = endpoint.split("/contents/", 1)[1].split("?", 1)[0]
+                    return {"content": base64.b64encode((source / file).read_bytes()).decode()}
+                return original_get(endpoint)
+            before = copy.deepcopy(self.provider.mutations)
+            op = self.operation(source_root=source, runner_architecture="x86_64")
+            with patch.object(self.provider, "get", side_effect=remote), self.assertRaises(transport.TransportError):
+                op.prepare()
+            self.assertEqual(self.provider.mutations, before)
 
     def test_small_diagnostic_can_arrive_before_bulk_or_run_completion(self):
         op = self.operation()

@@ -26,12 +26,18 @@ python3 scripts/simulator_transport.py \
   --receiver-ref PUBLISHED_COMMIT \
   --script /private/run.sh --script-sha256 SCRIPT_SHA256 \
   --app /private/simulator-app.zip --app-sha256 APP_SHA256 \
-  --work-root /private/operations --prefix simulator
+  --work-root /private/operations --prefix simulator \
+  --runner-architecture x86_64
 ```
 
 The helper resolves the receiver ref once, compares the remote workflow and
 receiver bytes at that commit to this checkout, and preserves the public-only
-guard and literal free `macos-15` label. It generates 32 random bytes as 64
+guard and exact two-label free runner expression. `--runner-architecture` accepts
+only `arm64` (the legacy default, `macos-15`) or `x86_64` (`macos-15-intel`). The
+selected architecture and label are retained in the operation receipt and the
+architecture is sent as an explicit dispatch input. There is no larger-runner,
+self-hosted, or arbitrary-label option. A payload must independently verify the
+actual host and all loaded Mach-O architectures before Simulator install. It generates 32 random bytes as 64
 lowercase hexadecimal characters in memory. The key travels to `gh secret set`
 through stdin and is never saved in a receipt, argument, file or public log.
 The operation's receiver tag points to the resolved commit, including after a
@@ -273,3 +279,28 @@ Primary contracts read 2026-10-31 at 09:09 UTC (references additionally read
 [list matching Git references](https://docs.github.com/en/rest/git/refs#list-matching-references),
 [pidfd_open(2)](https://man7.org/linux/man-pages/man2/pidfd_open.2.html) and
 [pidfd_send_signal(2)](https://man7.org/linux/man-pages/man2/pidfd_send_signal.2.html).
+
+## Standard Intel receiver contract
+
+Primary GitHub documentation read 2026-11-01 at 21:55 UTC:
+
+* [Supported standard hosted runners](https://docs.github.com/en/actions/reference/runners/github-hosted-runners):
+  standard runners are free and unlimited on public repositories. The current
+  table identifies `macos-15-intel` as Intel (4 CPU, 14 GB RAM) and `macos-15` as
+  arm64 (3 CPU, 7 GB RAM). The unsuffixed label must not be assumed Intel.
+* [Intel macOS 15 image](https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md):
+  includes `/Applications/Xcode_26.2.app`, iOS 26.2 Simulator, and iPhone 16 /
+  iPad (10th generation) device profiles. Image documentation does not substitute
+  for the actual job's `uname -m`, Xcode version or `simctl list -j` inventory.
+
+The workflow keeps the arm64 default for existing callers and selects only the
+two standard labels using a literal expression. A missing input retains existing
+behavior. Invalid external inputs fall back to arm64, not a paid runner; the
+controller refuses invalid architecture values before creating an operation.
+Existing in-memory custodians and pinned receiver commits are unchanged.
+
+This route change is not a Simulator startup acceptance result. Private drivers
+must verify final code signatures before install, choose explicit compatible
+device types, bind their observation to the same process identity for the full
+required duration, obtain any required SDK runtime status, and collect crash and
+log evidence in cleanup paths even when launch fails early.
