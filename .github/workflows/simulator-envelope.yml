@@ -44,13 +44,15 @@ jobs:
           OPENSSL_BIN="$(brew --prefix openssl@3)/bin/openssl"
           export OPENSSL_BIN
           python3 scripts/simulator_envelope.py receive-summary-first "$PAYLOAD_URL" "$PAYLOAD_SHA256" "$RUNNER_TEMP/simulator-envelope"
+      # The dispatch client consumes both encrypted exports, even on successful runs.
       - name: Upload small encrypted diagnostic before bulk packaging
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: always()
+        if: always() && github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         with:
           name: simulator-diagnostic-${{ github.run_id }}
           path: ${{ runner.temp }}/simulator-envelope/diagnostic.enc
-          retention-days: 1
+          retention-days: 3
           if-no-files-found: error
       - name: Package complete unchanged private results
         if: always()
@@ -61,11 +63,12 @@ jobs:
           export OPENSSL_BIN
           python3 scripts/simulator_envelope.py package-results "$RUNNER_TEMP/simulator-envelope"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: always()
+        if: always() && github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         with:
           name: simulator-results-${{ github.run_id }}
           path: ${{ runner.temp }}/simulator-envelope/results.enc
-          retention-days: 1
+          retention-days: 3
           if-no-files-found: error
       - name: Preserve the private workload failure
         if: always() && steps.capture.outcome != 'success'

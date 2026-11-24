@@ -24,7 +24,9 @@ jobs:
       - name: Probe host and native / Rosetta simulators
         run: bash scripts/metal-probe/run.sh "$RUNNER_TEMP/metal-probe"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: always()
+        # Successful reports are useful only for explicitly dispatched probes.
+        if: failure() || (github.event_name == 'workflow_dispatch' && success())
+        continue-on-error: true
         with:
           name: metal-probe-${{ matrix.runner }}
           path: |
@@ -32,4 +34,4 @@ jobs:
             ${{ runner.temp }}/metal-probe/*.log
             ${{ runner.temp }}/metal-probe/*.txt
             ${{ runner.temp }}/metal-probe/*.tsv
-          retention-days: 2
+          retention-days: 3
